@@ -1,5 +1,5 @@
 module.exports = {
-  entry: "example/src/main.js",
+  entry: "example/main.js",
   dist: "example/dist",
   presets: [
     require('poi-preset-svelte')()

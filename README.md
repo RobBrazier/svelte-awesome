@@ -4,3 +4,5 @@ Awesome SVG icon component for Svelte JS, built with Font Awesome icons. Based o
 ## TODO
 - [ ] Stacked Icons
 - [ ] Fix Animations
+- [ ] Clean up example (currently it's a copy of [Justineo/vue-awesome](https://justineo.github.io/vue-awesome/demo/))
+- [ ] Add SemaphoreCI to automate releases

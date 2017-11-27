@@ -1,5 +1,5 @@
-import App from './components/App.html'
-import Icon from '../../src/components/Icon.html'
+import App from './App.html'
+import Icon from '../src/components/Icon.html'
 
 Icon.register({
   baidu: {
