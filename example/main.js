@@ -52,8 +52,5 @@ Icon.register({
 })
 
 const app = new App({
-  target: document.querySelector('#app'),
-  components: {
-    Icon
-  }
+  target: document.querySelector('#app')
 })
