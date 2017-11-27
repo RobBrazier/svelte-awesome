@@ -1,0 +1,20 @@
+<path key="polygon-{{id}}" ref:polygon />
+
+<script>
+export default {
+  namespace: 'svg',
+  data() {
+    return {
+      id: '',
+      data: {}
+    }
+  },
+  oncreate() {
+    let polygon = this.refs.polygon;
+    let data = this.get('data');
+    for (let key in data) {
+      polygon.setAttribute(key, data[key])
+    }
+  }
+}
+</script>

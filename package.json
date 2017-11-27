@@ -1,0 +1,35 @@
+{
+  "name": "svelte-awesome",
+  "version": "1.0.0",
+  "description": "Font Awesome component for Svelte JS, using inline SVG",
+  "main": "dist/svelte-awesome.js",
+  "repository": "git@github.com:RobBrazier/svelte-awesome.git",
+  "author": "Rob Brazier",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "icons": "npm run fa2json && node build/icons.js",
+    "fa2json": "node build/fa2json.js",
+    "example:dev": "poi -c example/poi.config.js",
+    "example:build": "poi build -c example/poi.config.js"
+  },
+  "peerDependencies": {
+    "svelte": "^1.41.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "better-npm-run": "^0.1.0",
+    "font-awesome": "^4.7.0",
+    "font-awesome-svg-png": "^1.2.2",
+    "poi": "^9.5.4",
+    "poi-preset-svelte": "^9.0.1",
+    "rollup": "^0.51.5",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-svelte": "^3.1.0",
+    "rollup-plugin-uglify": "^2.0.1"
+  }
+}

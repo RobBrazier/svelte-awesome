@@ -1,0 +1,193 @@
+<Svg class="{{klass}} {{class}}"
+  label="{{label}}"
+  width="{{width}}"
+  height="{{height}}"
+  box="{{box}}"
+  style="{{style}}"
+  ref:icon>
+  <slot>
+    {{#if icon}}
+      {{#if icon.paths}}
+        {{#each icon.paths as path, i}}
+        <Path id="{{i}}" data="{{path}}"/>
+        {{/each}}
+      {{elseif icon.polygons}}
+        {{#each icon.polygons as polygon, i}}
+        <Polygon id="{{i}}" data="{{polygon}}"/>
+        {{/each}}
+      {{elseif icon.raw}}
+        <g>{{raw}}</g>
+      {{/if}}
+    {{/if}}
+  </slot>
+</Svg>
+
+<style>
+ref:icon.fa-icon {
+  display: inline-block;
+  fill: currentColor;
+}
+ref:icon.fa-flip-horizontal {
+  transform: scale(-1, 1);
+}
+ref:icon.fa-flip-vertical {
+  transform: scale(1, -1);
+}
+ref:icon.fa-spin {
+  animation: fa-spin 1s 0s infinite linear;
+}
+ref:icon.fa-inverse {
+  color: #fff;
+}
+ref:icon.fa-pulse {
+  animation: fa-spin 1s infinite steps(8);
+}
+@keyframes fa-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</style>
+
+<script>
+import Path from './svg/Path.html'
+import Polygon from './svg/Polygon.html'
+import Svg from './svg/Svg.html'
+
+let icons = {}
+
+let cursor = 0xd4937
+function getId () {
+  return `fa-${(cursor++).toString(16)}`
+}
+export default {
+  components: {
+    Path,
+    Polygon,
+    Svg
+  },
+  data() {
+    return {
+      // properties
+      class: '',
+      name: null,
+      scale: 1.0,
+      spin: false,
+      inverse: false,
+      pulse: false,
+      flip: null,
+      label: null,
+
+      // internal
+      x: 0,
+      y: 0,
+      childrenWidth: 0,
+      childrenHeight: 0,
+      outerScale: 1
+    }
+  },
+  setup(Icon) {
+    Icon.register = data => {
+      for (let name in data) {
+        let icon = data[name]
+        if (!icon.paths) {
+          icon.paths = []
+        }
+        if (icon.d) {
+          icon.paths.push({ d: icon.d })
+        }
+        if (!icon.polygons) {
+          icon.polygons = []
+        }
+        if (icon.points) {
+          icon.polygons.push({ points: icon.points })
+        }
+        icons[name] = icon
+      }
+    }
+  },
+  computed: {
+    normalizedScale: (scale, outerScale) => {
+      scale = typeof scale === 'undefined' ? 1 : Number(scale)
+      if (isNaN(scale) || scale <= 0) {
+        console.warn('Invalid prop: prop "scale" should be a number over 0.', this)
+        return outerScale;
+      }
+      return scale * outerScale
+    },
+    klass: (spin, flip, inverse, pulse) => {
+      let classes = ['fa-icon']
+      if (spin) {
+        classes.push('fa-spin')
+      }
+      if ('horizontal' === flip) {
+        classes.push('fa-flip-horizontal')
+      } else if ('vertical' === flip) {
+        classes.push('fa-flip-vertical')
+      }
+      if (inverse) {
+        classes.push('fa-inverse')
+      }
+      if (pulse) {
+        classes.push('fa-pulse')
+      }
+      return classes.join(' ')
+    },
+    icon: name => {
+      if (name) {
+        return icons[name]
+      }
+      return null
+    },
+    box: (icon, width, height) => {
+      if (icon) {
+        return `0 0 ${icon.width} ${icon.height}`
+      }
+      return `0 0 ${width} ${height}`
+    },
+    ratio: icon => {
+      if (!icon) {
+        return 1
+      }
+      let { width, height } = icon
+      return Math.max(width, height) / 16
+    },
+    width: (childrenWidth, icon, ratio, normalizedScale) => {
+      return childrenWidth || icon && icon.width / ratio * normalizedScale || 0
+    },
+    height: (childrenHeight, icon, ratio, normalizedScale) => {
+      return childrenHeight || icon && icon.height / ratio * normalizedScale || 0
+    },
+    style: normalizedScale => {
+      if (normalizedScale === 1) {
+        return false
+      }
+      return `font-size: ${normalizedScale}em`
+    },
+    raw: icon => {
+      if (!icon || !icon.raw) {
+        return null
+      }
+      let raw = icon.raw
+      let ids = {}
+      raw = raw.replace(/\s(?:xml:)?id=["']?([^"')\s]+)/g, (match, id) => {
+        let uniqueId = getId()
+        ids[id] = uniqueId
+        return ` id="${uniqueId}"`
+      })
+
+      raw = raw.replace(/#(?:([^'")\s]+)|xpointer\(id\((['"]?)([^')]+)\2\)\))/g, (match, rawId, _, pointerId) => {
+        let id = rawId || pointerId
+        if (!id || !ids[id]) {
+          return match
+        }
+        return `#${ids[id]}`
+      })
+      return raw
+    }
+  }
+}
+</script>
