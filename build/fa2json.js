@@ -45,10 +45,3 @@ fa2svg.generate({
 }).then(icons => {
   fs.writeFileSync(`${assets}/icons.json`, JSON.stringify(icons, null, '  '));
 })
-
-// .forEach(function (file) {
-//     var svg = fs.readFileSync(path.resolve(svgDir, file), 'utf8');
-
-// });
-//
-// fs.writeFileSync(`${assets}/icons.json`, JSON.stringify(icons, null, '  '));
