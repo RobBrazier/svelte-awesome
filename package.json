@@ -8,28 +8,34 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
-    "icons": "npm run fa2json && node build/icons.js",
-    "fa2json": "node build/fa2json.js",
+    "icons": "gulp icons:generate",
+    "icons:json": "gulp icons:json",
     "example:dev": "poi -c example/poi.config.js",
-    "example:build": "poi build -c example/poi.config.js"
+    "example:build": "poi build -c example/poi.config.js",
+    "lint": "standard src/**/.js",
+    "test": "npm run lint"
   },
   "peerDependencies": {
     "svelte": "^1.41.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "better-npm-run": "^0.1.0",
     "font-awesome": "^4.7.0",
     "font-awesome-svg-png": "^1.2.2",
+    "gulp": "^3.9.1",
+    "gulp-listfiles": "^0.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-transform": "^3.0.5",
     "poi": "^9.5.4",
     "poi-preset-svelte": "^9.0.1",
     "rollup": "^0.51.5",
     "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-buble": "^0.18.0",
     "rollup-plugin-commonjs": "^8.2.6",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-svelte": "^3.1.0",
-    "rollup-plugin-uglify": "^2.0.1"
+    "rollup-plugin-uglify": "^2.0.1",
+    "standard": "^10.0.3"
   }
 }

@@ -1,4 +1,5 @@
-import Icon from './components/Icon.html'
+import Icon from './components/Icon.html';
 
-import './icons'
-export default Icon
+import './icons';
+
+export default Icon;
