@@ -1,11 +1,3 @@
 import Icon from '../components/Icon.html'
 
-Icon.register({
-  'width': 1792,
-  'height': 1792,
-  'paths': [
-    {
-      'd': 'M896 1191l512-295v591l-512 296v-592zm-512-295v591l512-296zm512-887v591l-512 296v-591zm0 591l512-295v591z'
-    }
-  ]
-})
+Icon.register({'width':1024,'height':1792,'paths':[{'d':'M512 1191l512-295v591l-512 296v-592zM0 896v591l512-296zM512 9v591l-512 296v-591zM512 600l512-295v591z'}]})
