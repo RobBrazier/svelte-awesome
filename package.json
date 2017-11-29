@@ -11,10 +11,10 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
-    "icons": "node build/generateIcons",
+    "icons": "node build/generate-icons",
     "example:dev": "poi -c example/poi.config.js",
     "example:build": "poi build -c example/poi.config.js",
-    "lint": "standard src/**/.js",
+    "lint": "xo",
     "test": "npm run lint",
     "commit": "commit",
     "commitmsg": "commitlint -e $GIT_PARAMS",
@@ -30,8 +30,32 @@
   },
   "release": {
     "verifyConditions": {
-      "path": "./build/verifyConditions.js"
+      "path": "./build/verify-conditions.js"
     }
+  },
+  "xo": {
+    "space": true,
+    "overrides": [
+      {
+        "files": "src/icons/index.js",
+        "rules": {
+          "import/no-unassigned-import": 0
+        }
+      },
+      {
+        "files": "src/index.js",
+        "rules": {
+          "import/no-unassigned-import": 0
+        }
+      },
+      {
+        "files": "example/main.js",
+        "rules": {
+          "no-new": 0,
+          "no-undef": 0
+        }
+      }
+    ]
   },
   "devDependencies": {
     "@commitlint/cli": "^5.1.1",
@@ -40,10 +64,10 @@
     "babel-core": "^6.26.0",
     "cassandra-map": "^0.1.7",
     "font-awesome": "^4.7.0",
-    "font-awesome-assets": "0.0.8",
     "graceful-fs": "^4.1.11",
     "husky": "^0.14.3",
-    "lodash.template": "^4.4.0",
+    "lodash": "^4.17.4",
+    "patch-module": "^0.1.0",
     "poi": "^9.5.4",
     "poi-preset-svelte": "^9.0.1",
     "rollup": "^0.51.5",
@@ -55,6 +79,8 @@
     "rollup-plugin-svelte": "^3.1.0",
     "rollup-plugin-uglify": "^2.0.1",
     "semantic-release": "^8.2.0",
-    "standard": "^10.0.3"
+    "standard": "^10.0.3",
+    "svgfont2js": "^0.1.2",
+    "xo": "^0.18.2"
   }
 }
