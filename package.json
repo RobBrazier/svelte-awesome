@@ -17,8 +17,7 @@
     "lint": "xo",
     "test": "npm run lint",
     "commit": "commit",
-    "commitmsg": "commitlint -e $GIT_PARAMS",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "commitmsg": "commitlint -e $GIT_PARAMS"
   },
   "peerDependencies": {
     "svelte": "^1.41.3"
