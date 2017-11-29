@@ -1,22 +1,18 @@
-<Svg class="{{klass}} {{class}}"
-  label="{{label}}"
-  width="{{width}}"
-  height="{{height}}"
-  box="{{box}}"
-  style="{{style}}"
-  ref:icon>
+<Svg class="{{klass}} {{class}}" :label :width :height :box :style ref:icon>
   <slot>
     {{#if icon}}
       {{#if icon.paths}}
         {{#each icon.paths as path, i}}
         <Path id="{{i}}" data="{{path}}"/>
         {{/each}}
-      {{elseif icon.polygons}}
+      {{/if}}
+      {{#if icon.polygons}}
         {{#each icon.polygons as polygon, i}}
         <Polygon id="{{i}}" data="{{polygon}}"/>
         {{/each}}
-      {{elseif icon.raw}}
-        <g>{{raw}}</g>
+      {{/if}}
+      {{#if icon.raw}}
+        <g>{{{raw}}}</g>
       {{/if}}
     {{/if}}
   </slot>
