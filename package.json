@@ -19,9 +19,6 @@
     "commit": "commit",
     "commitmsg": "commitlint -e $GIT_PARAMS"
   },
-  "peerDependencies": {
-    "svelte": "^1.41.3"
-  },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
