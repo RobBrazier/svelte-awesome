@@ -1,0 +1,62 @@
+{
+  "name": "svelte-awesome",
+  "version": "0.0.0-development",
+  "description": "Font Awesome component for Svelte JS, using inline SVG",
+  "main": "dist/svelte-awesome.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RobBrazier/svelte-awesome.git"
+  },
+  "author": "Rob Brazier",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "icons": "gulp icons:generate",
+    "icons:json": "gulp icons:json",
+    "example:dev": "poi -c example/poi.config.js",
+    "example:build": "poi build -c example/poi.config.js",
+    "lint": "standard src/**/.js",
+    "test": "npm run lint",
+    "commit": "commit",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "peerDependencies": {
+    "svelte": "^1.41.3"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "release": {
+    "verifyConditions": {
+      "path": "./build/verifyConditions.js"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^5.1.1",
+    "@commitlint/config-conventional": "^5.1.3",
+    "@commitlint/prompt-cli": "^5.1.2",
+    "babel-core": "^6.26.0",
+    "font-awesome": "^4.7.0",
+    "font-awesome-svg-png": "^1.2.2",
+    "gulp": "^3.9.1",
+    "gulp-listfiles": "^0.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-transform": "^3.0.5",
+    "husky": "^0.14.3",
+    "poi": "^9.5.4",
+    "poi-preset-svelte": "^9.0.1",
+    "rollup": "^0.51.5",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-buble": "^0.18.0",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-svelte": "^3.1.0",
+    "rollup-plugin-uglify": "^2.0.1",
+    "standard": "^10.0.3",
+    "semantic-release": "^8.2.0"
+  }
+}

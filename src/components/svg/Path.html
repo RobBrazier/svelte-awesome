@@ -1,0 +1,20 @@
+<path key="path-{{id}}" ref:path />
+
+<script>
+export default {
+  namespace: 'svg',
+  data() {
+    return {
+      id: '',
+      data: {}
+    }
+  },
+  oncreate() {
+    let path = this.refs.path;
+    let data = this.get('data');
+    for (let key in data) {
+      path.setAttribute(key, data[key])
+    }
+  }
+}
+</script>
