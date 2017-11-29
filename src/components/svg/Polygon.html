@@ -11,10 +11,11 @@ export default {
   },
   oncreate() {
     let polygon = this.refs.polygon;
-    let data = this.get('data');
-    for (let key in data) {
-      polygon.setAttribute(key, data[key])
-    }
+    this.observe('data', data => {
+      for (let key in data) {
+        polygon.setAttribute(key, data[key])
+      }
+    })
   }
 }
 </script>

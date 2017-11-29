@@ -19,6 +19,12 @@
     "commit": "commit",
     "commitmsg": "commitlint -e $GIT_PARAMS"
   },
+  "keywords": [
+    "font-awesome",
+    "awesome",
+    "svelte",
+    "svg"
+  ],
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"

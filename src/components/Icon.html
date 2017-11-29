@@ -53,8 +53,6 @@ import Path from './svg/Path.html'
 import Polygon from './svg/Polygon.html'
 import Svg from './svg/Svg.html'
 
-let icons = {}
-
 let cursor = 0xd4937
 function getId () {
   return `fa-${(cursor++).toString(16)}`
@@ -86,6 +84,9 @@ export default {
     }
   },
   setup(Icon) {
+    if (!Icon.icons) {
+      Icon.icons = {};
+    }
     Icon.register = data => {
       for (let name in data) {
         let icon = data[name]
@@ -101,7 +102,7 @@ export default {
         if (icon.points) {
           icon.polygons.push({ points: icon.points })
         }
-        icons[name] = icon
+        Icon.icons[name] = icon
       }
     }
   },
@@ -134,7 +135,7 @@ export default {
     },
     icon: name => {
       if (name) {
-        return icons[name]
+        return Icon.icons[name]
       }
       return null
     },

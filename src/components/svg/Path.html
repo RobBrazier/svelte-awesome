@@ -11,10 +11,11 @@ export default {
   },
   oncreate() {
     let path = this.refs.path;
-    let data = this.get('data');
-    for (let key in data) {
-      path.setAttribute(key, data[key])
-    }
+    this.observe('data', (data) => {
+      for (let key in data) {
+        path.setAttribute(key, data[key])
+      }
+    })
   }
 }
 </script>

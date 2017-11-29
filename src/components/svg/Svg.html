@@ -1,10 +1,6 @@
-<svg version="1.1" ref:svg
-  class="{{class}}"
+<svg version="1.1" ref:svg :class :width :height
   role="{{ label ? 'img' : 'presentation' }}"
-  width="{{width}}"
-  height="{{height}}"
-  viewBox="{{box}}"
-  >
+  viewBox="{{box}}">
   <slot></slot>
 </svg>
 

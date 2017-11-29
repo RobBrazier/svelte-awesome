@@ -1,32 +1,34 @@
 <main>
-    <!-- <figure id="logo" on:mouseenter="toggle" on:mouseleave="toggle" on:click="change" title="{{logo}}"><Icon name="{{logo}}" scale="4"></Icon></figure> -->
-    <h1><a href="https://github.com/Justineo/vue-awesome">Svelte-Awesome</a></h1>
+    <figure id="logo" on:mouseenter="toggle()" on:mouseleave="toggle()" on:click="change()" title="{{logo}}">
+      <Icon bind:name="logo" scale="4"></Icon>
+    </figure>
+    <h1><a href="https://github.com/RobBrazier/svelte-awesome">Svelte-Awesome</a></h1>
     <p class="desc">Font Awesome component for Svelte.js, using inline SVG.</p>
 
     <h2>Basic</h2>
     <p><Icon name="flag"></Icon></p>
-    <figure><pre><code>&lt;icon <span class="attr">name</span>=<span class="val">"flag"</span>&gt;&lt;/icon&gt;</code></pre></figure>
+    <figure><pre><code>&amp;lt;Icon <span class="attr">name</span>=<span class="val">"flag"</span>&gt;&amp;lt;/Icon&gt;</code></pre></figure>
 
     <h2>Scale</h2>
     <p><Icon name="language" scale="3"></Icon></p>
-    <figure><pre><code>&lt;icon <span class="attr">name</span>=<span class="val">"language"</span> <span class="attr">scale</span>=<span class="val">"3"</span>&gt;&lt;/icon&gt;</code></pre></figure>
+    <figure><pre><code>&amp;lt;Icon <span class="attr">name</span>=<span class="val">"language"</span> <span class="attr">scale</span>=<span class="val">"3"</span>&gt;&amp;lt;/Icon&gt;</code></pre></figure>
 
     <h2>Spin</h2>
     <p><Icon name="refresh" spin></Icon></p>
-    <figure><pre><code>&lt;icon <span class="attr">name</span>=<span class="val">"refresh"</span> <span class="attr">spin</span>&gt;&lt;/icon&gt;</code></pre></figure>
+    <figure><pre><code>&amp;lt;Icon <span class="attr">name</span>=<span class="val">"refresh"</span> <span class="attr">spin</span>&gt;&amp;lt;/Icon&gt;</code></pre></figure>
 
     <h2>Pulse</h2>
     <p><Icon name="spinner" pulse></Icon></p>
-    <figure><pre><code>&lt;icon <span class="attr">name</span>=<span class="val">"spinner"</span> <span class="attr">pulse</span>&gt;&lt;/icon&gt;</code></pre></figure>
+    <figure><pre><code>&amp;lt;Icon <span class="attr">name</span>=<span class="val">"spinner"</span> <span class="attr">pulse</span>&gt;&amp;lt;/Icon&gt;</code></pre></figure>
 
     <h2>Flip</h2>
     <p><Icon name="signal" flip="horizontal"></Icon></p>
-    <figure><pre><code>&lt;icon <span class="attr">name</span>=<span class="val">"signal"</span> <span class="attr">flip</span>=<span class="val">"horizontal"</span>&gt;&lt;/icon&gt;</code></pre></figure>
+    <figure><pre><code>&amp;lt;Icon <span class="attr">name</span>=<span class="val">"signal"</span> <span class="attr">flip</span>=<span class="val">"horizontal"</span>&gt;&amp;lt;/Icon&gt;</code></pre></figure>
 
     <h2>Label</h2>
     <p><small>Accessible for screen readers, etc.</small></p>
     <p><Icon name="code" label="Source Code"></Icon></p>
-    <figure><pre><code>&lt;icon <span class="attr">name</span>=<span class="val">"code"</span> <span class="attr">label</span>=<span class="val">"Source Code"</span>&gt;&lt;/icon&gt;</code></pre></figure>
+    <figure><pre><code>&amp;lt;Icon <span class="attr">name</span>=<span class="val">"code"</span> <span class="attr">label</span>=<span class="val">"Source Code"</span>&gt;&amp;lt;/Icon&gt;</code></pre></figure>
 
     <h2>Stacked icons</h2>
     <p><small>Use stacked icons like in FontAwesome. Even more powerful.</small></p>
@@ -36,15 +38,15 @@
         <Icon name="ban" scale="2" class="alert"></Icon>
       </Icon>
     </p>
-    <figure><pre><code>&lt;icon <span class="attr">label</span>=<span class="val">"No Photos"</span>&gt;
-  &lt;icon <span class="attr">name</span>=<span class="val">"camera"</span>&gt;&lt;/icon&gt;
-  &lt;icon <span class="attr">name</span>=<span class="val">"ban"</span> <span class="attr">scale</span>=<span class="val">"2"</span> <span class="attr">class</span>=<span class="val">"alert"</span>&gt;&lt;/icon&gt;
-&lt;/icon&gt;</code></pre></figure>
+    <figure><pre><code>&amp;lt;Icon <span class="attr">label</span>=<span class="val">"No Photos"</span>&gt;
+  &amp;lt;Icon <span class="attr">name</span>=<span class="val">"camera"</span>&gt;&amp;lt;/Icon&gt;
+  &amp;lt;Icon <span class="attr">name</span>=<span class="val">"ban"</span> <span class="attr">scale</span>=<span class="val">"2"</span> <span class="attr">class</span>=<span class="val">"alert"</span>&gt;&amp;lt;/Icon&gt;
+&amp;lt;/Icon&gt;</code></pre></figure>
 
     <h2>Custom icons</h2>
     <p><small>You can register your own icons.</small></p>
     <p><Icon name="baidu"></Icon></p>
-    <figure><pre><code>&lt;icon <span class="attr">name</span>=<span class="val">"baidu"</span>&gt;&lt;/icon&gt;</code></pre></figure>
+    <figure><pre><code>&amp;lt;Icon <span class="attr">name</span>=<span class="val">"baidu"</span>&gt;&amp;lt;/Icon&gt;</code></pre></figure>
 
     <h2>Multi-color icons</h2>
     <p><small>Register icons in more advanced ways to unleash the full power of SVG.</small></p>
@@ -52,7 +54,7 @@
     <p>See <a href="https://github.com/Justineo/vue-awesome#more-advanced-cases">readme</a> for further instructions.</p>
 
     <footer>
-      <a href="//github.com/RobBrazier">@RobBrazier</a>|<a href="//github.com/RobBrazier/svelte-awesome/blob/master/LICENSE">MIT License</a>|<a href="//github.com/Justineo/vue-awesome">View on GitHub</a>
+      <a href="//github.com/RobBrazier">@RobBrazier</a>|<a href="//github.com/RobBrazier/svelte-awesome/blob/master/LICENSE">MIT License</a>|<a href="//github.com/RobBrazier/svelte-awesome">View on GitHub</a>
     </footer>
 </main>
 
@@ -202,43 +204,41 @@ footer a:hover {
 <script>
 import Icon from '../src/components/Icon.html'
 import '../src/icons'
-// const keys = Object.keys(Icon.icons)
+const keys = Object.keys(Icon.icons)
 
-// console.log(keys);
-
-// function randomIcon () {
-//   return keys[Math.floor(Math.random() * keys.length)]
-// }
+function randomIcon () {
+  return keys[Math.floor(Math.random() * keys.length)]
+}
 
 export default {
   components: {
     Icon
   },
-  // data () {
-  //   return {
-  //     logo: randomIcon(),
-  //     running: true
-  //   }
-  // },
-  // methods: {
-  //   change () {
-  //     this.set({
-  //       logo: randomIcon()
-  //     })
-  //   },
-  //   toggle () {
-  //     this.set({
-  //       running: !this.get('running')
-  //     })
-  //   }
-  // },
-  // oncreate () {
-  //   setInterval(() => {
-  //     if (this.get('running')) {
-  //       this.change()
-  //     }
-  //   }, 200)
-  // }
+  data () {
+    return {
+      logo: randomIcon(),
+      running: true
+    }
+  },
+  methods: {
+    change () {
+      this.set({
+        logo: randomIcon()
+      })
+    },
+    toggle () {
+      this.set({
+        running: !this.get('running')
+      })
+    }
+  },
+  oncreate () {
+    setInterval(() => {
+      if (this.get('running')) {
+        this.change()
+      }
+    }, 200)
+  }
 }
 
 </script>
