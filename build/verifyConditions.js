@@ -1,6 +1,6 @@
 const SRError = require('@semantic-release/error');
 
-module.exports = (pluginConfig, config, callback) {
+module.exports = function(pluginConfig, config, callback) {
   if (config.env.SEMAPHORE === 'true') {
       callback(null);
   } else {
