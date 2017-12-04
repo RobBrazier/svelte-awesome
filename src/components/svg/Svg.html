@@ -1,19 +1,74 @@
-<svg version="1.1" ref:svg :class :width :height
+<svg version="1.1" ref:svg class="{{klass}} {{class}}" :width :height
   role="{{ label ? 'img' : 'presentation' }}"
   viewBox="{{box}}">
   <slot></slot>
 </svg>
 
+<style>
+.fa-icon {
+  display: inline-block;
+  fill: currentColor;
+}
+.fa-flip-horizontal {
+  transform: scale(-1, 1);
+}
+.fa-flip-vertical {
+  transform: scale(1, -1);
+}
+.fa-spin {
+  animation: fa-spin 1s 0s infinite linear;
+}
+.fa-inverse {
+  color: #fff;
+}
+.fa-pulse {
+  animation: fa-spin 1s infinite steps(8);
+}
+@keyframes fa-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</style>
+
 <script>
 export default {
   data() {
     return {
+      spin: false,
+      inverse: false,
+      pulse: false,
+      flip: null,
+
       // optionals
       x: false,
       y: false,
       style: false,
       label: false
     }
+  },
+  computed: {
+    klass: (spin, flip, inverse, pulse) => {
+      let classes = ['fa-icon']
+      if (spin) {
+        classes.push('fa-spin')
+      }
+      if ('horizontal' === flip) {
+        classes.push('fa-flip-horizontal')
+      } else if ('vertical' === flip) {
+        classes.push('fa-flip-vertical')
+      }
+      if (inverse) {
+        classes.push('fa-inverse')
+      }
+      if (pulse) {
+        classes.push('fa-pulse')
+      }
+      return classes.join(' ')
+    },
   },
   oncreate() {
     let svg = this.refs.svg;

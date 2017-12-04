@@ -1,4 +1,5 @@
-<Svg class="{{klass}} {{class}}" :label :width :height :box :style ref:icon>
+<Svg :class :label :width :height :box :style
+  :spin :flip :inverse :pulse ref:icon>
   <slot>
     {{#if icon}}
       {{#if icon.paths}}
@@ -17,36 +18,6 @@
     {{/if}}
   </slot>
 </Svg>
-
-<style>
-.fa-icon {
-  display: inline-block;
-  fill: currentColor;
-}
-.fa-flip-horizontal {
-  transform: scale(-1, 1);
-}
-.fa-flip-vertical {
-  transform: scale(1, -1);
-}
-.fa-spin {
-  animation: fa-spin 1s 0s infinite linear;
-}
-.fa-inverse {
-  color: #fff;
-}
-.fa-pulse {
-  animation: fa-spin 1s infinite steps(8);
-}
-@keyframes fa-spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-</style>
 
 <script>
 import Path from './svg/Path.html'
@@ -112,24 +83,6 @@ export default {
         return outerScale;
       }
       return scale * outerScale
-    },
-    klass: (spin, flip, inverse, pulse) => {
-      let classes = ['fa-icon']
-      if (spin) {
-        classes.push('fa-spin')
-      }
-      if ('horizontal' === flip) {
-        classes.push('fa-flip-horizontal')
-      } else if ('vertical' === flip) {
-        classes.push('fa-flip-vertical')
-      }
-      if (inverse) {
-        classes.push('fa-inverse')
-      }
-      if (pulse) {
-        classes.push('fa-pulse')
-      }
-      return classes.join(' ')
     },
     icon: name => {
       if (name) {
