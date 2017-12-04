@@ -1,0 +1,42 @@
+<g>
+{{{raw}}}
+</g>
+
+<script>
+let cursor = 0xd4937
+function getId () {
+  return `fa-${(cursor++).toString(16)}`
+}
+
+export default {
+  namespace: 'svg',
+  data() {
+    return {
+      icon: {}
+    }
+  },
+  computed: {
+    raw: icon => {
+      if (!icon || !icon.raw) {
+        return null
+      }
+      let raw = icon.raw;
+      let ids = {};
+      raw = raw.replace(/\s(?:xml:)?id=["']?([^"')\s]+)/g, (match, id) => {
+        let uniqueId = getId()
+        ids[id] = uniqueId
+        return ` id="${uniqueId}"`
+      })
+
+      raw = raw.replace(/#(?:([^'")\s]+)|xpointer\(id\((['"]?)([^')]+)\2\)\))/g, (match, rawId, _, pointerId) => {
+        let id = rawId || pointerId
+        if (!id || !ids[id]) {
+          return match
+        }
+        return `#${ids[id]}`
+      })
+      return raw
+    }
+  }
+}
+</script>
