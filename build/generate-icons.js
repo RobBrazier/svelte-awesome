@@ -55,12 +55,13 @@ const aliases = loadAliases(
 );
 
 function stringify(data) {
-  const stringified = JSON.stringify(data);
-  const singleQuoted = stringified.replace(/"/g, '\'');
-  const unquoteKey = singleQuoted.replace(/'([a-zA-Z]+([a-zA-Z0-9]+)?)':/g, '$1:');
-  const spaceAfterColon = unquoteKey.replace(/:/g, ': ');
-  const spaceAfterComma = spaceAfterColon.replace(/,/g, ', ');
-  return spaceAfterComma;
+  return JSON.stringify(data)
+    .replace(/"/g, '\'')
+    .replace(/'([a-zA-Z]+([a-zA-Z0-9]+)?)':/g, '$1:')
+    .replace(/:/g, ': ')
+    .replace(/,/g, ', ')
+    .replace(/{(?!\s)/g, '{ ')
+    .replace(/(?<!\s)}/g, ' }')
 }
 
 const filenames = [];

@@ -35,59 +35,59 @@
 </style>
 
 <script>
-export default {
-  data() {
-    return {
-      spin: false,
-      inverse: false,
-      pulse: false,
-      flip: null,
+  export default {
+    data() {
+      return {
+        spin: false,
+        inverse: false,
+        pulse: false,
+        flip: null,
 
-      // optionals
-      x: false,
-      y: false,
-      style: false,
-      label: false
-    }
-  },
-  computed: {
-    klass: (spin, flip, inverse, pulse) => {
-      let classes = ['fa-icon']
-      if (spin) {
-        classes.push('fa-spin')
-      }
-      if ('horizontal' === flip) {
-        classes.push('fa-flip-horizontal')
-      } else if ('vertical' === flip) {
-        classes.push('fa-flip-vertical')
-      }
-      if (inverse) {
-        classes.push('fa-inverse')
-      }
-      if (pulse) {
-        classes.push('fa-pulse')
-      }
-      return classes.join(' ')
+        // optionals
+        x: false,
+        y: false,
+        style: false,
+        label: false,
+      };
     },
-  },
-  oncreate() {
-    let svg = this.refs.svg;
-    let x = this.get('x');
-    let y = this.get('y');
-    let style = this.get('style');
-    let label = this.get('label');
-    if (x) {
-      svg.setAttribute("x", x)
-    }
-    if (y) {
-      svg.setAttribute("y", y)
-    }
-    if (style) {
-      svg.setAttribute("style", style)
-    }
-    if (label) {
-      svg.setAttribute("aria-label", label)
-    }
-  }
-}
+    computed: {
+      klass: (spin, flip, inverse, pulse) => {
+        const classes = ['fa-icon'];
+        if (spin) {
+          classes.push('fa-spin');
+        }
+        if (flip === 'horizontal') {
+          classes.push('fa-flip-horizontal');
+        } else if (flip === 'vertical') {
+          classes.push('fa-flip-vertical');
+        }
+        if (inverse) {
+          classes.push('fa-inverse');
+        }
+        if (pulse) {
+          classes.push('fa-pulse');
+        }
+        return classes.join(' ');
+      },
+    },
+    oncreate() {
+      const { svg } = this.refs;
+      const x = this.get('x');
+      const y = this.get('y');
+      const style = this.get('style');
+      const label = this.get('label');
+      if (x) {
+        svg.setAttribute('x', x);
+      }
+      if (y) {
+        svg.setAttribute('y', y);
+      }
+      if (style) {
+        svg.setAttribute('style', style);
+      }
+      if (label) {
+        svg.setAttribute('aria-label', label);
+      }
+    },
+  };
 </script>
