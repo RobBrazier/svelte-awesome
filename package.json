@@ -63,6 +63,7 @@
     "rollup-plugin-svelte": "^3.3.0",
     "rollup-plugin-uglify": "^2.0.1",
     "semantic-release": "^8.2.0",
+    "svelte": "^1.49.1",
     "svgfont2js": "^0.1.2"
   }
 }
