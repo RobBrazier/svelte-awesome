@@ -14,7 +14,7 @@
     "icons": "node build/generate-icons",
     "example:dev": "poi -c example/poi.config.js",
     "example:build": "poi build -c example/poi.config.js",
-    "lint": "xo",
+    "lint": "eslint ./{example,src}/**/*.{html,js}",
     "test": "npm run lint",
     "commit": "commit",
     "commitmsg": "commitlint -e $GIT_PARAMS"
@@ -35,36 +35,18 @@
       "path": "./build/verify-conditions.js"
     }
   },
-  "xo": {
-    "space": true,
-    "overrides": [
-      {
-        "files": "src/icons/index.js",
-        "rules": {
-          "import/no-unassigned-import": 0
-        }
-      },
-      {
-        "files": "src/index.js",
-        "rules": {
-          "import/no-unassigned-import": 0
-        }
-      },
-      {
-        "files": "example/main.js",
-        "rules": {
-          "no-new": 0,
-          "no-undef": 0
-        }
-      }
-    ]
-  },
   "devDependencies": {
     "@commitlint/cli": "^5.2.5",
     "@commitlint/config-conventional": "^5.2.3",
     "@commitlint/prompt-cli": "^5.2.5",
     "babel-core": "^6.26.0",
     "cassandra-map": "^0.1.7",
+    "eslint": "^4.13.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-html": "^4.0.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1",
     "font-awesome": "^4.7.0",
     "graceful-fs": "^4.1.11",
     "husky": "^0.14.3",
@@ -81,8 +63,6 @@
     "rollup-plugin-svelte": "^3.3.0",
     "rollup-plugin-uglify": "^2.0.1",
     "semantic-release": "^8.2.0",
-    "standard": "^10.0.3",
-    "svgfont2js": "^0.1.2",
-    "xo": "^0.18.2"
+    "svgfont2js": "^0.1.2"
   }
 }

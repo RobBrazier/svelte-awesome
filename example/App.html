@@ -202,43 +202,43 @@ footer a:hover {
 </style>
 
 <script>
-import Icon from '../src/components/Icon.html'
-import '../src/icons'
-const keys = Object.keys(Icon.icons)
+import Icon from '../src/components/Icon.html';
+import '../src/icons';
 
-function randomIcon () {
-  return keys[Math.floor(Math.random() * keys.length)]
+const keys = Object.keys(Icon.icons);
+
+function randomIcon() {
+  return keys[Math.floor(Math.random() * keys.length)];
 }
 
 export default {
   components: {
-    Icon
+    Icon,
   },
-  data () {
+  data() {
     return {
       logo: randomIcon(),
-      running: true
-    }
+      running: true,
+    };
   },
   methods: {
-    change () {
+    change() {
       this.set({
-        logo: randomIcon()
-      })
+        logo: randomIcon(),
+      });
     },
-    toggle () {
+    toggle() {
       this.set({
-        running: !this.get('running')
-      })
-    }
+        running: !this.get('running'),
+      });
+    },
   },
-  oncreate () {
+  oncreate() {
     setInterval(() => {
       if (this.get('running')) {
-        this.change()
+        this.change();
       }
-    }, 200)
-  }
-}
-
+    }, 200);
+  },
+};
 </script>

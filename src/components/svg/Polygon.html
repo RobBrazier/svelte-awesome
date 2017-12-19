@@ -1,21 +1,21 @@
 <polygon key="polygon-{{id}}" ref:polygon />
 
 <script>
-export default {
-  namespace: 'svg',
-  data() {
-    return {
-      id: '',
-      data: {}
-    }
-  },
-  oncreate() {
-    let polygon = this.refs.polygon;
-    this.observe('data', data => {
-      for (let key in data) {
-        polygon.setAttribute(key, data[key])
-      }
-    })
-  }
-}
+  export default {
+    namespace: 'svg',
+    data() {
+      return {
+        id: '',
+        data: {},
+      };
+    },
+    oncreate() {
+      const { polygon } = this.refs;
+      this.observe('data', (data) => {
+        Object.keys(data).forEach((key) => {
+          polygon.setAttribute(key, data[key]);
+        });
+      });
+    },
+  };
 </script>
