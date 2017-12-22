@@ -52,7 +52,7 @@
     "husky": "^0.14.3",
     "lodash": "^4.17.4",
     "patch-module": "^0.1.0",
-    "poi": "^9.6.2",
+    "poi": "^9.6.3",
     "poi-preset-svelte": "^9.0.1",
     "rollup": "^0.52.3",
     "rollup-plugin-buble": "^0.18.0",
