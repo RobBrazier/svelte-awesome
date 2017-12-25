@@ -86,7 +86,7 @@
           numScale = Number(scale);
         }
         if (isNaN(numScale) || numScale <= 0) { // eslint-disable-line no-restricted-globals
-          console.warn('Invalid prop: prop "scale" should be a number over 0.', this); // eslint-disable-line no-console
+          console.warn('Invalid prop: prop "scale" should be a number over 0.'); // eslint-disable-line no-console
           return outerScale;
         }
         return numScale * outerScale;
