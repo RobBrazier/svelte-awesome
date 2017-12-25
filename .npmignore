@@ -1,6 +1,5 @@
 build
 src
-assets
 .*
 rollup.config.js
 example
