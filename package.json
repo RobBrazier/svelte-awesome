@@ -50,7 +50,7 @@
     "font-awesome": "^4.7.0",
     "graceful-fs": "^4.1.11",
     "husky": "^0.14.3",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.5",
     "patch-module": "^0.1.0",
     "poi": "^9.6.9",
     "poi-preset-svelte": "^9.0.1",
