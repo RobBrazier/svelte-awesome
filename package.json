@@ -55,7 +55,7 @@
     "poi": "^9.6.13",
     "poi-preset-svelte": "^9.0.1",
     "rollup": "^0.56.0",
-    "rollup-plugin-buble": "^0.18.0",
+    "rollup-plugin-buble": "^0.19.2",
     "rollup-plugin-commonjs": "^8.3.0",
     "rollup-plugin-node-resolve": "^3.0.3",
     "rollup-plugin-replace": "^2.0.0",
