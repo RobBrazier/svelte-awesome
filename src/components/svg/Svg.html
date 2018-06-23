@@ -1,6 +1,6 @@
-<svg version="1.1" ref:svg class="{{klass}} {{class}}" :width :height
-  role="{{ label ? 'img' : 'presentation' }}"
-  viewBox="{{box}}">
+<svg version="1.1" ref:svg class="{klass} {class}" :width :height
+  role="{ label ? 'img' : 'presentation' }"
+  viewBox="{box}">
   <slot></slot>
 </svg>
 
@@ -51,7 +51,7 @@
       };
     },
     computed: {
-      klass: (spin, flip, inverse, pulse) => {
+      klass: ({ spin, flip, inverse, pulse }) => {
         const classes = ['fa-icon'];
         if (spin) {
           classes.push('fa-spin');
