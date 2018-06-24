@@ -53,5 +53,5 @@ Icon.register({
 });
 
 new App({
-  target: document.querySelector('#app'),
+  target: document.body,
 });

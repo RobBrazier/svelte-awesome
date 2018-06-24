@@ -1,4 +1,4 @@
-<polygon key="polygon-{{id}}" ref:polygon />
+<polygon key="polygon-{id}" ref:polygon />
 
 <script>
   export default {
@@ -9,13 +9,14 @@
         data: {},
       };
     },
-    oncreate() {
-      const { polygon } = this.refs;
-      this.observe('data', (data) => {
+    onupdate({ changed }) {
+      if (changed.data) {
+        const { data } = this.get();
+        const { polygon } = this.refs;
         Object.keys(data).forEach((key) => {
           polygon.setAttribute(key, data[key]);
         });
-      });
+      }
     },
   };
 </script>

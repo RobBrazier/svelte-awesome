@@ -1,21 +1,21 @@
 <Svg :class :label :width :height :box :style
   :spin :flip :inverse :pulse ref:icon>
   <slot>
-    {{#if icon}}
-      {{#if icon.paths}}
-        {{#each icon.paths as path, i}}
-        <Path id="{{i}}" data="{{path}}"/>
-        {{/each}}
-      {{/if}}
-      {{#if icon.polygons}}
-        {{#each icon.polygons as polygon, i}}
-        <Polygon id="{{i}}" data="{{polygon}}"/>
-        {{/each}}
-      {{/if}}
-      {{#if icon.raw}}
+    {#if icon}
+      {#if icon.paths}
+        {#each icon.paths as path, i}
+        <Path id="{i}" data="{path}"/>
+        {/each}
+      {/if}
+      {#if icon.polygons}
+        {#each icon.polygons as polygon, i}
+        <Polygon id="{i}" data="{polygon}"/>
+        {/each}
+      {/if}
+      {#if icon.raw}
         <Raw :icon />
-      {{/if}}
-    {{/if}}
+      {/if}
+    {/if}
   </slot>
 </Svg>
 
@@ -82,7 +82,7 @@
       };
     },
     computed: {
-      normalisedScale: (scale, outerScale) => {
+      normalisedScale: ({ scale, outerScale }) => {
         let numScale = 1;
         if (typeof scale !== 'undefined') {
           numScale = Number(scale);
@@ -93,26 +93,28 @@
         }
         return numScale * outerScale;
       },
-      icon: (name) => {
+      icon: ({ name }) => {
         if (name) {
           return icons[name];
         }
         return null;
       },
-      box: (icon, width, height) => {
+      box: ({ icon, width, height }) => {
         if (icon) {
           return `0 0 ${icon.width} ${icon.height}`;
         }
         return `0 0 ${width} ${height}`;
       },
-      ratio: (icon) => {
+      ratio: ({ icon }) => {
         if (!icon) {
           return 1;
         }
         const { width, height } = icon;
         return Math.max(width, height) / 16;
       },
-      width: (childrenWidth, icon, ratio, normalisedScale) => {
+      width: ({
+        childrenWidth, icon, ratio, normalisedScale,
+      }) => {
         if (childrenWidth) {
           return childrenWidth;
         }
@@ -121,7 +123,9 @@
         }
         return 0;
       },
-      height: (childrenHeight, icon, ratio, normalisedScale) => {
+      height: ({
+        childrenHeight, icon, ratio, normalisedScale,
+      }) => {
         if (childrenHeight) {
           return childrenHeight;
         }
@@ -130,7 +134,7 @@
         }
         return 0;
       },
-      style: (normalisedScale) => {
+      style: ({ normalisedScale }) => {
         if (normalisedScale === 1) {
           return false;
         }

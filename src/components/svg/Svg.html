@@ -1,6 +1,6 @@
-<svg version="1.1" ref:svg class="{{klass}} {{class}}" :width :height
-  role="{{ label ? 'img' : 'presentation' }}"
-  viewBox="{{box}}">
+<svg version="1.1" ref:svg class="{klass} {class}" :width :height
+  role="{ label ? 'img' : 'presentation' }"
+  viewBox="{box}">
   <slot></slot>
 </svg>
 
@@ -51,7 +51,9 @@
       };
     },
     computed: {
-      klass: (spin, flip, inverse, pulse) => {
+      klass: ({
+        spin, flip, inverse, pulse,
+      }) => {
         const classes = ['fa-icon'];
         if (spin) {
           classes.push('fa-spin');
@@ -72,10 +74,9 @@
     },
     oncreate() {
       const { svg } = this.refs;
-      const x = this.get('x');
-      const y = this.get('y');
-      const style = this.get('style');
-      const label = this.get('label');
+      const {
+        x, y, style, label,
+      } = this.get();
       if (x) {
         svg.setAttribute('x', x);
       }
