@@ -9,13 +9,14 @@
         data: {},
       };
     },
-    oncreate() {
-      const { path } = this.refs;
-      this.observe('data', (data) => {
+    onupdate({ changed, current, previous }) {
+      if (changed.data) {
+        const { data } = this.get();
+        const { path } = this.refs;
         Object.keys(data).forEach((key) => {
           path.setAttribute(key, data[key]);
         });
-      });
+      }
     },
   };
 </script>
