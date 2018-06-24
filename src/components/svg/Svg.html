@@ -74,7 +74,9 @@
     },
     oncreate() {
       const { svg } = this.refs;
-      const { x, y, style, label } = this.get();
+      const {
+        x, y, style, label,
+      } = this.get();
       if (x) {
         svg.setAttribute('x', x);
       }

@@ -9,7 +9,7 @@
         data: {},
       };
     },
-    onupdate({ changed, current, previous }) {
+    onupdate({ changed }) {
       if (changed.data) {
         const { data } = this.get();
         const { polygon } = this.refs;
