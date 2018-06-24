@@ -38,7 +38,7 @@
     }
   },
   "devDependencies": {
-    "@commitlint/cli": "^6.1.0",
+    "@commitlint/cli": "^7.0.0",
     "@commitlint/config-conventional": "^6.1.0",
     "@commitlint/prompt-cli": "^6.1.0",
     "babel-core": "^6.26.0",
