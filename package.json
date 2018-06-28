@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
-    "@commitlint/config-conventional": "^6.1.0",
+    "@commitlint/config-conventional": "^7.0.1",
     "@commitlint/prompt-cli": "^6.1.0",
     "babel-core": "^6.26.0",
     "cassandra-map": "^0.1.7",
