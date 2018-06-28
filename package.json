@@ -43,7 +43,7 @@
     "@commitlint/prompt-cli": "^7.0.0",
     "babel-core": "^6.26.0",
     "cassandra-map": "^0.1.7",
-    "eslint": "^4.18.1",
+    "eslint": "^5.0.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-html": "^4.0.2",
     "eslint-plugin-import": "^2.8.0",
