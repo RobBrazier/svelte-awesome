@@ -2,14 +2,15 @@ import svelte from 'rollup-plugin-svelte';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import buble from 'rollup-plugin-buble';
-import uglify from 'rollup-plugin-uglify';
+import { uglify } from 'rollup-plugin-uglify';
+import { minify } from 'uglify-es';
 
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
 	input: 'example/main.js',
 	output: {
-		sourcemap: true,
+		// sourcemap: true,
 		format: 'iife',
 		name: 'app',
 		file: 'example/dist/bundle.js'
@@ -40,6 +41,6 @@ export default {
 		// If we're building for production (npm run build
 		// instead of npm run dev), transpile and minify
 		production && buble({ include: ['example/**', 'node_modules/svelte/shared.js'] }),
-		production && uglify()
+		production && uglify({}, minify)
 	]
 };
