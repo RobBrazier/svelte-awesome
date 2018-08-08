@@ -20,6 +20,6 @@ module.exports = {
     require('rollup-plugin-replace')({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
     }),
-    require('rollup-plugin-uglify')()
+    require('rollup-plugin-uglify').uglify()
   ]
 };
