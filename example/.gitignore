@@ -1,0 +1,3 @@
+dist/*
+!dist/global.css
+!dist/index.html
