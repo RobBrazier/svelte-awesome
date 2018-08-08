@@ -3,6 +3,7 @@
   "version": "0.0.0-development",
   "description": "Font Awesome component for Svelte JS, using inline SVG",
   "main": "dist/svelte-awesome.js",
+  "svelte": "src/components/Icon.html",
   "repository": {
     "type": "git",
     "url": "https://github.com/RobBrazier/svelte-awesome.git"

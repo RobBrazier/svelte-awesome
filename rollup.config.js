@@ -1,11 +1,15 @@
 const pkg = require('./package.json');
 
+const name = pkg.name
+  .replace(/^\w/, m => m.toUpperCase())
+  .replace(/-\w/g, m => m[1].toUpperCase());
+
 module.exports = {
   input: './src/index.js',
   output: {
     file: pkg.main,
     format: 'umd',
-    name: 'SvelteAwesome'
+    name
   },
   context: 'window',
   plugins: [
