@@ -1,12 +1,8 @@
 {
   "version": 3,
   "file": "bundle.css",
-  "sources": [
-    "../../src/components/svg/Svg.html"
-  ],
-  "sourcesContent": [
-    "<svg version=\"1.1\" ref:svg class=\"{klass} {class}\" :width :height\n  role=\"{ label ? 'img' : 'presentation' }\"\n  viewBox=\"{box}\">\n  <slot></slot>\n</svg>\n\n<style>\n.fa-icon {\n  display: inline-block;\n  fill: currentColor;\n}\n.fa-flip-horizontal {\n  transform: scale(-1, 1);\n}\n.fa-flip-vertical {\n  transform: scale(1, -1);\n}\n.fa-spin {\n  animation: fa-spin 1s 0s infinite linear;\n}\n.fa-inverse {\n  color: #fff;\n}\n.fa-pulse {\n  animation: fa-spin 1s infinite steps(8);\n}\n@keyframes fa-spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n</style>\n\n<script>\n  export default {\n    data() {\n      return {\n        spin: false,\n        inverse: false,\n        pulse: false,\n        flip: null,\n\n        // optionals\n        x: false,\n        y: false,\n        style: false,\n        label: false,\n      };\n    },\n    computed: {\n      klass: ({\n        spin, flip, inverse, pulse,\n      }) => {\n        const classes = ['fa-icon'];\n        if (spin) {\n          classes.push('fa-spin');\n        }\n        if (flip === 'horizontal') {\n          classes.push('fa-flip-horizontal');\n        } else if (flip === 'vertical') {\n          classes.push('fa-flip-vertical');\n        }\n        if (inverse) {\n          classes.push('fa-inverse');\n        }\n        if (pulse) {\n          classes.push('fa-pulse');\n        }\n        return classes.join(' ');\n      },\n    },\n    oncreate() {\n      const { svg } = this.refs;\n      const {\n        x, y, style, label,\n      } = this.get();\n      if (x) {\n        svg.setAttribute('x', x);\n      }\n      if (y) {\n        svg.setAttribute('y', y);\n      }\n      if (style) {\n        svg.setAttribute('style', style);\n      }\n      if (label) {\n        svg.setAttribute('aria-label', label);\n      }\n    },\n  };\n</script>\n"
-  ],
+  "sources": [],
+  "sourcesContent": [],
   "names": [],
-  "mappings": "AAOA,QAAQ,eAAC,CAAC,AACR,OAAO,CAAE,YAAY,CACrB,IAAI,CAAE,YAAY,AACpB,CAAC,AACD,mBAAmB,eAAC,CAAC,AACnB,SAAS,CAAE,MAAM,EAAE,CAAC,CAAC,CAAC,CAAC,AACzB,CAAC,AACD,iBAAiB,eAAC,CAAC,AACjB,SAAS,CAAE,MAAM,CAAC,CAAC,CAAC,EAAE,CAAC,AACzB,CAAC,AACD,QAAQ,eAAC,CAAC,AACR,SAAS,CAAE,sBAAO,CAAC,EAAE,CAAC,EAAE,CAAC,QAAQ,CAAC,MAAM,AAC1C,CAAC,AACD,WAAW,eAAC,CAAC,AACX,KAAK,CAAE,IAAI,AACb,CAAC,AACD,SAAS,eAAC,CAAC,AACT,SAAS,CAAE,sBAAO,CAAC,EAAE,CAAC,QAAQ,CAAC,MAAM,CAAC,CAAC,AACzC,CAAC,AACD,WAAW,sBAAQ,CAAC,AAClB,EAAE,AAAC,CAAC,AACF,SAAS,CAAE,OAAO,IAAI,CAAC,AACzB,CAAC,AACD,IAAI,AAAC,CAAC,AACJ,SAAS,CAAE,OAAO,MAAM,CAAC,AAC3B,CAAC,AACH,CAAC"
+  "mappings": ""
 }
