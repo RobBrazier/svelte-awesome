@@ -19,8 +19,7 @@
     "example:build": "rollup -c example/rollup.config.js",
     "lint": "eslint ./{example,src}/**/*.{html,js}",
     "test": "npm run lint",
-    "commit": "commit",
-    "commitmsg": "commitlint -e $GIT_PARAMS"
+    "commit": "commit"
   },
   "keywords": [
     "font-awesome",
@@ -66,5 +65,10 @@
     "svelte": "^2.6.1",
     "svgfont2js": "^0.1.2",
     "uglify-es": "^3.3.9"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
   }
 }
