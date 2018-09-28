@@ -1,5 +1,5 @@
 /* eslint-disable no-undef, no-new */
-import Icon from '../src/components/Icon.html';
+import Icon from '../dist/svelte-awesome';
 import App from './App.html';
 
 Icon.register({
