@@ -19,8 +19,7 @@
     "example:build": "rollup -c example/rollup.config.js",
     "lint": "eslint ./{example,src}/**/*.{html,js}",
     "test": "npm run lint",
-    "commit": "commit",
-    "commitmsg": "commitlint -e $GIT_PARAMS"
+    "commit": "commit"
   },
   "keywords": [
     "font-awesome",
@@ -45,11 +44,10 @@
     "babel-core": "^6.26.0",
     "cassandra-map": "^0.1.7",
     "eslint": "^5.0.1",
-    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-html": "^4.0.2",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.7.0",
     "font-awesome": "^4.7.0",
     "graceful-fs": "^4.1.11",
     "husky": "^1.0.1",
@@ -67,5 +65,10 @@
     "svelte": "^2.6.1",
     "svgfont2js": "^0.1.2",
     "uglify-es": "^3.3.9"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
   }
 }

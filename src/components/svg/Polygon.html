@@ -13,9 +13,11 @@
       if (changed.data) {
         const { data } = this.get();
         const { polygon } = this.refs;
-        Object.keys(data).forEach((key) => {
-          polygon.setAttribute(key, data[key]);
-        });
+        if (polygon != null) {
+          Object.keys(data).forEach((key) => {
+            polygon.setAttribute(key, data[key]);
+          });
+        }
       }
     },
   };
