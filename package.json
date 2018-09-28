@@ -16,7 +16,7 @@
     "start": "serve example/dist",
     "example:watch": "rollup -c example/rollup.config.js -w",
     "example:dev": "run-p start example:watch",
-    "example:build": "rollup -c example/rollup.config.js",
+    "example:build": "npm run build && rollup -c example/rollup.config.js",
     "lint": "eslint ./{example,src}/**/*.{html,js}",
     "test": "npm run lint",
     "commit": "commit"
@@ -60,7 +60,7 @@
     "rollup-plugin-node-resolve": "^3.0.3",
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-svelte": "^4.0.0",
-    "rollup-plugin-uglify": "^5.0.2",
+    "rollup-plugin-terser": "^3.0.0",
     "semantic-release": "^15.1.5",
     "svelte": "^2.6.1",
     "svgfont2js": "^0.1.2",
