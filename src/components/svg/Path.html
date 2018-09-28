@@ -13,9 +13,11 @@
       if (changed.data) {
         const { data } = this.get();
         const { path } = this.refs;
-        Object.keys(data).forEach((key) => {
-          path.setAttribute(key, data[key]);
-        });
+        if (path != null) {
+          Object.keys(data).forEach((key) => {
+            path.setAttribute(key, data[key]);
+          });
+        }
       }
     },
   };

@@ -74,6 +74,9 @@
     },
     oncreate() {
       const { svg } = this.refs;
+      if (svg == null) {
+        return;
+      }
       const {
         x, y, style, label,
       } = this.get();
