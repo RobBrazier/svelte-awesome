@@ -8,6 +8,10 @@
     "type": "git",
     "url": "https://github.com/RobBrazier/svelte-awesome.git"
   },
+  "files": [
+    "src",
+    "dist"
+  ],
   "author": "Rob Brazier",
   "license": "MIT",
   "scripts": {
