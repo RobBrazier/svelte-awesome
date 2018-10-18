@@ -23,18 +23,36 @@ $ npm install --save svelte-awesome
 ```
 
 ## Usage
+
+```js
+  import Icon from 'svelte-awesome/src/components/Icon.html'
+	import beer from 'svelte-awesome/src/icons/beer'
+
+	export default {
+    data () {
+      return {
+        beer
+      }
+    },
+
+		components: {
+			Icon
+		}
+	}
+```
+
 ```html
 <!-- basic -->
-<Icon name="beer"></Icon>
+<Icon data="{beer}"></Icon>
 
 <!-- with options -->
-<Icon name="refresh" scale="2"></Icon>
-<Icon name="comment" flip="horizontal"></Icon>
-<Icon name="code-fork" label="Forked Repository"></Icon>
+<Icon data="{refresh}" scale="2"></Icon>
+<Icon data="{comment}" flip="horizontal"></Icon>
+<Icon data="{code-fork}" label="Forked Repository"></Icon>
 
 <!-- stacked icons [WIP] -->
 <Icon label="No Photos">
-  <Icon name="camera"></Icon>
-  <Icon name="ban" scale="2" class="alert"></Icon>
+  <Icon data="{camera}"></Icon>
+  <Icon data="{ban}" scale="2" class="alert"></Icon>
 </Icon>
 ```

@@ -25,8 +25,6 @@
   import Raw from './svg/Raw.html';
   import Svg from './svg/Svg.html';
 
-  const icons = {};
-
   export default {
     components: {
       Path,
@@ -38,13 +36,14 @@
       return {
         // properties
         class: '',
-        name: null,
+        data: undefined,
         scale: 1.0,
         spin: false,
         inverse: false,
         pulse: false,
         flip: null,
         label: null,
+        icon: null,
 
         // internal
         x: 0,
@@ -54,33 +53,30 @@
         outerScale: 1,
       };
     },
-    setup(Icon) {
-      if (!Icon.icons) {
-        Icon.icons = icons; // eslint-disable-line no-param-reassign
+
+    oncreate() {
+      const { data } = this.get();
+      const name = Object.keys(data)[0];
+      const icon = data[name];
+      if (!icon.paths) {
+        icon.paths = [];
       }
-      Icon.register = (data) => { // eslint-disable-line no-param-reassign
-        Object.keys(data).forEach((name) => {
-          const icon = data[name];
-          if (!icon.paths) {
-            icon.paths = [];
-          }
-          if (icon.d) {
-            icon.paths.push({
-              d: icon.d,
-            });
-          }
-          if (!icon.polygons) {
-            icon.polygons = [];
-          }
-          if (icon.points) {
-            icon.polygons.push({
-              points: icon.points,
-            });
-          }
-          icons[name] = icon; // eslint-disable-line no-param-reassign
+      if (icon.d) {
+        icon.paths.push({
+          d: icon.d,
         });
-      };
+      }
+      if (!icon.polygons) {
+        icon.polygons = [];
+      }
+      if (icon.points) {
+        icon.polygons.push({
+          points: icon.points,
+        });
+      }
+      this.set({ icon });
     },
+
     computed: {
       normalisedScale: ({ scale, outerScale }) => {
         let numScale = 1;
@@ -92,12 +88,6 @@
           return outerScale;
         }
         return numScale * outerScale;
-      },
-      icon: ({ name }) => {
-        if (name) {
-          return icons[name];
-        }
-        return null;
       },
       box: ({ icon, width, height }) => {
         if (icon) {
