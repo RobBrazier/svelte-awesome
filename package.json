@@ -62,7 +62,7 @@
     "rollup-plugin-svelte": "^4.0.0",
     "rollup-plugin-terser": "^3.0.0",
     "semantic-release": "^15.1.5",
-    "svelte": "^2.6.1",
+    "svelte": "^3.0.0",
     "svgfont2js": "^0.1.2",
     "uglify-es": "^3.3.9"
   },
