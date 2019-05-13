@@ -1,6 +1,9 @@
-<svg version="1.1" ref:svg class="{klass} {class}" :width :height
+<svg version="1.1" bind:this={svg} class="fa-icon"
+  class:fa-spin={spin} class:fa-pulse={pulse} class:fa-inverse={inverse}
+  class:fa-flip-horizontal="{flip === 'horizontal'}" class:fa-flip-vertical="{flip === 'vertical'}"
+  width={width} height={height}
   role="{ label ? 'img' : 'presentation' }"
-  viewBox="{box}">
+  viewBox={box}>
   <slot></slot>
 </svg>
 
@@ -35,63 +38,35 @@
 </style>
 
 <script>
-  export default {
-    data() {
-      return {
-        spin: false,
-        inverse: false,
-        pulse: false,
-        flip: null,
+  let svg;
 
-        // optionals
-        x: false,
-        y: false,
-        style: false,
-        label: false,
-      };
-    },
-    computed: {
-      klass: ({
-        spin, flip, inverse, pulse,
-      }) => {
-        const classes = ['fa-icon'];
-        if (spin) {
-          classes.push('fa-spin');
-        }
-        if (flip === 'horizontal') {
-          classes.push('fa-flip-horizontal');
-        } else if (flip === 'vertical') {
-          classes.push('fa-flip-vertical');
-        }
-        if (inverse) {
-          classes.push('fa-inverse');
-        }
-        if (pulse) {
-          classes.push('fa-pulse');
-        }
-        return classes.join(' ');
-      },
-    },
-    oncreate() {
-      const { svg } = this.refs;
-      if (svg == null) {
-        return;
-      }
-      const {
-        x, y, style, label,
-      } = this.get();
-      if (x) {
-        svg.setAttribute('x', x);
-      }
-      if (y) {
-        svg.setAttribute('y', y);
-      }
-      if (style) {
-        svg.setAttribute('style', style);
-      }
-      if (label) {
-        svg.setAttribute('aria-label', label);
-      }
-    },
-  };
+  export let width;
+  export let height;
+  export let box;
+
+  export let spin = false;
+  export let inverse = false;
+  export let pulse = false;
+  export let flip = null;
+
+  // optionals
+  let x = false;
+  let y = false;
+  let style = false;
+  let label = false;
+
+  $: {
+    if (x) {
+      svg.setAttribute('x', x);
+    }
+    if (y) {
+      svg.setAttribute('y', y);
+    }
+    if (style) {
+      svg.setAttribute('style', style);
+    }
+    if (label) {
+      svg.setAttribute('aria-label', label);
+    }
+  }
 </script>

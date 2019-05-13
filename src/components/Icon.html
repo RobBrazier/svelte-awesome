@@ -1,19 +1,19 @@
-<Svg :class :label :width :height :box :style
-  :spin :flip :inverse :pulse ref:icon>
+<Svg class={clazz} label={label} width={width} height={height} box={box} style={style}
+  spin={spin} flip={flip} inverse={inverse} pulse={pulse}>
   <slot>
-    {#if icon}
-      {#if icon.paths}
-        {#each icon.paths as path, i}
+    {#if self}
+      {#if self.paths}
+        {#each self.paths as path, i}
         <Path id="{i}" data="{path}"/>
         {/each}
       {/if}
-      {#if icon.polygons}
-        {#each icon.polygons as polygon, i}
+      {#if self.polygons}
+        {#each self.polygons as polygon, i}
         <Polygon id="{i}" data="{polygon}"/>
         {/each}
       {/if}
-      {#if icon.raw}
-        <Raw :icon />
+      {#if self.raw}
+        <Raw bind:icon={self} />
       {/if}
     {/if}
   </slot>
@@ -25,121 +25,245 @@
   import Raw from './svg/Raw.html';
   import Svg from './svg/Svg.html';
 
-  const icons = {};
+  let clazz = '';
+  export let data = undefined;
+  export let scale = 1;
+  export let spin = false;
+  export let inverse = false;
+  export let pulse = false;
+  export let flip = null;
+  export let label = null;
+  export let self = null;
 
-  export default {
-    components: {
-      Path,
-      Polygon,
-      Raw,
-      Svg,
-    },
-    data() {
-      return {
-        // properties
-        class: '',
-        name: null,
-        scale: 1.0,
-        spin: false,
-        inverse: false,
-        pulse: false,
-        flip: null,
-        label: null,
+  // internal
+  let x = 0;
+  let y = 0;
+  let childrenHeight = 0;
+  let childrenWidth = 0;
+  let outerScale = 1;
 
-        // internal
-        x: 0,
-        y: 0,
-        childrenWidth: 0,
-        childrenHeight: 0,
-        outerScale: 1,
-      };
-    },
-    setup(Icon) {
-      if (!Icon.icons) {
-        Icon.icons = icons; // eslint-disable-line no-param-reassign
-      }
-      Icon.register = (data) => { // eslint-disable-line no-param-reassign
-        Object.keys(data).forEach((name) => {
-          const icon = data[name];
-          if (!icon.paths) {
-            icon.paths = [];
-          }
-          if (icon.d) {
-            icon.paths.push({
-              d: icon.d,
-            });
-          }
-          if (!icon.polygons) {
-            icon.polygons = [];
-          }
-          if (icon.points) {
-            icon.polygons.push({
-              points: icon.points,
-            });
-          }
-          icons[name] = icon; // eslint-disable-line no-param-reassign
-        });
-      };
-    },
-    computed: {
-      normalisedScale: ({ scale, outerScale }) => {
-        let numScale = 1;
-        if (typeof scale !== 'undefined') {
-          numScale = Number(scale);
-        }
-        if (isNaN(numScale) || numScale <= 0) { // eslint-disable-line no-restricted-globals
-          console.warn('Invalid prop: prop "scale" should be a number over 0.'); // eslint-disable-line no-console
-          return outerScale;
-        }
-        return numScale * outerScale;
-      },
-      icon: ({ name }) => {
-        if (name) {
-          return icons[name];
-        }
-        return null;
-      },
-      box: ({ icon, width, height }) => {
-        if (icon) {
-          return `0 0 ${icon.width} ${icon.height}`;
-        }
-        return `0 0 ${width} ${height}`;
-      },
-      ratio: ({ icon }) => {
-        if (!icon) {
-          return 1;
-        }
-        const { width, height } = icon;
-        return Math.max(width, height) / 16;
-      },
-      width: ({
-        childrenWidth, icon, ratio, normalisedScale,
-      }) => {
-        if (childrenWidth) {
-          return childrenWidth;
-        }
-        if (icon) {
-          return (icon.width / ratio) * normalisedScale;
-        }
-        return 0;
-      },
-      height: ({
-        childrenHeight, icon, ratio, normalisedScale,
-      }) => {
-        if (childrenHeight) {
-          return childrenHeight;
-        }
-        if (icon) {
-          return (icon.height / ratio) * normalisedScale;
-        }
-        return 0;
-      },
-      style: ({ normalisedScale }) => {
-        if (normalisedScale === 1) {
-          return false;
-        }
-        return `font-size: ${normalisedScale}em`;
-      },
-    },
-  };
+  function init() {
+    const name = Object.keys(data)[0];
+    const icon = data[name];
+    if (!icon.paths) {
+      icon.paths = [];
+    }
+    if (icon.d) {
+      icon.paths.push({
+        d: icon.d,
+      });
+    }
+    if (!icon.polygons) {
+      icon.polygons = [];
+    }
+    if (icon.points) {
+      icon.polygons.push({
+        points: icon.points,
+      });
+    }
+    self = icon;
+  }
+
+  function normalisedScale() {
+    let numScale = 1;
+    if (typeof scale !== 'undefined') {
+      numScale = Number(scale);
+    }
+    if (isNaN(numScale) || numScale <= 0) { // eslint-disable-line no-restricted-globals
+      console.warn('Invalid prop: prop "scale" should be a number over 0.'); // eslint-disable-line no-console
+      return outerScale;
+    }
+    return numScale * outerScale;
+  }
+  function calculateBox() {
+    if (self) {
+      return `0 0 ${self.width} ${self.height}`;
+    }
+    return `0 0 ${width} ${height}`;
+  }
+  function calculateRatio() {
+    if (!self) {
+      return 1;
+    }
+    const { width, height } = self;
+    return Math.max(width, height) / 16;
+  }
+  function calculateWidth() {
+    if (childrenWidth) {
+      return childrenWidth;
+    }
+    if (self) {
+      return (self.width / calculateRatio()) * normalisedScale();
+    }
+    return 0;
+  }
+  function calculateHeight() {
+    if (childrenHeight) {
+      return childrenHeight;
+    }
+    if (self) {
+      return (self.height / calculateRatio()) * normalisedScale();
+    }
+    return 0;
+  }
+  function calculateStyle() {
+    let scale = normalisedScale();
+    if (scale === 1) {
+      return false;
+    }
+    return `font-size: ${scale}em`;
+  }
+  let width;
+  let height;
+  let style;
+  let box;
+
+  $: {
+    init();
+    width = calculateWidth();
+    height = calculateHeight();
+    style = calculateStyle();
+    box = calculateBox();
+  }
+
+  // const icons = {};
+
+  // export function register(data) {
+  //   Object.keys(data).forEach((name) => {
+  //     const icon = data[name];
+  //     if (!icon.paths) {
+  //       icon.paths = [];
+  //     }
+  //     if (icon.d) {
+  //       icon.paths.push({
+  //         d: icon.d,
+  //       });
+  //     }
+  //     if (!icon.polygons) {
+  //       icon.polygons = [];
+  //     }
+  //     if (icon.points) {
+  //       icon.polygons.push({
+  //         points: icon.points,
+  //       });
+  //     }
+  //     icons[name] = icon; // eslint-disable-line no-param-reassign
+  //   });
+  // }
+
+  // export default {
+  //   components: {
+  //     Path,
+  //     Polygon,
+  //     Raw,
+  //     Svg,
+  //   },
+  //   data() {
+  //     return {
+  //       // properties
+  //       class: '',
+  //       name: null,
+  //       scale: 1.0,
+  //       spin: false,
+  //       inverse: false,
+  //       pulse: false,
+  //       flip: null,
+  //       label: null,
+  //
+  //       // internal
+  //       x: 0,
+  //       y: 0,
+  //       childrenWidth: 0,
+  //       childrenHeight: 0,
+  //       outerScale: 1,
+  //     };
+  //   },
+  //   setup(Icon) {
+  //     if (!Icon.icons) {
+  //       Icon.icons = icons; // eslint-disable-line no-param-reassign
+  //     }
+  //     Icon.register = (data) => { // eslint-disable-line no-param-reassign
+  //       Object.keys(data).forEach((name) => {
+  //         const icon = data[name];
+  //         if (!icon.paths) {
+  //           icon.paths = [];
+  //         }
+  //         if (icon.d) {
+  //           icon.paths.push({
+  //             d: icon.d,
+  //           });
+  //         }
+  //         if (!icon.polygons) {
+  //           icon.polygons = [];
+  //         }
+  //         if (icon.points) {
+  //           icon.polygons.push({
+  //             points: icon.points,
+  //           });
+  //         }
+  //         icons[name] = icon; // eslint-disable-line no-param-reassign
+  //       });
+  //     };
+  //   },
+  //   computed: {
+  //     normalisedScale: ({ scale, outerScale }) => {
+  //       let numScale = 1;
+  //       if (typeof scale !== 'undefined') {
+  //         numScale = Number(scale);
+  //       }
+  //       if (isNaN(numScale) || numScale <= 0) { // eslint-disable-line no-restricted-globals
+  //         console.warn('Invalid prop: prop "scale" should be a number over 0.'); // eslint-disable-line no-console
+  //         return outerScale;
+  //       }
+  //       return numScale * outerScale;
+  //     },
+  //     icon: ({ name }) => {
+  //       if (name) {
+  //         return icons[name];
+  //       }
+  //       return null;
+  //     },
+  //     box: ({ icon, width, height }) => {
+  //       if (icon) {
+  //         return `0 0 ${icon.width} ${icon.height}`;
+  //       }
+  //       return `0 0 ${width} ${height}`;
+  //     },
+  //     ratio: ({ icon }) => {
+  //       if (!icon) {
+  //         return 1;
+  //       }
+  //       const { width, height } = icon;
+  //       return Math.max(width, height) / 16;
+  //     },
+  //     width: ({
+  //       childrenWidth, icon, ratio, normalisedScale,
+  //     }) => {
+  //       if (childrenWidth) {
+  //         return childrenWidth;
+  //       }
+  //       if (icon) {
+  //         return (icon.width / ratio) * normalisedScale;
+  //       }
+  //       return 0;
+  //     },
+  //     height: ({
+  //       childrenHeight, icon, ratio, normalisedScale,
+  //     }) => {
+  //       if (childrenHeight) {
+  //         return childrenHeight;
+  //       }
+  //       if (icon) {
+  //         return (icon.height / ratio) * normalisedScale;
+  //       }
+  //       return 0;
+  //     },
+  //     style: ({ normalisedScale }) => {
+  //       if (normalisedScale === 1) {
+  //         return false;
+  //       }
+  //       return `font-size: ${normalisedScale}em`;
+  //     },
+  //   },
+  // };
 </script>

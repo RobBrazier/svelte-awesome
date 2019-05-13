@@ -1,24 +1,16 @@
-<polygon key="polygon-{id}" ref:polygon />
+<polygon key="polygon-{id}" bind:this={polygon} />
 
 <script>
-  export default {
-    namespace: 'svg',
-    data() {
-      return {
-        id: '',
-        data: {},
-      };
-    },
-    onupdate({ changed }) {
-      if (changed.data) {
-        const { data } = this.get();
-        const { polygon } = this.refs;
-        if (polygon != null) {
-          Object.keys(data).forEach((key) => {
-            polygon.setAttribute(key, data[key]);
-          });
-        }
-      }
-    },
-  };
+  let polygon;
+
+  export let id = '';
+  export let data = {};
+
+  $: {
+    if (polygon != null) {
+      Object.keys(data).forEach((key) => {
+        polygon.setAttribute(key, data[key])
+      })
+    }
+  }
 </script>

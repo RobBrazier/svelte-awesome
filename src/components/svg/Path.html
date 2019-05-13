@@ -1,24 +1,16 @@
-<path key="path-{id}" ref:path />
+<path key="path-{id}" bind:this={path} />
 
 <script>
-  export default {
-    namespace: 'svg',
-    data() {
-      return {
-        id: '',
-        data: {},
-      };
-    },
-    onupdate({ changed }) {
-      if (changed.data) {
-        const { data } = this.get();
-        const { path } = this.refs;
-        if (path != null) {
-          Object.keys(data).forEach((key) => {
-            path.setAttribute(key, data[key]);
-          });
-        }
-      }
-    },
-  };
+  let path;
+
+  export let id = '';
+  export let data = {};
+
+  $: {
+    if (path != null) {
+      Object.keys(data).forEach((key) => {
+        path.setAttribute(key, data[key])
+      })
+    }
+  }
 </script>

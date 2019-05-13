@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('graceful-fs');
+const changeCase = require('change-case');
 
 const patch = require('patch-module');
 const _ = require('lodash');
@@ -12,7 +13,7 @@ const svgfont2js = patch('./node_modules/svgfont2js/index.js', [
   }
 ]);
 
-const iconTemplate = 'import Icon from \'../components/Icon.html\';\n\nIcon.register(<%= data %>);\n';
+const iconTemplate = 'export default <%= data %>;\n';
 const icons = svgfont2js(
   fs.readFileSync(
     require.resolve('font-awesome/fonts/fontawesome-webfont.svg'),
@@ -91,11 +92,18 @@ for (const i in icons) {
   }
 }
 
+function convertStringToVariable(str) {
+  if (!isNaN(str.charAt(0))) {
+    str = "fa" + str;
+  }
+  return changeCase.camelCase(str);
+}
+
 let index = '';
 for (const i in filenames) {
   if (Object.prototype.hasOwnProperty.call(filenames, i)) {
     const filename = filenames[i];
-    index += `import './${filename}';\n`;
+    index += `export { default as ${convertStringToVariable(filename)} } from './${filename}';\n`;
   }
 }
 fs.writeFileSync(path.join(sourceDir, 'index.js'), index);
