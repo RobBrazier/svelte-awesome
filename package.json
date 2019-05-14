@@ -38,7 +38,7 @@
     }
   },
   "dependencies": {
-    "svelte": "^3.2.2"
+    "svelte": "^3.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
