@@ -38,6 +38,8 @@
 </style>
 
 <script>
+  import { afterUpdate } from 'svelte';
+
   let svg;
 
   export let width;
@@ -50,23 +52,25 @@
   export let flip = null;
 
   // optionals
-  let x = false;
-  let y = false;
-  let style = false;
-  let label = false;
+  export let x = false;
+  export let y = false;
+  export let style = false;
+  export let label = false;
 
-  $: {
-    if (x) {
-      svg.setAttribute('x', x);
+  afterUpdate(() => {
+    if (typeof svg !== 'undefined') {
+      if (x) {
+        svg.setAttribute('x', x);
+      }
+      if (y) {
+        svg.setAttribute('y', y);
+      }
+      if (style) {
+        svg.setAttribute('style', style);
+      }
+      if (label) {
+        svg.setAttribute('aria-label', label);
+      }
     }
-    if (y) {
-      svg.setAttribute('y', y);
-    }
-    if (style) {
-      svg.setAttribute('style', style);
-    }
-    if (label) {
-      svg.setAttribute('aria-label', label);
-    }
-  }
+  });
 </script>

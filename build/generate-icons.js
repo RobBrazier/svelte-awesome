@@ -96,7 +96,8 @@ function convertStringToVariable(str) {
   if (!isNaN(str.charAt(0))) {
     str = "fa" + str;
   }
-  return changeCase.camelCase(str);
+  let numEndingStr = str.replace(/^([a-z0-9\\-]+)-([0-9]+)$/g, '$1$2');
+  return changeCase.camelCase(numEndingStr);
 }
 
 let index = '';

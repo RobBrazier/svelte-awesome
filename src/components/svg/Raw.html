@@ -3,34 +3,42 @@
 </g>
 
 <script>
+  /* eslint-disable no-unused-vars, import/prefer-default-export */
+  import { afterUpdate } from 'svelte';
+
   let cursor = 0xd4937;
   function getId() {
     cursor += 1;
     return `fa-${cursor.toString(16)}`;
   }
 
-  export let icon = {};
+  let raw;
+
+  export let data;
+
   function getRaw() {
-    if (!icon || !icon.raw) {
+    if (!data || !data.raw) {
       return null;
     }
-    let { raw } = icon;
+    let rawData = data.raw;
     const ids = {};
-    raw = raw.replace(/\s(?:xml:)?id=["']?([^"')\s]+)/g, (match, id) => {
+    rawData = rawData.replace(/\s(?:xml:)?id=["']?([^"')\s]+)/g, (match, id) => {
       const uniqueId = getId();
       ids[id] = uniqueId;
       return ` id="${uniqueId}"`;
     });
 
-    raw = raw.replace(/#(?:([^'")\s]+)|xpointer\(id\((['"]?)([^')]+)\2\)\))/g, (match, rawId, _, pointerId) => {
+    rawData = rawData.replace(/#(?:([^'")\s]+)|xpointer\(id\((['"]?)([^')]+)\2\)\))/g, (match, rawId, _, pointerId) => {
       const id = rawId || pointerId;
       if (!id || !ids[id]) {
         return match;
       }
       return `#${ids[id]}`;
     });
-    return raw;
+    return rawData;
   }
 
-  $: raw = getRaw();
+  afterUpdate(() => {
+    raw = getRaw();
+  });
 </script>
