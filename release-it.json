@@ -1,15 +1,14 @@
 {
   "git": {
-    "changelog": "npx auto-changelog --stdout --commit-limit false -u --template keepachangelog --ignore-commit-pattern '(.*?[Bb]ump .* from .*|^Merge.*)'",
-    "tag": false
+    "changelog": "npx auto-changelog --stdout"
   },
   "scripts": {
     "beforeStage": "npx auto-changelog -p"
   },
   "npm": {
-    "publish": false
+    "publish": true
   },
   "github": {
-    "release": false
+    "release": true
   }
 }
