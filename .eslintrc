@@ -8,5 +8,9 @@
     "browser": true,
     "node": true,
     "mocha": true
+  },
+  "rules": {
+    "import/no-mutable-exports": "off",
+    "prefer-const": "off"
   }
 }

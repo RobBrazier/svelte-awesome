@@ -1,0 +1,14 @@
+{
+  "git": {
+    "changelog": "npx auto-changelog --stdout"
+  },
+  "scripts": {
+    "beforeStage": "npx auto-changelog -p"
+  },
+  "npm": {
+    "publish": true
+  },
+  "github": {
+    "release": true
+  }
+}

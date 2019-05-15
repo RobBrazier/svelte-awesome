@@ -1,6 +1,6 @@
 {
   "name": "svelte-awesome",
-  "version": "0.0.0-development",
+  "version": "1.4.1",
   "description": "Font Awesome component for Svelte JS, using inline SVG",
   "main": "dist/svelte-awesome.js",
   "svelte": "components/Icon.html",
@@ -19,7 +19,7 @@
     "example:build": "npm run build && rollup -c example/rollup.config.js",
     "lint": "eslint ./{example,src}/**/*.{html,js}",
     "test": "npm run lint",
-    "commit": "commit"
+    "release": "release-it"
   },
   "keywords": [
     "font-awesome",
@@ -27,22 +27,13 @@
     "svelte",
     "svg"
   ],
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "release": {
-    "verifyConditions": {
-      "path": "./build/verify-conditions.js"
-    }
+  "dependencies": {
+    "svelte": "^3.3.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.0.0",
-    "@commitlint/config-conventional": "^7.0.1",
-    "@commitlint/prompt-cli": "^7.0.0",
     "babel-core": "^6.26.0",
     "cassandra-map": "^0.1.7",
+    "change-case": "^3.1.0",
     "eslint": "^5.0.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-html": "^4.0.2",
@@ -50,25 +41,18 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "font-awesome": "^4.7.0",
     "graceful-fs": "^4.1.11",
-    "husky": "^1.0.1",
     "lodash": "^4.17.5",
     "npm-run-all": "^4.1.3",
     "patch-module": "^0.1.0",
+    "release-it": "^12.2.0",
     "rollup": "^0.66.2",
     "rollup-plugin-buble": "^0.19.2",
     "rollup-plugin-commonjs": "^9.1.0",
     "rollup-plugin-node-resolve": "^3.0.3",
     "rollup-plugin-replace": "^2.0.0",
-    "rollup-plugin-svelte": "^4.0.0",
+    "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^3.0.0",
-    "semantic-release": "^15.1.5",
-    "svelte": "^2.6.1",
     "svgfont2js": "^0.1.2",
     "uglify-es": "^3.3.9"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
-    }
   }
 }

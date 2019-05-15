@@ -1,4 +1,4 @@
-import Icon from './components/Icon.html';
+import Icon from './components/Icon.svelte';
 
 import './icons';
 
