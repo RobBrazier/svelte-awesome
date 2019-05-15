@@ -24,16 +24,20 @@ $ npm install --save svelte-awesome
 ## Usage
 ```html
 <!-- basic -->
-<Icon name="beer"></Icon>
+<Icon data={beer}></Icon>
 
 <!-- with options -->
-<Icon name="refresh" scale="2"></Icon>
-<Icon name="comment" flip="horizontal"></Icon>
-<Icon name="code-fork" label="Forked Repository"></Icon>
+<Icon data={refresh} scale="2"></Icon>
+<Icon data={comment} flip="horizontal"></Icon>
+<Icon data={codeFork} label="Forked Repository"></Icon>
 
 <!-- stacked icons [WIP] -->
 <Icon label="No Photos">
-  <Icon name="camera"></Icon>
-  <Icon name="ban" scale="2" class="alert"></Icon>
+  <Icon data={camera}></Icon>
+  <Icon name={ban} scale="2" class="alert"></Icon>
 </Icon>
+
+<script>
+  import { beer, refresh, comment, codeFork, camera, ban } from 'svelte-awesome/icons';
+</script>
 ```

@@ -7,46 +7,52 @@
 
     <h2>Basic</h2>
     <p><Icon data={icons.flag}></Icon></p>
-    <figure><pre><code>&#x3C;Icon <span class="attr">name</span>=<span class="val">"flag"</span>&gt;&#x3C;/Icon&gt;</code></pre></figure>
+    <figure><pre class="prettyprint">
+    <code>{'<Icon data={flag}></Icon>'}</code>
+    </pre></figure>
 
     <h2>Scale</h2>
     <p><Icon data={icons.language} scale="3"></Icon></p>
-    <figure><pre><code>&#x3C;Icon <span class="attr">name</span>=<span class="val">"language"</span> <span class="attr">scale</span>=<span class="val">"3"</span>&gt;&#x3C;/Icon&gt;</code></pre></figure>
+    <figure><pre class="prettyprint"><code>{'<Icon data={language} scale="3"></Icon>'}</code></pre></figure>
 
     <h2>Spin</h2>
     <p><Icon data={icons.refresh} spin></Icon></p>
-    <figure><pre><code>&#x3C;Icon <span class="attr">name</span>=<span class="val">"refresh"</span> <span class="attr">spin</span>&gt;&#x3C;/Icon&gt;</code></pre></figure>
+    <figure><pre class="prettyprint"><code>{'<Icon data={refresh} spin></Icon>'}</code></pre></figure>
 
     <h2>Pulse</h2>
     <p><Icon data={icons.spinner} pulse></Icon></p>
-    <figure><pre><code>&#x3C;Icon <span class="attr">name</span>=<span class="val">"spinner"</span> <span class="attr">pulse</span>&gt;&#x3C;/Icon&gt;</code></pre></figure>
+    <figure><pre class="prettyprint"><code>{'<Icon data={spinner} pulse></Icon>'}</code></pre></figure>
 
     <h2>Flip</h2>
     <p><Icon data={icons.signal} flip="horizontal"></Icon></p>
-    <figure><pre><code>&#x3C;Icon <span class="attr">name</span>=<span class="val">"signal"</span> <span class="attr">flip</span>=<span class="val">"horizontal"</span>&gt;&#x3C;/Icon&gt;</code></pre></figure>
+    <figure><pre class="prettyprint"><code>{'<Icon data={signal} flip="horizontal"></Icon>'}</code></pre></figure>
 
     <h2>Label</h2>
     <p><small>Accessible for screen readers, etc.</small></p>
     <p><Icon data={icons.code} label="Source Code"></Icon></p>
-    <figure><pre><code>&#x3C;Icon <span class="attr">name</span>=<span class="val">"code"</span> <span class="attr">label</span>=<span class="val">"Source Code"</span>&gt;&#x3C;/Icon&gt;</code></pre></figure>
+    <figure><pre class="prettyprint"><code>{'<Icon data=[code} label="Source Code"></Icon>'}</code></pre></figure>
+
+    <h2>Custom Class</h2>
+    <p><small>Additional classes for custom styling</small></p>
+    <p><Icon data={icons.certificate} class="foo"></Icon></p>
+    <figure><pre class="prettyprint"><code>{'<Icon data=[certificate} class="foo"></Icon>'}</code></pre></figure>
 
     <h2>Stacked icons</h2>
     <p><small>Use stacked icons like in FontAwesome. Even more powerful.</small></p>
     <p>
-      <Icon label="No Photo">
+      <!--<Icon label="No Photo">
         <Icon data={icons.camera}></Icon>
         <Icon data={icons.ban} scale="2" class="alert"></Icon>
-      </Icon>
+      </Icon>-->
     </p>
-    <figure><pre><code>&#x3C;Icon <span class="attr">label</span>=<span class="val">"No Photos"</span>&gt;
-  &#x3C;Icon <span class="attr">name</span>=<span class="val">"camera"</span>&gt;&#x3C;/Icon&gt;
-  &#x3C;Icon <span class="attr">name</span>=<span class="val">"ban"</span> <span class="attr">scale</span>=<span class="val">"2"</span> <span class="attr">class</span>=<span class="val">"alert"</span>&gt;&#x3C;/Icon&gt;
-&#x3C;/Icon&gt;</code></pre></figure>
-
+    <figure><pre class="prettyprint"><code>{'<Icon label="No Photo">'}
+  {'<Icon data={camera}></Icon>'}
+  {'<Icon data={ban} scale="2" class="alert"></Icon>'}
+{'</Icon>'}</code></pre></figure>
     <h2>Custom icons</h2>
     <p><small>You can register your own icons.</small></p>
     <p><Icon data={baidu}></Icon></p>
-    <figure><pre><code>&#x3C;Icon <span class="attr">name</span>=<span class="val">"baidu"</span>&gt;&#x3C;/Icon&gt;</code></pre></figure>
+    <figure><pre class="prettyprint"><code>{'<Icon data={baidu}></Icon>'}</code></pre></figure>
 
     <h2>Multi-color icons</h2>
     <p><small>Register icons in more advanced ways to unleash the full power of SVG.</small></p>
@@ -92,6 +98,6 @@ onMount(() => {
     if (running) {
       change();
     }
-  }, 500);
+  }, 200);
 });
 </script>

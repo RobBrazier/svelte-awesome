@@ -78,10 +78,10 @@ pre, code {
 pre code {
   font-size: 0.8em;
 }
-.attr {
+.atn {
   color: #e96900;
 }
-.val {
+.atv {
   color: #42b983;
 }
 footer {
