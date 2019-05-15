@@ -19,7 +19,7 @@
     "example:build": "npm run build && rollup -c example/rollup.config.js",
     "lint": "eslint ./{example,src}/**/*.{html,js}",
     "test": "npm run lint",
-    "commit": "commit"
+    "version": "changelog-updater && git add CHANGELOG.md"
   },
   "keywords": [
     "font-awesome",
@@ -44,6 +44,7 @@
     "babel-core": "^6.26.0",
     "cassandra-map": "^0.1.7",
     "change-case": "^3.1.0",
+    "changelog-updater": "^1.1.0",
     "eslint": "^5.0.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-html": "^4.0.2",

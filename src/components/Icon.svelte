@@ -1,4 +1,4 @@
-<Svg label={label} class={class} width={width} height={height} box={box} style={style}
+<Svg label={label} width={width} height={height} box={box} style={style}
   spin={spin} flip={flip} inverse={inverse} pulse={pulse}>
   <slot>
     {#if self}
@@ -24,10 +24,10 @@
 
   import { afterUpdate } from 'svelte';
 
-  import Path from './svg/Path.html';
-  import Polygon from './svg/Polygon.html';
-  import Raw from './svg/Raw.html';
-  import Svg from './svg/Svg.html';
+  import Path from './svg/Path.svelte';
+  import Polygon from './svg/Polygon.svelte';
+  import Raw from './svg/Raw.svelte';
+  import Svg from './svg/Svg.svelte';
 
   export let data;
   export let scale = 1;

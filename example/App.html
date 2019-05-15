@@ -31,19 +31,20 @@
     <p><small>Accessible for screen readers, etc.</small></p>
     <p><Icon data={icons.code} label="Source Code"></Icon></p>
     <figure><pre class="prettyprint"><code>{'<Icon data=[code} label="Source Code"></Icon>'}</code></pre></figure>
-
+<!--
     <h2>Custom Class</h2>
     <p><small>Additional classes for custom styling</small></p>
     <p><Icon data={icons.certificate} class="foo"></Icon></p>
     <figure><pre class="prettyprint"><code>{'<Icon data=[certificate} class="foo"></Icon>'}</code></pre></figure>
-
+-->
+<!--
     <h2>Stacked icons</h2>
     <p><small>Use stacked icons like in FontAwesome. Even more powerful.</small></p>
     <p>
-      <!--<Icon label="No Photo">
+      <Icon label="No Photo">
         <Icon data={icons.camera}></Icon>
         <Icon data={icons.ban} scale="2" class="alert"></Icon>
-      </Icon>-->
+      </Icon>
     </p>
     <figure><pre class="prettyprint"><code>{'<Icon label="No Photo">'}
   {'<Icon data={camera}></Icon>'}
@@ -53,7 +54,7 @@
     <p><small>You can register your own icons.</small></p>
     <p><Icon data={baidu}></Icon></p>
     <figure><pre class="prettyprint"><code>{'<Icon data={baidu}></Icon>'}</code></pre></figure>
-
+-->
     <h2>Multi-color icons</h2>
     <p><small>Register icons in more advanced ways to unleash the full power of SVG.</small></p>
     <p><Icon data={webpack}></Icon> <Icon data={vue}></Icon> <Icon data={html5}></Icon></p>
@@ -67,7 +68,7 @@
 <script>
 /* eslint-disable no-unused-vars */
 import { onMount } from 'svelte';
-import Icon from '../src/components/Icon.html';
+import Icon from '../src/components/Icon.svelte';
 import * as icons from '../src/icons';
 
 export let html5 = { 'html5-c': { width: 512, height: 512, raw: '<path fill="#E34F26" d="M71,460 L30,0 481,0 440,460 255,512"/><path fill="#EF652A" d="M256,472 L405,431 440,37 256,37"/><path fill="#EBEBEB" d="M256,208 L181,208 176,150 256,150 256,94 255,94 114,94 115,109 129,265 256,265zM256,355 L255,355 192,338 188,293 158,293 132,293 139,382 255,414 256,414z"/><path fill="#FFF" d="M255,208 L255,265 325,265 318,338 255,355 255,414 371,382 372,372 385,223 387,208 371,208zM255,94 L255,129 255,150 255,150 392,150 392,150 392,150 393,138 396,109 397,94z"/>' } };
