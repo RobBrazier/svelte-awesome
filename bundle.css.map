@@ -1,8 +1,12 @@
 {
   "version": 3,
   "file": "bundle.css",
-  "sources": [],
-  "sourcesContent": [],
+  "sources": [
+    "../../src/components/svg/Svg.svelte"
+  ],
+  "sourcesContent": [
+    "<svg version=\"1.1\" bind:this={svg} class=\"fa-icon\"\n  class:fa-spin={spin} class:fa-pulse={pulse} class:fa-inverse={inverse}\n  class:fa-flip-horizontal=\"{flip === 'horizontal'}\" class:fa-flip-vertical=\"{flip === 'vertical'}\"\n  width={width} height={height}\n  role=\"{ label ? 'img' : 'presentation' }\"\n  viewBox={box}>\n  <slot></slot>\n</svg>\n\n<style>\n.fa-icon {\n  display: inline-block;\n  fill: currentColor;\n}\n.fa-flip-horizontal {\n  transform: scale(-1, 1);\n}\n.fa-flip-vertical {\n  transform: scale(1, -1);\n}\n.fa-spin {\n  animation: fa-spin 1s 0s infinite linear;\n}\n.fa-inverse {\n  color: #fff;\n}\n.fa-pulse {\n  animation: fa-spin 1s infinite steps(8);\n}\n@keyframes fa-spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n</style>\n\n<script>\n  import { afterUpdate } from 'svelte';\n\n  let svg;\n\n  export let width;\n  export let height;\n  export let box;\n\n  export let spin = false;\n  export let inverse = false;\n  export let pulse = false;\n  export let flip = null;\n\n  // optionals\n  export let x = false;\n  export let y = false;\n  export let style = false;\n  export let label = false;\n\n  afterUpdate(() => {\n    if (typeof svg !== 'undefined') {\n      if (x) {\n        svg.setAttribute('x', x);\n      }\n      if (y) {\n        svg.setAttribute('y', y);\n      }\n      if (style) {\n        svg.setAttribute('style', style);\n      }\n      if (label) {\n        svg.setAttribute('aria-label', label);\n      }\n    }\n  });\n</script>\n"
+  ],
   "names": [],
-  "mappings": ""
+  "mappings": "AAUA,QAAQ,eAAC,CAAC,AACR,OAAO,CAAE,YAAY,CACrB,IAAI,CAAE,YAAY,AACpB,CAAC,AACD,mBAAmB,eAAC,CAAC,AACnB,SAAS,CAAE,MAAM,EAAE,CAAC,CAAC,CAAC,CAAC,AACzB,CAAC,AACD,iBAAiB,eAAC,CAAC,AACjB,SAAS,CAAE,MAAM,CAAC,CAAC,CAAC,EAAE,CAAC,AACzB,CAAC,AACD,QAAQ,eAAC,CAAC,AACR,SAAS,CAAE,sBAAO,CAAC,EAAE,CAAC,EAAE,CAAC,QAAQ,CAAC,MAAM,AAC1C,CAAC,AACD,WAAW,eAAC,CAAC,AACX,KAAK,CAAE,IAAI,AACb,CAAC,AACD,SAAS,eAAC,CAAC,AACT,SAAS,CAAE,sBAAO,CAAC,EAAE,CAAC,QAAQ,CAAC,MAAM,CAAC,CAAC,AACzC,CAAC,AACD,WAAW,sBAAQ,CAAC,AAClB,EAAE,AAAC,CAAC,AACF,SAAS,CAAE,OAAO,IAAI,CAAC,AACzB,CAAC,AACD,IAAI,AAAC,CAAC,AACJ,SAAS,CAAE,OAAO,MAAM,CAAC,AAC3B,CAAC,AACH,CAAC"
 }
