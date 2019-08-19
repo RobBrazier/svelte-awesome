@@ -8,7 +8,7 @@ fi
 
 npm run build
 cp -r ./src/*/ .
-echo npm publish
-echo npm run release
+npm publish
+npm run release
 rm -rf ./components
 rm -rf ./icons
