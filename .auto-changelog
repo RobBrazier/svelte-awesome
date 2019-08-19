@@ -3,5 +3,5 @@
   "template": "keepachangelog",
   "unreleased": true,
   "commitLimit": false,
-  "ignoreCommitPattern": "(.*?[Bb]ump .* from .*|^Merge.*)"
+  "ignoreCommitPattern": "(.*?[Bb]ump .*( from )?.*|^Merge.*)"
 }

@@ -1,25 +1,20 @@
-const pkg = require('./package.json');
+import svelte from 'rollup-plugin-svelte';
+import resolve from 'rollup-plugin-node-resolve';
+import pkg from './package.json';
 
 const name = pkg.name
-  .replace(/^\w/, m => m.toUpperCase())
-  .replace(/-\w/g, m => m[1].toUpperCase());
+	// .replace(/^(@\S+\/)?(svelte-)?(\S+)/, '$3')
+	.replace(/^\w/, m => m.toUpperCase())
+	.replace(/-\w/g, m => m[1].toUpperCase());
 
-module.exports = {
-  input: './src/index.js',
-  output: {
-    file: pkg.main,
-    format: 'umd',
-    name
-  },
-  context: 'window',
-  plugins: [
-    require('rollup-plugin-svelte')(),
-    require('rollup-plugin-buble')(),
-    require('rollup-plugin-commonjs')(),
-    require('rollup-plugin-node-resolve')(),
-    require('rollup-plugin-replace')({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-    }),
-    require('rollup-plugin-terser').terser()
-  ]
+export default {
+	input: 'src/components/Icon.svelte',
+	output: [
+		{ file: pkg.module, 'format': 'es' },
+		{ file: pkg.main, 'format': 'umd', name }
+	],
+	plugins: [
+		svelte(),
+		resolve()
+	]
 };
