@@ -9,6 +9,6 @@ fi
 npm run build
 cp -r ./src/*/ .
 npm publish
-npm run release
+npm run gh-release
 rm -rf ./components
 rm -rf ./icons
