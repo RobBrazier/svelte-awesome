@@ -55,6 +55,10 @@
     <p><Icon data={baidu}></Icon></p>
     <figure><pre class="prettyprint"><code>{'<Icon data={baidu}></Icon>'}</code></pre></figure>
 -->
+    <h2>FontAwesome v5 Icons</h2>
+    <p><Icon data={faFontAwesomeLogoFull} scale="10"></Icon></p>
+    <figure><pre class="prettyprint"><code>{'<Icon data=[faFontAwesomeLogoFull} scale="10"></Icon>'}</code></pre></figure>
+
     <h2>Multi-color icons</h2>
     <p><small>Register icons in more advanced ways to unleash the full power of SVG.</small></p>
     <p><Icon data={webpack}></Icon> <Icon data={vue}></Icon> <Icon data={html5}></Icon></p>
@@ -68,6 +72,8 @@
 <script>
 /* eslint-disable no-unused-vars */
 import { onMount } from 'svelte';
+/* eslint-disable import/no-extraneous-dependencies */
+import { faFontAwesomeLogoFull } from '@fortawesome/free-regular-svg-icons';
 import Icon from '../src/components/Icon.svelte';
 import * as icons from '../src/icons';
 

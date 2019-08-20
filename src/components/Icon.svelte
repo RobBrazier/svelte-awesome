@@ -54,8 +54,9 @@
     if (typeof data === 'undefined') {
       return;
     }
-    const [name] = Object.keys(data);
-    const icon = data[name];
+    const normalisedData = normaliseData(data);
+    const [name] = Object.keys(normalisedData);
+    const icon = normalisedData[name];
     if (!icon.paths) {
       icon.paths = [];
     }
@@ -73,6 +74,27 @@
       });
     }
     self = icon;
+  }
+
+  function normaliseData(data) {
+    if ('iconName' in data && 'icon' in data) {
+      let normalisedData = {};
+      let faIcon = data.icon;
+      let name = data.iconName;
+      let width = faIcon[0];
+      let height = faIcon[1];
+      let paths = faIcon[4];
+      let iconData = {
+        width,
+        height,
+        paths: [{
+          d: paths
+        }]
+      }
+      normalisedData[name] = iconData;
+      return normalisedData;
+    }
+    return data;
   }
 
   function normalisedScale() {
