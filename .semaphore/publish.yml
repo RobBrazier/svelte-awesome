@@ -20,8 +20,11 @@ blocks:
     task:
       secrets:
         - name: gh-token
+        - name: gh-sshkey
       prologue:
         commands:
+          - chmod 0600 ~/.keys/*
+          - ssh-add ~/.keys/*
           - sem-version node 10.13.0
       jobs:
         - name: Publish
