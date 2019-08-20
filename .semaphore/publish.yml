@@ -1,0 +1,46 @@
+version: v1.0
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: "Install Dependencies"
+    task:
+      prologue:
+        commands:
+          - sem-version node 10.13.0
+      jobs:
+        - name: npm install
+          commands:
+            - checkout
+            - cache restore
+            - npm install
+            - cache store
+  - name: "Publish"
+    task:
+      secrets:
+        - name: gh-token
+        - name: gh-sshkey
+        - name: npm-token
+      prologue:
+        commands:
+          - chmod 0600 ~/.keys/*
+          - ssh-add ~/.keys/*
+          - sem-version node 10.13.0
+      jobs:
+        - name: Publish to GitHub Pages
+          commands:
+            - checkout
+            - cache restore
+            - npm run example:build
+            - git config --global user.name "Semaphore Runner"
+            - git config --global user.email "$(whoami)@$(hostname).dev"
+            - git config --get user.name
+            - git config --get user.email
+            - npx gh-pages -d example/dist
+
+        - name: Publish to NPM
+          commands:
+            - checkout
+            - cache restore
+            - bash build/publish.sh

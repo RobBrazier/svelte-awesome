@@ -1,0 +1,53 @@
+version: v1.0
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: "Install Dependencies"
+    task:
+      prologue:
+        commands:
+          - sem-version node 10.13.0
+      jobs:
+        - name: npm install
+          commands:
+            - checkout
+            - cache restore
+            - npm install
+            - cache store
+  - name: "Run Linting"
+    task:
+      prologue:
+        commands:
+          - sem-version node 10.13.0
+      jobs:
+        - name: npm run lint
+          commands:
+            - checkout
+            - cache restore
+            - npm run lint
+  - name: "Build Components"
+    task:
+      prologue:
+        commands:
+          - sem-version node 10.13.0
+      jobs:
+        - name: Build Component
+          commands:
+            - checkout
+            - cache restore
+            - npm run build
+        - name: Build Example
+          commands:
+            - checkout
+            - cache restore
+            - npm run build
+
+promotions:
+  - name: "Publish to NPM & GH Pages"
+    pipeline_file: publish.yml
+    auto_promote_on:
+      - result: passed
+        branch:
+          - "master"
