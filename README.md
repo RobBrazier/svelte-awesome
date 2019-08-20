@@ -7,7 +7,7 @@
 
 > Awesome SVG icon component for Svelte JS, built with Font Awesome icons. Based on [Justineo/vue-awesome][vue-awesome]
 
-Svelte-Awesome is built upon [Font-Awesome][font-awesome] `v4.7.0`
+Svelte-Awesome is supports [Font-Awesome][font-awesome] `v4.7.0` (icons inbuilt) and `v5` (via `@fortawesome` npm packages)
 
 A demo is available [here][demo]
 
@@ -37,7 +37,11 @@ $ npm install --save svelte-awesome
   <Icon name={ban} scale="2" class="alert"></Icon>
 </Icon>
 
+<!-- FontAwesome v5 Icons!! -->
+<Icon data={faThumbsUp}></Icon>
+
 <script>
   import { beer, refresh, comment, codeFork, camera, ban } from 'svelte-awesome/icons';
+  import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 </script>
 ```
