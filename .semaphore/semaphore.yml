@@ -50,4 +50,4 @@ promotions:
     auto_promote_on:
       - result: passed
         branch:
-          - "semaphore-v3"
+          - "master"
