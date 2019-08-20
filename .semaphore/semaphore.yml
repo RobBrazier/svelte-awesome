@@ -43,4 +43,11 @@ blocks:
             - checkout
             - cache restore
             - npm run build
-          
+
+promotions:
+  - name: "Publish to NPM & GH Pages"
+    pipeline_file: publish.yml
+    auto_promote_on:
+      - result: passed
+        branch:
+          - "semaphore-v3"
