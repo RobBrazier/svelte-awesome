@@ -16,18 +16,19 @@ blocks:
             - cache restore
             - npm install
             - cache store
-  - name: "Publish to GitHub Pages"
+  - name: "Publish"
     task:
       secrets:
         - name: gh-token
         - name: gh-sshkey
+        - name: npm-token
       prologue:
         commands:
           - chmod 0600 ~/.keys/*
           - ssh-add ~/.keys/*
           - sem-version node 10.13.0
       jobs:
-        - name: Publish
+        - name: Publish to GitHub Pages
           commands:
             - checkout
             - cache restore
@@ -37,3 +38,9 @@ blocks:
             - git config --get user.name
             - git config --get user.email
             - npx gh-pages -d example/dist
+
+        - name: Publish to NPM
+          commands:
+            - checkout
+            - cache restore
+            - bash build/publish.sh
