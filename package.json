@@ -33,6 +33,7 @@
     "svelte": "^3.8.1"
   },
   "devDependencies": {
+    "@fortawesome/free-regular-svg-icons": "^5.10.1",
     "acorn": "^7.0.0",
     "auto-changelog": "^1.15.0",
     "babel-core": "^6.26.0",

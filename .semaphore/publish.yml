@@ -3,12 +3,15 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
+    
+global_job_config:
+  prologue:
+    commands:
+      - sem-version node 10.13.0
+
 blocks:
   - name: "Install Dependencies"
     task:
-      prologue:
-        commands:
-          - sem-version node 10.13.0
       jobs:
         - name: npm install
           commands:
@@ -26,7 +29,6 @@ blocks:
         commands:
           - chmod 0600 ~/.keys/*
           - ssh-add ~/.keys/*
-          - sem-version node 10.13.0
       jobs:
         - name: Publish to GitHub Pages
           commands:
