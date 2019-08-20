@@ -1,19 +1,19 @@
 # Svelte-Awesome
-[![Build Status](https://semaphoreci.com/api/v1/robbrazier/svelte-awesome/branches/master/shields_badge.svg)](https://semaphoreci.com/robbrazier/svelte-awesome)
+![Built with SemaphoreCI](https://img.shields.io/badge/Built%20With-SemaphoreCI-brightgreen)
 [![npm](https://img.shields.io/npm/v/svelte-awesome.svg)](https://www.npmjs.com/package/svelte-awesome)
 [![Code Climate](https://img.shields.io/codeclimate/maintainability/RobBrazier/svelte-awesome.svg)](https://codeclimate.com/github/RobBrazier/svelte-awesome/maintainability)
-[![Code Climate](https://img.shields.io/codeclimate/c/RobBrazier/svelte-awesome.svg)](https://codeclimate.com/github/RobBrazier/svelte-awesome/test_coverage)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 > Awesome SVG icon component for Svelte JS, built with Font Awesome icons. Based on [Justineo/vue-awesome][vue-awesome]
 
-Svelte-Awesome is supports [Font-Awesome][font-awesome] `v4.7.0` (icons inbuilt) and `v5` (via `@fortawesome` npm packages)
+Svelte-Awesome supports [Font-Awesome][font-awesome] `v4.7.0` (icons inbuilt) and `v5` (via [`@fortawesome` npm packages][fortawesome-icons])
 
 A demo is available [here][demo]
 
 [vue-awesome]: https://github.com/Justineo/vue-awesome
 [font-awesome]: https://github.com/FortAwesome/Font-Awesome
 [demo]: https://robbrazier.github.io/svelte-awesome
+[fortawesome-icons]: https://www.npmjs.com/search?q=%40fortawesome%20icons
 
 ## Installation
 ### NPM
