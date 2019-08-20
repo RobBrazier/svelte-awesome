@@ -4,23 +4,26 @@ agent:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: "Build"
+  - name: "Install Dependencies"
     task:
-      prologue:
-        commands:
-          - sem-version node 10.13.0
       jobs:
-        - name: Install Dependencies
+        - name: npm install
           commands:
             - checkout
             - cache restore
             - npm install
             - cache store
-        - name: Run Linting
+  - name: "Run Linting"
+    task:
+      jobs:
+        - name: npm run lint
           commands:
             - checkout
             - cache restore
             - npm run lint
+  - name: "Build Components"
+    task:
+      jobs:
         - name: Build Component
           commands:
             - checkout
