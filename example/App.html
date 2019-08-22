@@ -31,12 +31,11 @@
     <p><small>Accessible for screen readers, etc.</small></p>
     <p><Icon data={icons.code} label="Source Code"></Icon></p>
     <figure><pre class="prettyprint"><code>{'<Icon data={code} label="Source Code"></Icon>'}</code></pre></figure>
-<!--
+
     <h2>Custom Class</h2>
     <p><small>Additional classes for custom styling</small></p>
-    <p><Icon data={icons.certificate} class="foo"></Icon></p>
-    <figure><pre class="prettyprint"><code>{'<Icon data=[certificate} class="foo"></Icon>'}</code></pre></figure>
--->
+    <p><Icon data={icons.certificate} class="pinkIcon"></Icon></p>
+    <figure><pre class="prettyprint"><code>{'<Icon data=[certificate} class="pinkIcon"></Icon>'}</code></pre></figure>
 <!--
     <h2>Stacked icons</h2>
     <p><small>Use stacked icons like in FontAwesome. Even more powerful.</small></p>
@@ -50,11 +49,12 @@
   {'<Icon data={camera}></Icon>'}
   {'<Icon data={ban} scale="2" class="alert"></Icon>'}
 {'</Icon>'}</code></pre></figure>
+    -->
     <h2>Custom icons</h2>
     <p><small>You can register your own icons.</small></p>
     <p><Icon data={baidu}></Icon></p>
     <figure><pre class="prettyprint"><code>{'<Icon data={baidu}></Icon>'}</code></pre></figure>
--->
+    
     <h2>FontAwesome v5 Icons</h2>
     <p><Icon data={faFontAwesomeLogoFull} scale="10"></Icon></p>
     <figure><pre class="prettyprint"><code>{'<Icon data={faFontAwesomeLogoFull} scale="10"></Icon>'}</code></pre></figure>
@@ -62,12 +62,18 @@
     <h2>Multi-color icons</h2>
     <p><small>Register icons in more advanced ways to unleash the full power of SVG.</small></p>
     <p><Icon data={webpack}></Icon> <Icon data={vue}></Icon> <Icon data={html5}></Icon></p>
-    <p>See <a href="https://github.com/Justineo/vue-awesome#more-advanced-cases">readme</a> for further instructions.</p>
+    <p>See <a href="https://github.com/RobBrazier/svelte-awesome#more-advanced-cases">readme</a> for further instructions.</p>
 
     <footer>
       <a href="//github.com/RobBrazier">@RobBrazier</a>|<a href="//github.com/RobBrazier/svelte-awesome/blob/master/LICENSE">MIT License</a>|<a href="//github.com/RobBrazier/svelte-awesome">View on GitHub</a>
     </footer>
 </main>
+
+<style>
+  :global(.pinkIcon) {
+    fill: hotpink !important;
+  }
+</style>
 
 <script>
 /* eslint-disable no-unused-vars */

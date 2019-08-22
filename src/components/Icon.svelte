@@ -1,5 +1,5 @@
-<Svg label={label} width={width} height={height} box={box} style={style}
-  spin={spin} flip={flip} inverse={inverse} pulse={pulse}>
+<Svg label={label} width={width} height={height} box={box} style={combinedStyle}
+  spin={spin} flip={flip} inverse={inverse} pulse={pulse} class={className}>
   <slot>
     {#if self}
       {#if self.paths}
@@ -29,6 +29,8 @@
   import Raw from './svg/Raw.svelte';
   import Svg from './svg/Svg.svelte';
 
+  let className = "";
+
   export let data;
   export let scale = 1;
   export let spin = false;
@@ -37,6 +39,8 @@
   export let flip = null;
   export let label = null;
   export let self = null;
+  export let style = null;
+  export { className as class };
 
   // internal
   let x = 0;
@@ -47,7 +51,7 @@
 
   let width;
   let height;
-  let style;
+  let combinedStyle;
   let box;
 
   function init() {
@@ -108,18 +112,21 @@
     }
     return numScale * outerScale;
   }
+
   function calculateBox() {
     if (self) {
       return `0 0 ${self.width} ${self.height}`;
     }
     return `0 0 ${width} ${height}`;
   }
+
   function calculateRatio() {
     if (!self) {
       return 1;
     }
     return Math.max(self.width, self.height) / 16;
   }
+
   function calculateWidth() {
     if (childrenWidth) {
       return childrenWidth;
@@ -129,6 +136,7 @@
     }
     return 0;
   }
+
   function calculateHeight() {
     if (childrenHeight) {
       return childrenHeight;
@@ -138,19 +146,27 @@
     }
     return 0;
   }
+
   function calculateStyle() {
+    let combined = "";
+    if (style !== null) {
+      combined += style;
+    }
     let size = normalisedScale();
     if (size === 1) {
-      return false;
+      return combined;
     }
-    return `font-size: ${size}em`;
+    if (combined !== "" && !combined.endsWith(';')) {
+      combined += '; ';
+    }
+    return `${combined}font-size: ${size}em`;
   }
 
   afterUpdate(() => {
     init();
     width = calculateWidth();
     height = calculateHeight();
-    style = calculateStyle();
+    combinedStyle = calculateStyle();
     box = calculateBox();
   });
 </script>

@@ -1,9 +1,9 @@
-<svg version="1.1" bind:this={svg} class="fa-icon"
+<svg version="1.1" bind:this={svg} class="fa-icon {className}"
   class:fa-spin={spin} class:fa-pulse={pulse} class:fa-inverse={inverse}
   class:fa-flip-horizontal="{flip === 'horizontal'}" class:fa-flip-vertical="{flip === 'vertical'}"
   width={width} height={height}
   role="{ label ? 'img' : 'presentation' }"
-  viewBox={box}>
+  viewBox={box} style={style}>
   <slot></slot>
 </svg>
 
@@ -41,6 +41,9 @@
   import { afterUpdate } from 'svelte';
 
   let svg;
+  let className;
+
+  export { className as class };
 
   export let width;
   export let height;
@@ -54,7 +57,7 @@
   // optionals
   export let x = false;
   export let y = false;
-  export let style = false;
+  export let style = null;
   export let label = false;
 
   afterUpdate(() => {
