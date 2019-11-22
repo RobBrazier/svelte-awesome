@@ -1,72 +1,72 @@
 <main>
     <figure id="logo" on:mouseenter={toggle} on:mouseleave={toggle} on:click={change} title="{Object.keys(icon)[0]}">
-      <Icon data={icon} scale="4"></Icon>
+      <Icon bind:data={icon} scale="4"/>
     </figure>
     <h1><a href="https://github.com/RobBrazier/svelte-awesome">Svelte-Awesome</a></h1>
     <p class="desc">Font Awesome component for Svelte.js, using inline SVG.</p>
 
     <h2>Basic</h2>
-    <p><Icon data={icons.flag}></Icon></p>
+    <p><Icon data={icons.flag}/></p>
     <figure><pre class="prettyprint">
-    <code>{'<Icon data={flag}></Icon>'}</code>
+    <code>{'<Icon data={flag}/>'}</code>
     </pre></figure>
 
     <h2>Scale</h2>
-    <p><Icon data={icons.language} scale="3"></Icon></p>
-    <figure><pre class="prettyprint"><code>{'<Icon data={language} scale="3"></Icon>'}</code></pre></figure>
+    <p><Icon data={icons.language} scale="3"/></p>
+    <figure><pre class="prettyprint"><code>{'<Icon data={language} scale="3"/>'}</code></pre></figure>
 
     <h2>Spin</h2>
-    <p><Icon data={icons.refresh} spin></Icon></p>
-    <figure><pre class="prettyprint"><code>{'<Icon data={refresh} spin></Icon>'}</code></pre></figure>
+    <p><Icon data={icons.refresh} spin/></p>
+    <figure><pre class="prettyprint"><code>{'<Icon data={refresh} spin/>'}</code></pre></figure>
 
     <h2>Pulse</h2>
-    <p><Icon data={icons.spinner} pulse></Icon></p>
-    <figure><pre class="prettyprint"><code>{'<Icon data={spinner} pulse></Icon>'}</code></pre></figure>
+    <p><Icon data={icons.spinner} pulse/></p>
+    <figure><pre class="prettyprint"><code>{'<Icon data={spinner} pulse/>'}</code></pre></figure>
 
     <h2>Flip</h2>
-    <p><Icon data={icons.signal} flip="horizontal"></Icon></p>
-    <figure><pre class="prettyprint"><code>{'<Icon data={signal} flip="horizontal"></Icon>'}</code></pre></figure>
+    <p><Icon data={icons.signal} flip="horizontal"/></p>
+    <figure><pre class="prettyprint"><code>{'<Icon data={signal} flip="horizontal"/>'}</code></pre></figure>
 
     <h2>Label</h2>
     <p><small>Accessible for screen readers, etc.</small></p>
-    <p><Icon data={icons.code} label="Source Code"></Icon></p>
-    <figure><pre class="prettyprint"><code>{'<Icon data={code} label="Source Code"></Icon>'}</code></pre></figure>
+    <p><Icon data={icons.code} label="Source Code"/></p>
+    <figure><pre class="prettyprint"><code>{'<Icon data={code} label="Source Code"/>'}</code></pre></figure>
 
     <h2>Custom Class</h2>
     <p><small>Additional classes for custom styling</small></p>
-    <p><Icon data={icons.certificate} class="pinkIcon"></Icon></p>
-    <figure><pre class="prettyprint"><code>{'<Icon data={certificate} class="pinkIcon"></Icon>'}</code></pre></figure>
+    <p><Icon data={icons.certificate} class="pinkIcon"/></p>
+    <figure><pre class="prettyprint"><code>{'<Icon data={certificate} class="pinkIcon"/>'}</code></pre></figure>
 
     <h2>Custom Styles</h2>
     <p><small>Inline custom styling</small></p>
-    <p><Icon data={icons.paintBrush} style="border: 1px solid #000; border-radius: 8px; padding: 5px"></Icon></p>
-    <figure><pre class="prettyprint"><code>{'<Icon data={paintBrush} style="border: 1px solid #000; border-radius: 8px; padding: 5px"></Icon>'}</code></pre></figure>
+    <p><Icon data={icons.paintBrush} style="border: 1px solid #000; border-radius: 8px; padding: 5px"/></p>
+    <figure><pre class="prettyprint"><code>{'<Icon data={paintBrush} style="border: 1px solid #000; border-radius: 8px; padding: 5px"/>'}</code></pre></figure>
 <!--
     <h2>Stacked icons</h2>
     <p><small>Use stacked icons like in FontAwesome. Even more powerful.</small></p>
     <p>
       <Icon label="No Photo">
-        <Icon data={icons.camera}></Icon>
-        <Icon data={icons.ban} scale="2" class="alert"></Icon>
+        <Icon data={icons.camera}/>
+        <Icon data={icons.ban} scale="2" class="alert"/>
       </Icon>
     </p>
     <figure><pre class="prettyprint"><code>{'<Icon label="No Photo">'}
-  {'<Icon data={camera}></Icon>'}
-  {'<Icon data={ban} scale="2" class="alert"></Icon>'}
+  {'<Icon data={camera}/>'}
+  {'<Icon data={ban} scale="2" class="alert"/>'}
 {'</Icon>'}</code></pre></figure>
     -->
     <h2>Custom icons</h2>
     <p><small>You can register your own icons.</small></p>
-    <p><Icon data={baidu}></Icon></p>
-    <figure><pre class="prettyprint"><code>{'<Icon data={baidu}></Icon>'}</code></pre></figure>
+    <p><Icon data={baidu}/></p>
+    <figure><pre class="prettyprint"><code>{'<Icon data={baidu}/>'}</code></pre></figure>
     
     <h2>FontAwesome v5 Icons</h2>
-    <p><Icon data={faFontAwesomeLogoFull} scale="10"></Icon></p>
-    <figure><pre class="prettyprint"><code>{'<Icon data={faFontAwesomeLogoFull} scale="10"></Icon>'}</code></pre></figure>
+    <p><Icon data={faFontAwesomeLogoFull} scale="10"/></p>
+    <figure><pre class="prettyprint"><code>{'<Icon data={faFontAwesomeLogoFull} scale="10"/>'}</code></pre></figure>
 
     <h2>Multi-color icons</h2>
     <p><small>Register icons in more advanced ways to unleash the full power of SVG.</small></p>
-    <p><Icon data={webpack}></Icon> <Icon data={vue}></Icon> <Icon data={html5}></Icon></p>
+    <p><Icon data={webpack}/> <Icon data={vue}/> <Icon data={html5}/></p>
     <p>See <a href="https://github.com/RobBrazier/svelte-awesome#more-advanced-cases">readme</a> for further instructions.</p>
 
     <footer>

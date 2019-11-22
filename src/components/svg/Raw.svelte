@@ -4,8 +4,6 @@
 
 <script>
   /* eslint-disable no-unused-vars, import/prefer-default-export */
-  import { afterUpdate } from 'svelte';
-
   let cursor = 0xd4937;
   function getId() {
     cursor += 1;
@@ -16,7 +14,7 @@
 
   export let data;
 
-  function getRaw() {
+  function getRaw(data) {
     if (!data || !data.raw) {
       return null;
     }
@@ -38,7 +36,5 @@
     return rawData;
   }
 
-  afterUpdate(() => {
-    raw = getRaw();
-  });
+  $: raw = getRaw(data);
 </script>

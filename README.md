@@ -24,24 +24,31 @@ $ npm install --save svelte-awesome
 ## Usage
 ```html
 <!-- basic -->
-<Icon data={beer}></Icon>
+<Icon data={beer}/>
 
 <!-- with options -->
-<Icon data={refresh} scale="2"></Icon>
-<Icon data={comment} flip="horizontal"></Icon>
-<Icon data={codeFork} label="Forked Repository"></Icon>
+<Icon data={refresh} scale="2"/>
+<Icon data={comment} flip="horizontal"/>
+<Icon data={codeFork} label="Forked Repository"/>
 
 <!-- stacked icons [WIP] -->
 <Icon label="No Photos">
-  <Icon data={camera}></Icon>
-  <Icon name={ban} scale="2" class="alert"></Icon>
+  <Icon data={camera}/>
+  <Icon name={ban} scale="2" class="alert"/>
 </Icon>
 
 <!-- FontAwesome v5 Icons!! -->
-<Icon data={faThumbsUp}></Icon>
+<Icon data={faThumbsUp}/>
 
 <script>
+  import Icon from 'svelte-awesome';
   import { beer, refresh, comment, codeFork, camera, ban } from 'svelte-awesome/icons';
   import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 </script>
+```
+
+## Sapper Usage
+For Sapper, you may need to import the Icon component explicitly as below:
+```javascript
+import Icon from 'svelte-awesome/components/Icon.svelte'
 ```
