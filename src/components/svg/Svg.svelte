@@ -1,9 +1,11 @@
-<svg version="1.1" bind:this={svg} class="fa-icon {className}"
+<svg version="1.1" class="fa-icon {className}"
   class:fa-spin={spin} class:fa-pulse={pulse} class:fa-inverse={inverse}
   class:fa-flip-horizontal="{flip === 'horizontal'}" class:fa-flip-vertical="{flip === 'vertical'}"
-  width={width} height={height}
+  {x} {y} {width} {height}
+  aria-label={label}
   role="{ label ? 'img' : 'presentation' }"
-  viewBox={box} style={style}>
+  viewBox={box} style={style}
+  >
   <slot></slot>
 </svg>
 
@@ -38,9 +40,6 @@
 </style>
 
 <script>
-  import { afterUpdate } from 'svelte';
-
-  let svg;
   let className;
 
   export { className as class };
@@ -55,25 +54,8 @@
   export let flip = null;
 
   // optionals
-  export let x = false;
-  export let y = false;
-  export let style = null;
-  export let label = false;
-
-  afterUpdate(() => {
-    if (typeof svg !== 'undefined') {
-      if (x) {
-        svg.setAttribute('x', x);
-      }
-      if (y) {
-        svg.setAttribute('y', y);
-      }
-      if (style) {
-        svg.setAttribute('style', style);
-      }
-      if (label) {
-        svg.setAttribute('aria-label', label);
-      }
-    }
-  });
+  export let x = undefined;
+  export let y = undefined;
+  export let style = undefined;
+  export let label = undefined;
 </script>
