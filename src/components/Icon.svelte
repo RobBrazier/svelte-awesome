@@ -162,11 +162,9 @@
     return `${combined}font-size: ${size}em`;
   }
 
-  afterUpdate(() => {
-    init();
-    width = calculateWidth();
-    height = calculateHeight();
-    combinedStyle = calculateStyle();
-    box = calculateBox();
-  });
+  init();
+  width = calculateWidth();
+  height = calculateHeight();
+  combinedStyle = calculateStyle();
+  box = calculateBox();
 </script>
