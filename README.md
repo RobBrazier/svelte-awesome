@@ -46,3 +46,9 @@ $ npm install --save svelte-awesome
   import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 </script>
 ```
+
+## Sapper Usage
+For Sapper, you may need to import the Icon component explicitly as below:
+```javascript
+import Icon from 'svelte-awesome/components/Icon.svelte'
+```
