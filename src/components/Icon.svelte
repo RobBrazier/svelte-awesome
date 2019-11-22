@@ -21,9 +21,6 @@
 
 <script>
   /* eslint-disable no-unused-vars */
-
-  import { afterUpdate } from 'svelte';
-
   import Path from './svg/Path.svelte';
   import Polygon from './svg/Polygon.svelte';
   import Raw from './svg/Raw.svelte';
@@ -162,9 +159,12 @@
     return `${combined}font-size: ${size}em`;
   }
 
-  init();
-  width = calculateWidth();
-  height = calculateHeight();
-  combinedStyle = calculateStyle();
-  box = calculateBox();
+   $: {
+    data // this is needed to keep data up-to-date
+    init()
+    width = calculateWidth();
+    height = calculateHeight();
+    combinedStyle = calculateStyle();
+    box = calculateBox();
+  }
 </script>
