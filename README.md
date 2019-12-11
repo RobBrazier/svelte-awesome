@@ -1,6 +1,7 @@
 # Svelte-Awesome
 [![Semaphore CI](https://robbrazier.semaphoreci.com/badges/svelte-awesome.svg)](https://robbrazier.semaphoreci.com/projects/svelte-awesome)
 [![npm](https://img.shields.io/npm/v/svelte-awesome.svg)](https://www.npmjs.com/package/svelte-awesome)
+[![bundlephobia](https://badgen.net/bundlephobia/minzip/svelte-awesome)](https://bundlephobia.com/result?p=svelte-awesome)
 [![Code Climate](https://img.shields.io/codeclimate/maintainability/RobBrazier/svelte-awesome.svg)](https://codeclimate.com/github/RobBrazier/svelte-awesome/maintainability)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
