@@ -35,7 +35,7 @@
   "devDependencies": {
     "@fortawesome/free-regular-svg-icons": "^5.10.1",
     "acorn": "^7.0.0",
-    "auto-changelog": "^1.15.0",
+    "auto-changelog": "^2.0.0",
     "babel-core": "^6.26.0",
     "cassandra-map": "^0.1.7",
     "change-case": "^4.0.0",
