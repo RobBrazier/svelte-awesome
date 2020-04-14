@@ -53,3 +53,6 @@ For Sapper, you may need to import the Icon component explicitly as below:
 ```javascript
 import Icon from 'svelte-awesome/components/Icon.svelte'
 ```
+
+## Contributors
+* [dimfeld](https://github.com/dimfeld)
