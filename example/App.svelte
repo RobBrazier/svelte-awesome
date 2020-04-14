@@ -45,7 +45,7 @@
     <h2>Dynamic Scale and Styles</h2>
     <p><small>Inline dynamic scaling and styling</small></p>
     <p on:mouseenter={toggleIconOpen} on:mouseleave={toggleIconOpen}><Icon data={icons.powerOff} style={`transform:rotate(${iconOpen ? 0 : -180}deg)`} scale={iconScale}/></p>
-    <figure><pre class="prettyprint"><code>{'<Icon data={icons.powerOff} style={`transform:rotate(${iconOpen ? 0 : -90}deg)`} scale={iconScale}/>'}</code></pre></figure>
+    <figure><pre class="prettyprint"><code>{'<Icon data={icons.powerOff} style={`transform:rotate(${iconOpen ? 0 : -180}deg)`} scale={iconScale}/>'}</code></pre></figure>
 <!--
     <h2>Stacked icons</h2>
     <p><small>Use stacked icons like in FontAwesome. Even more powerful.</small></p>
