@@ -160,8 +160,10 @@
   }
 
    $: {
-    data // this is needed to keep data up-to-date
-    init()
+    data; // this is needed to keep data up-to-date
+    style;
+    scale;
+    init();
     width = calculateWidth();
     height = calculateHeight();
     combinedStyle = calculateStyle();

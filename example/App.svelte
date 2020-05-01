@@ -41,6 +41,11 @@
     <p><small>Inline custom styling</small></p>
     <p><Icon data={icons.paintBrush} style="border: 1px solid #000; border-radius: 8px; padding: 5px"/></p>
     <figure><pre class="prettyprint"><code>{'<Icon data={paintBrush} style="border: 1px solid #000; border-radius: 8px; padding: 5px"/>'}</code></pre></figure>
+
+    <h2>Dynamic Scale and Styles</h2>
+    <p><small>Inline dynamic scaling and styling</small></p>
+    <p on:mouseenter={toggleIconOpen} on:mouseleave={toggleIconOpen}><Icon data={icons.powerOff} style={`transform:rotate(${iconOpen ? 0 : -180}deg)`} scale={iconScale}/></p>
+    <figure><pre class="prettyprint"><code>{'<Icon data={icons.powerOff} style={`transform:rotate(${iconOpen ? 0 : -180}deg)`} scale={iconScale}/>'}</code></pre></figure>
 <!--
     <h2>Stacked icons</h2>
     <p><small>Use stacked icons like in FontAwesome. Even more powerful.</small></p>
@@ -59,7 +64,7 @@
     <p><small>You can register your own icons.</small></p>
     <p><Icon data={baidu}/></p>
     <figure><pre class="prettyprint"><code>{'<Icon data={baidu}/>'}</code></pre></figure>
-    
+
     <h2>FontAwesome v5 Icons</h2>
     <p><Icon data={faFontAwesomeLogoFull} scale="10"/></p>
     <figure><pre class="prettyprint"><code>{'<Icon data={faFontAwesomeLogoFull} scale="10"/>'}</code></pre></figure>
@@ -93,6 +98,9 @@ export let baidu = { baidu: { width: 23.868, height: 26, d: 'M3.613 13.701c2.827
 export let webpack = { webpack: { width: 1200, height: 1200, paths: [{ style: 'fill:#8ED6FB', d: 'M1035.6 879.3l-418.1 236.5V931.6L878 788.3l157.6 91zm28.6-25.9V358.8l-153 88.3V765l153 88.4zm-901.5 25.9l418.1 236.5V931.6L320.3 788.3l-157.6 91zm-28.6-25.9V358.8l153 88.3V765l-153 88.4zM152 326.8L580.8 84.2v178.1L306.1 413.4l-2.1 1.2-152-87.8zm894.3 0L617.5 84.2v178.1l274.7 151.1 2.1 1.2 152-87.8z' }, { style: 'fill:#1C78C0', d: 'M580.8 889.7l-257-141.3v-280l257 148.4v272.9zm36.7 0l257-141.3v-280l-257 148.4v272.9zm-18.3-283.6zM341.2 436l258-141.9 258 141.9-258 149-258-149z' }] } };
 export let vue = { vue: { width: 256, height: 221, polygons: [{ style: 'fill:#41B883', points: '0,0 128,220.8 256,0 204.8,0 128,132.48 50.56,0 0,0' }, { style: 'fill:#35495E', points: '50.56,0 128,133.12 204.8,0 157.44,0 128,51.2 97.92,0 50.56,0' }] } };
 
+export let iconOpen = true;
+export let iconScale = '5';
+
 const keys = Object.keys(icons);
 
 function randomIcon() {
@@ -105,6 +113,10 @@ let running = true;
 
 export function change() {
   icon = randomIcon();
+}
+
+export function toggleIconOpen() {
+  iconOpen = !iconOpen;
 }
 
 export function toggle() {
