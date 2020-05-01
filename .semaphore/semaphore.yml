@@ -19,7 +19,7 @@ blocks:
             - cache restore
             - npm install
             - cache store
-  - name: "Run Linting"
+  - name: "Run QA"
     task:
       jobs:
         - name: npm run lint
@@ -27,6 +27,11 @@ blocks:
             - checkout
             - cache restore
             - npm run lint
+        - name: npm run test
+          commands:
+            - checkout
+            - cache restore
+            - npm run test
   - name: "Build Components"
     task:
       jobs:
