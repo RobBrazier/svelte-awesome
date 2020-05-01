@@ -54,8 +54,8 @@
   export let flip = null;
 
   // optionals
-  export let x = undefined;
-  export let y = undefined;
-  export let style = undefined;
-  export let label = undefined;
+  export let x;
+  export let y;
+  export let style;
+  export let label;
 </script>
