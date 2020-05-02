@@ -36,7 +36,7 @@ blocks:
           - exitcode=$(if [ "$SEMAPHORE_JOB_RESULT" == "passed" ]; then echo 0; else echo 1; fi)
             ./cc-test-reporter after-build --exit-code $exitcode
       jobs:
-        - name: npm run test
+        - name: npm run coverage
           commands:
             - checkout
             - cache restore
