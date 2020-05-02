@@ -19,7 +19,7 @@ blocks:
             - cache restore
             - npm install
             - cache store
-  - name: "Run QA"
+  - name: "Run Linting"
     task:
       jobs:
         - name: npm run lint
@@ -27,11 +27,22 @@ blocks:
             - checkout
             - cache restore
             - npm run lint
+  - name: "Run Tests"
+    task:
+      secrets:
+        - name: codeclimate-svelte-awesome
+      epilogue:
+        - exitcode=$(if [ "$SEMAPHORE_JOB_RESULT" == "passed" ]; then echo 0; else echo 1; fi)
+          ./cc-test-reporter after-build --exit-code $exitcode
+      jobs:
         - name: npm run test
           commands:
             - checkout
             - cache restore
-            - npm run test
+            - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            - chmod +x ./cc-test-reporter
+            - ./cc-test-reporter before-build
+            - npm run coverage
   - name: "Build Components"
     task:
       jobs:
