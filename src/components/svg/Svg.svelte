@@ -54,8 +54,8 @@
   export let flip = null;
 
   // optionals
-  export let x = undefined;
-  export let y = undefined;
+  export let x = undefined; // eslint-disable-line no-undef-init
+  export let y = undefined; // eslint-disable-line no-undef-init
   export let style;
   export let label;
 </script>
