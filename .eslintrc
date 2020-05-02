@@ -1,7 +1,7 @@
 {
   "extends": "airbnb-base",
   "plugins": [
-    "html"
+    "svelte3"
   ],
   "env": {
     "es6": true,
@@ -9,8 +9,18 @@
     "node": true,
     "mocha": true
   },
+  "overrides": [
+    {
+      "files": [
+        "**/*.svelte"
+      ],
+      "processor": "svelte3/svelte3"
+    }
+  ],
   "rules": {
     "import/no-mutable-exports": "off",
-    "prefer-const": "off"
+    "prefer-const": "off",
+    "no-template-curly-in-string": "off",
+    "no-multiple-empty-lines": "off"
   }
 }
