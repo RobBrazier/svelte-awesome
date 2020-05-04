@@ -7,7 +7,7 @@ agent:
 global_job_config:
   prologue:
     commands:
-      - sem-version node 10.13.0
+      - sem-version node 12.16.0
 
 blocks:
   - name: "Install Dependencies"
@@ -27,6 +27,18 @@ blocks:
             - checkout
             - cache restore
             - npm run lint
+  - name: "Run Tests"
+    task:
+      secrets:
+        - name: codecov-svelte-awesome
+      jobs:
+        - name: npm run coverage
+          commands:
+            - checkout
+            - cache restore
+            - npm run coverage
+#            - bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l JavaScript -r coverage/lcov.info
+            - bash <(curl -s https://codecov.io/bash)
   - name: "Build Components"
     task:
       jobs:
