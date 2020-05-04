@@ -50,7 +50,7 @@ import Icon from 'svelte-awesome/components/Icon.svelte'
 ```
 
 ## Contributors
-  * [dimfeld](https://github.com/dimfeld)
+* [dimfeld](https://github.com/dimfeld)
 
 [vue-awesome]: https://github.com/Justineo/vue-awesome
 [font-awesome]: https://github.com/FortAwesome/Font-Awesome
