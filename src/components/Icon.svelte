@@ -26,7 +26,7 @@
   import Raw from './svg/Raw.svelte';
   import Svg from './svg/Svg.svelte';
 
-  let className = "";
+  let className = '';
 
   export let data;
   export let scale = 1;
@@ -50,6 +50,26 @@
   let height;
   let combinedStyle;
   let box;
+
+  function normaliseData(iconData) {
+    if ('iconName' in iconData && 'icon' in iconData) {
+      let normalisedData = {};
+      let faIcon = iconData.icon;
+      let name = iconData.iconName;
+      let iconWidth = faIcon[0];
+      let iconHeight = faIcon[1];
+      let paths = faIcon[4];
+      normalisedData[name] = {
+        width: iconWidth,
+        height: iconHeight,
+        paths: [{
+          d: paths,
+        }],
+      };
+      return normalisedData;
+    }
+    return iconData;
+  }
 
   function init() {
     if (typeof data === 'undefined') {
@@ -75,27 +95,6 @@
       });
     }
     self = icon;
-  }
-
-  function normaliseData(data) {
-    if ('iconName' in data && 'icon' in data) {
-      let normalisedData = {};
-      let faIcon = data.icon;
-      let name = data.iconName;
-      let width = faIcon[0];
-      let height = faIcon[1];
-      let paths = faIcon[4];
-      let iconData = {
-        width,
-        height,
-        paths: [{
-          d: paths
-        }]
-      }
-      normalisedData[name] = iconData;
-      return normalisedData;
-    }
-    return data;
   }
 
   function normalisedScale() {
@@ -145,7 +144,7 @@
   }
 
   function calculateStyle() {
-    let combined = "";
+    let combined = '';
     if (style !== null) {
       combined += style;
     }
@@ -153,16 +152,17 @@
     if (size === 1) {
       return combined;
     }
-    if (combined !== "" && !combined.endsWith(';')) {
+    if (combined !== '' && !combined.endsWith(';')) {
       combined += '; ';
     }
     return `${combined}font-size: ${size}em`;
   }
 
-   $: {
-    data; // this is needed to keep data up-to-date
-    style;
-    scale;
+  $: {
+    // this is needed to keep data up-to-date
+    data; // eslint-disable-line no-unused-expressions
+    style; // eslint-disable-line no-unused-expressions
+    scale; // eslint-disable-line no-unused-expressions
     init();
     width = calculateWidth();
     height = calculateHeight();
