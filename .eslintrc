@@ -1,16 +1,28 @@
 {
-  "extends": "airbnb-base",
+  "extends": ["airbnb-base", "plugin:jest/recommended"],
   "plugins": [
-    "html"
+    "svelte3",
+    "jest"
   ],
   "env": {
     "es6": true,
     "browser": true,
     "node": true,
-    "mocha": true
+    "mocha": true,
+    "jest/globals": true
   },
+  "overrides": [
+    {
+      "files": [
+        "**/*.svelte"
+      ],
+      "processor": "svelte3/svelte3"
+    }
+  ],
   "rules": {
     "import/no-mutable-exports": "off",
-    "prefer-const": "off"
+    "prefer-const": "off",
+    "no-template-curly-in-string": "off",
+    "no-multiple-empty-lines": "off"
   }
 }
