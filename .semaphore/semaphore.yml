@@ -30,14 +30,15 @@ blocks:
   - name: "Run Tests"
     task:
       secrets:
-        - name: codacy-svelte-awesome
+        - name: codecov-svelte-awesome
       jobs:
         - name: npm run coverage
           commands:
             - checkout
             - cache restore
             - npm run coverage
-            - bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l JavaScript -r coverage/lcov.info
+#            - bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l JavaScript -r coverage/lcov.info
+            - bash <(curl -s https://codecov.io/bash)
   - name: "Build Components"
     task:
       jobs:
