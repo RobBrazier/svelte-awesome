@@ -46,6 +46,7 @@
     "eslint": "^7.2.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.9.0",
     "eslint-plugin-svelte3": "^2.7.3",
     "font-awesome": "^4.7.0",
     "gh-release": "^4.0.3",

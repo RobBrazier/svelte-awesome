@@ -1,13 +1,15 @@
 {
-  "extends": "airbnb-base",
+  "extends": ["airbnb-base", "plugin:jest/recommended"],
   "plugins": [
-    "svelte3"
+    "svelte3",
+    "jest"
   ],
   "env": {
     "es6": true,
     "browser": true,
     "node": true,
-    "mocha": true
+    "mocha": true,
+    "jest/globals": true
   },
   "overrides": [
     {
