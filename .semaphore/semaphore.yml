@@ -7,7 +7,7 @@ agent:
 global_job_config:
   prologue:
     commands:
-      - sem-version node 10.13.0
+      - sem-version node 12.16.0
 
 blocks:
   - name: "Install Dependencies"
@@ -27,6 +27,23 @@ blocks:
             - checkout
             - cache restore
             - npm run lint
+  - name: "Run Tests"
+    task:
+      secrets:
+        - name: codeclimate-svelte-awesome
+      epilogue:
+        commands:
+          - exitcode=$(if [ "$SEMAPHORE_JOB_RESULT"=="passed" ]; then echo 0; else echo 1; fi)
+          - ./cc-test-reporter after-build --exit-code $exitcode
+      jobs:
+        - name: npm run coverage
+          commands:
+            - checkout
+            - cache restore
+            - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            - chmod +x ./cc-test-reporter
+            - ./cc-test-reporter before-build
+            - npm run coverage
   - name: "Build Components"
     task:
       jobs:
