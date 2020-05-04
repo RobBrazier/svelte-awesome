@@ -30,20 +30,14 @@ blocks:
   - name: "Run Tests"
     task:
       secrets:
-        - name: codeclimate-svelte-awesome
-      epilogue:
-        commands:
-          - exitcode=$(if [ "$SEMAPHORE_JOB_RESULT"=="passed" ]; then echo 0; else echo 1; fi)
-          - ./cc-test-reporter after-build --exit-code $exitcode
+        - name: codacy-svelte-awesome
       jobs:
         - name: npm run coverage
           commands:
             - checkout
             - cache restore
-            - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-            - chmod +x ./cc-test-reporter
-            - ./cc-test-reporter before-build
             - npm run coverage
+            - bash <(curl -Ls https://coverage.codacy.com/get.sh)
   - name: "Build Components"
     task:
       jobs:
