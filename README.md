@@ -3,6 +3,7 @@
 [![npm](https://img.shields.io/npm/v/svelte-awesome.svg)](https://www.npmjs.com/package/svelte-awesome)
 [![bundlephobia](https://badgen.net/bundlephobia/minzip/svelte-awesome)](https://bundlephobia.com/result?p=svelte-awesome)
 [![Code Climate](https://img.shields.io/codeclimate/maintainability/RobBrazier/svelte-awesome.svg)](https://codeclimate.com/github/RobBrazier/svelte-awesome/maintainability)
+[![codecov](https://codecov.io/gh/RobBrazier/svelte-awesome/branch/master/graph/badge.svg)](https://codecov.io/gh/RobBrazier/svelte-awesome)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 > Awesome SVG icon component for Svelte JS, built with Font Awesome icons. Based on [Justineo/vue-awesome][vue-awesome]
