@@ -39,7 +39,7 @@
     "babel-core": "^6.26.0",
     "cassandra-map": "^0.1.7",
     "change-case": "^4.0.0",
-    "eslint": "^6.3.0",
+    "eslint": "^7.2.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-html": "^6.0.0",
     "eslint-plugin-import": "^2.8.0",
