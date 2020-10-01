@@ -44,7 +44,7 @@
     "eslint-plugin-html": "^6.0.0",
     "eslint-plugin-import": "^2.8.0",
     "font-awesome": "^4.7.0",
-    "gh-release": "^3.5.0",
+    "gh-release": "^4.0.3",
     "graceful-fs": "^4.1.11",
     "is-ci": "^2.0.0",
     "lodash": "^4.17.5",
