@@ -14,11 +14,11 @@
 
   export let data;
 
-  function getRaw(data) {
-    if (!data || !data.raw) {
+  function getRaw(iconData) {
+    if (!iconData || !iconData.raw) {
       return null;
     }
-    let rawData = data.raw;
+    let rawData = iconData.raw;
     const ids = {};
     rawData = rawData.replace(/\s(?:xml:)?id=["']?([^"')\s]+)/g, (match, id) => {
       const uniqueId = getId();
