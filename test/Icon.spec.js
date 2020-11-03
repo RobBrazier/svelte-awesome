@@ -1,7 +1,8 @@
 import { render, cleanup } from '@testing-library/svelte';
 import '@testing-library/jest-dom/extend-expect';
 import Icon from '../src/components/Icon.svelte';
-import { android } from '../src/icons';
+import { android, fa } from '../src/icons';
+import { faAddressBook } from '@fortawesome/free-regular-svg-icons';
 
 beforeEach(cleanup); // this is required.
 describe('Icon', () => {
@@ -32,13 +33,19 @@ describe('Icon', () => {
     expect(container.querySelector('svg').getAttribute('style')).toBe('color: #bada55');
   });
 
-  // test('should change button text after click', async () => {
-  //   const { getByText } = render(App, { props: { name: 'world' } })
+  test('should configure custom width', () => {
+    const { container } = render(Icon, { props: { data: android, width: 10 } });
+    expect(container.querySelector('svg').getAttribute('viewBox')).toBe(`0 0 10 ${android.height}`);
+  })
 
-  //   fireEvent.click(getByText('Button Text'))
+  test('should render font awesome 5 icon', () => {
+    const { container } = render(Icon, { props: { data: faAddressBook } });
+    const svg = container.querySelector('svg');
+    console.log(svg.outerHTML);
+    expect(svg.getAttribute('viewBox')).toBe(`0 0 ${faAddressBook.icon[0]} ${faAddressBook.icon[1]}`);
+    const paths = svg.getElementsByTagName('path');
+    expect(paths.length).toBe(1);
+    expect(paths[0].getAttribute('d')).toBe(faAddressBook.icon[4]);
+  });
 
-  //   const button = await waitForElement(() => getByText('Button Clicked'))
-
-  //   expect(button).toBeInTheDocument()
-  // })
 });
