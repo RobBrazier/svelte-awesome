@@ -1,0 +1,9 @@
+pull_request_rules:
+  - name: Automatic merge on approval
+    conditions:
+      - "author=dependabot[bot]"
+      - "approved-reviews-by=RobBrazier"
+      - "#check-success>=4"
+    actions:
+      merge:
+        method: merge
