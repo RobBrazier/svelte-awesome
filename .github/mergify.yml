@@ -18,3 +18,23 @@ pull_request_rules:
       request_reviews:
         users:
           - RobBrazier
+  - name: Add reviewer to PRs
+    conditions:
+      - "-author=dependabot[bot]"
+    actions:
+      request_reviews:
+        users:
+          - RobBrazier
+  - name: Merge PR on approval
+    conditions:
+      - "-author=dependabot[bot]"
+      - "base=master"
+      - "check-success=ci/semaphoreci/pr: Build Components"
+      - "check-success=ci/semaphoreci/pr: Install Dependencies"
+      - "check-success=ci/semaphoreci/pr: Run Linting"
+      - "#check-success>=4"
+      - "#check-failure=0"
+      - "approved-reviews-by=RobBrazier"
+    actions:
+      merge:
+        method: merge
