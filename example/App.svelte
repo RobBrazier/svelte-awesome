@@ -1,5 +1,5 @@
 <svelte:head>
-  {@html zenburn}
+  {@html atomOneLight}
 </svelte:head>
 
 <main>
@@ -96,7 +96,7 @@ import { faFontAwesomeLogoFull } from '@fortawesome/free-regular-svg-icons';
 import Icon from '../src/components/Icon.svelte';
 import * as icons from '../src/icons';
 import { HighlightSvelte } from 'svelte-highlight'
-import { zenburn } from "svelte-highlight/styles";
+import { atomOneLight } from "svelte-highlight/styles";
 
 import './dist/global.css';
 
