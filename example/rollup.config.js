@@ -22,7 +22,7 @@ export default {
 			},
 		}),
 
-		css({ output: 'example/dist/bundle.css' }),
+		css({ output: 'bundle.css' }),
 
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
