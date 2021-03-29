@@ -63,26 +63,13 @@ p small {
   color: #7f8c8d;
 }
 pre {
-  display: inline-block;
+  display: inline-block !important;
   margin: 0;
-  padding: 0.8em;
-  background-color: #f9f9f9;
+  padding: 0.8em !important;
   box-shadow: 0 1px 2px rgba(0,0,0,0.125);
   text-align: left;
   line-height: 1.1;
-  color: #2973b7;
-}
-pre, code {
-  font-family: "Roboto Mono", Monaco, courier, monospace;
-}
-pre code {
-  font-size: 0.8em;
-}
-.atn {
-  color: #e96900;
-}
-.atv {
-  color: #42b983;
+  border-radius: 5px;
 }
 footer {
   margin: 5em 0 3em;
@@ -132,9 +119,10 @@ footer a:hover {
     margin: 1em 0;
   }
   pre {
-    display: block;
+    display: block !important;
     box-shadow: none;
     overflow-x: auto;
     font-size: 0.9em;
+    text-align: center
   }
 }
