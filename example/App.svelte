@@ -96,7 +96,7 @@ import { faFontAwesomeLogoFull } from '@fortawesome/free-regular-svg-icons';
 import Icon from '../src/components/Icon.svelte';
 import * as icons from '../src/icons';
 import { HighlightSvelte } from 'svelte-highlight'
-import { atomOneLight } from "svelte-highlight/styles";
+import { atomOneLight } from "svelte-highlight/src/styles";
 
 import './dist/global.css';
 
