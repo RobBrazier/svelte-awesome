@@ -151,6 +151,9 @@
     }
     let size = normalisedScale();
     if (size === 1) {
+      if (combined.length === 0) {
+        return undefined;
+      }
       return combined;
     }
     if (combined !== "" && !combined.endsWith(';')) {
