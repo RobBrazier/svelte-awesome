@@ -4,7 +4,7 @@
   {x} {y} {width} {height}
   aria-label={label}
   role="{ label ? 'img' : 'presentation' }"
-  viewBox={box} style={style}
+  viewBox={box} {style}
   >
   <slot></slot>
 </svg>
