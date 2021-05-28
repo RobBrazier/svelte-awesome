@@ -7,9 +7,18 @@ pull_request_rules:
       - "check-success=ci/semaphoreci/pr: Run Linting"
       - "#check-success>=4"
       - "#check-failure=0"
+      - '-body~=[bB]reaking'
     actions:
       merge:
         method: rebase
+  - name: Request review for breaking changes
+    conditions:
+      - "author=dependabot[bot]"
+      - 'body~=[bB]reaking'
+    actions:
+      request_reviews:
+        users:
+          - RobBrazier
   - name: Dependabot request reviews
     conditions:
       - "author=dependabot[bot]"
