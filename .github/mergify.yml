@@ -36,7 +36,7 @@ pull_request_rules:
           - RobBrazier
   - name: Merge PR on approval
     conditions:
-      - "-author=dependabot[bot]"
+      - "author=dependabot[bot]"
       - "base=master"
       - "check-success=ci/semaphoreci/pr: Build Components"
       - "check-success=ci/semaphoreci/pr: Install Dependencies"
