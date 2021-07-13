@@ -14,7 +14,7 @@ A demo is available [here][demo]
 ## Installation
 ### NPM
 ```bash
-$ npm install --save svelte-awesome
+npm install --save svelte-awesome
 ```
 
 ## Usage
