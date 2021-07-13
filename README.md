@@ -5,9 +5,11 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/5543afb1136e45e2b7bae46332f94d60)](https://www.codacy.com/gh/RobBrazier/svelte-awesome/dashboard)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-> Awesome SVG icon component for Svelte JS, built with Font Awesome icons. Based on [Justineo/vue-awesome][vue-awesome]
+> Awesome SVG icon component for Svelte JS, built with Font Awesome icons.
+> Based on [Justineo/vue-awesome][vue-awesome]
 
-Svelte-Awesome supports [Font-Awesome][font-awesome] `v4.7.0` (icons inbuilt) and `v5` (via [`@fortawesome` npm packages][fortawesome-icons])
+Svelte-Awesome supports [Font-Awesome][font-awesome] `v4.7.0` (icons inbuilt)
+and `v5` (via [`@fortawesome` npm packages][fortawesome-icons])
 
 A demo is available [here][demo]
 
@@ -50,7 +52,7 @@ import Icon from 'svelte-awesome/components/Icon.svelte'
 ```
 
 ## Contributors
-*  [dimfeld](https://github.com/dimfeld)
+- [dimfeld](https://github.com/dimfeld)
 
 [vue-awesome]: https://github.com/Justineo/vue-awesome
 [font-awesome]: https://github.com/FortAwesome/Font-Awesome
