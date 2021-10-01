@@ -57,7 +57,7 @@
     "rollup-plugin-svelte": "^7.0.0",
     "rollup-plugin-terser": "^7.0.2",
     "serve": "^12.0.0",
-    "svelte-highlight": "^3.0.0",
+    "svelte-highlight": "^4.0.0",
     "svgfont2js": "^0.1.2"
   }
 }
