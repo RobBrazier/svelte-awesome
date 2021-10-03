@@ -43,7 +43,7 @@ blocks:
             - git config --get user.name
             - git config --get user.email
             - touch build/.nojekyll
-            - npx gh-pages -d build
+            - npx gh-pages -t -d build
 
         - name: Publish to NPM
           commands:
