@@ -131,12 +131,11 @@ export function toggle() {
 }
 
 onMount(() => {
-  change();
-//   setInterval(() => {
-//     if (running) {
-//       change();
-//     }
-//   }, 200);
+  setInterval(() => {
+    if (running) {
+      change();
+    }
+  }, 200);
 
 });
 </script>

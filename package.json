@@ -14,7 +14,7 @@
     "build": "svelte-kit build",
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",
-    "icons": "node build/generate-icons",
+    "icons": "node .semaphore/generate-icons",
     "lint": "eslint ./{src}/**/*.{html,js}",
     "test": "npm run lint",
     "changelog": "auto-changelog -p",
