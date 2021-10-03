@@ -1,9 +1,9 @@
-const path = require('path');
-const fs = require('graceful-fs');
-const changeCase = require('change-case');
+import path from 'path';
+import fs from 'graceful-fs'; 
+import changeCase from 'change-case';
 
-const patch = require('patch-module');
-const _ = require('lodash');
+import patch from 'patch-module';
+import _ from 'lodash';
 
 const svgfont2js = patch('./node_modules/svgfont2js/index.js', [
   {
@@ -16,7 +16,7 @@ const svgfont2js = patch('./node_modules/svgfont2js/index.js', [
 const iconTemplate = 'export default <%= data %>;\n';
 const icons = svgfont2js(
   fs.readFileSync(
-    require.resolve('font-awesome/fonts/fontawesome-webfont.svg'),
+    './node_modules/font-awesome/fonts/fontawesome-webfont.svg',
     'utf-8'
   )
 );
@@ -50,7 +50,7 @@ function loadAliases(less) {
 }
 const aliases = loadAliases(
   fs.readFileSync(
-    require.resolve('font-awesome/less/variables.less'),
+    './node_modules/font-awesome/less/variables.less',
     'utf8'
   )
 );
@@ -66,7 +66,7 @@ function stringify(data) {
 }
 
 const filenames = [];
-const sourceDir = path.join(__dirname, '../src/icons');
+const sourceDir = './src/lib/icons';
 for (const i in icons) {
   if (Object.prototype.hasOwnProperty.call(icons, i)) {
     const icon = icons[i];

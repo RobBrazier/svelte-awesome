@@ -3,7 +3,7 @@
 </g>
 
 <script>
-  /* eslint-disable no-unused-vars, import/prefer-default-export */
+  /* eslint-disable no-unused-vars */
   let cursor = 0xd4937;
   function getId() {
     cursor += 1;
