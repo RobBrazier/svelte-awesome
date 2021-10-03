@@ -19,6 +19,7 @@ const config = {
 		paths: {
 			base: base_path
 		},
+		appDir: "app",
 		vite: {
 		    optimizeDeps: {
 		      include: ["highlight.js/lib/core"],
