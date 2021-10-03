@@ -1,6 +1,11 @@
 import preprocess from 'svelte-preprocess';
 import adapter from "@sveltejs/adapter-static";
 
+let base_path = ""
+if (process.env.SEMAPHORE) {
+	base_path = "/svelte-awesome"
+}
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
@@ -12,7 +17,7 @@ const config = {
 		adapter: adapter(),
 		target: '#svelte',
 		paths: {
-			base: "/svelte-awesome"
+			base: base_path
 		},
 		vite: {
 		    optimizeDeps: {
