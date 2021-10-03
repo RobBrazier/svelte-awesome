@@ -1,5 +1,0 @@
-build
-src
-.*
-rollup.config.js
-example
