@@ -34,12 +34,12 @@ blocks:
           commands:
             - checkout
             - cache restore
-            - npm run example:build
+            - npm run build
             - git config --global user.name "Semaphore Runner"
             - git config --global user.email "$(whoami)@$(hostname).dev"
             - git config --get user.name
             - git config --get user.email
-            - npx gh-pages -d example/dist
+            - npx gh-pages -d build
 
         - name: Publish to NPM
           commands:
