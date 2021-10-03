@@ -7,7 +7,7 @@ agent:
 global_job_config:
   prologue:
     commands:
-      - sem-version node 10.13.0
+      - sem-version node 14
 
 blocks:
   - name: "Install Dependencies"
@@ -34,7 +34,7 @@ blocks:
           commands:
             - checkout
             - cache restore
-            - npm run build
+            - npm run package
         - name: Build Example
           commands:
             - checkout
