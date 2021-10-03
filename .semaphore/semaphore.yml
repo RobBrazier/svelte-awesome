@@ -34,7 +34,7 @@ blocks:
           commands:
             - checkout
             - cache restore
-            - npm run build
+            - npm run package
         - name: Build Example
           commands:
             - checkout
