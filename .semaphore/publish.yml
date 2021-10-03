@@ -17,7 +17,7 @@ blocks:
           commands:
             - checkout
             - cache restore
-            - npm install
+            - npm ci
             - cache store
   - name: "Publish"
     task:
@@ -45,4 +45,4 @@ blocks:
           commands:
             - checkout
             - cache restore
-            - bash build/publish.sh
+            - bash .semaphore/publish.sh
