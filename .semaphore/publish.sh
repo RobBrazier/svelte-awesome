@@ -6,9 +6,6 @@ if npx version-exists $name $version; then
     exit 0
 fi
 
-npm run build
-cp -r ./src/*/ .
-npm publish
+npm run package
+npm publish ./package
 npm run gh-release
-rm -rf ./components
-rm -rf ./icons
