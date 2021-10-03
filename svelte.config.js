@@ -2,9 +2,6 @@ import preprocess from 'svelte-preprocess';
 import adapter from "@sveltejs/adapter-static";
 
 let base_path = ""
-if (process.env.SEMAPHORE) {
-	base_path = "/svelte-awesome"
-}
 if (process.env.BASE_PATH !== "") {
 	base_path = process.env.BASE_PATH
 }
