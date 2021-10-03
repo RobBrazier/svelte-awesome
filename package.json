@@ -9,6 +9,7 @@
   },
   "author": "Rob Brazier",
   "license": "MIT",
+  "svelte": "./Icon.svelte",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
