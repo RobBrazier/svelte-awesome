@@ -5,6 +5,9 @@ let base_path = ""
 if (process.env.SEMAPHORE) {
 	base_path = "/svelte-awesome"
 }
+if (process.env.BASE_PATH !== "") {
+	base_path = process.env.BASE_PATH
+}
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
