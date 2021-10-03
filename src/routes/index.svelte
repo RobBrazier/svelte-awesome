@@ -92,7 +92,7 @@
 /* eslint-disable no-unused-vars */
 import { onMount } from 'svelte';
 import { faFontAwesomeLogoFull } from '@fortawesome/free-regular-svg-icons';
-import Icon from '../lib/Icon.svelte';
+import Icon from '../lib/components/Icon.svelte';
 import * as icons from '../lib/icons';
 import { HighlightSvelte } from 'svelte-highlight'
 import { atomOneLight } from "svelte-highlight/src/styles";
