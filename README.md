@@ -1,5 +1,5 @@
 # Svelte-Awesome
-[![Semaphore CI](https://robbrazier.semaphoreci.com/badges/svelte-awesome.svg)](https://robbrazier.semaphoreci.com/projects/svelte-awesome)
+[![Semaphore CI](https://robbrazier.semaphoreci.com/badges/svelte-awesome.svg?style=shields)](https://robbrazier.semaphoreci.com/projects/svelte-awesome)
 [![npm](https://img.shields.io/npm/v/svelte-awesome.svg)](https://www.npmjs.com/package/svelte-awesome)
 [![bundlephobia](https://badgen.net/bundlephobia/minzip/svelte-awesome)](https://bundlephobia.com/result?p=svelte-awesome)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/5543afb1136e45e2b7bae46332f94d60)](https://www.codacy.com/gh/RobBrazier/svelte-awesome/dashboard)
