@@ -15,7 +15,7 @@
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",
     "icons": "node .semaphore/generate-icons",
-    "lint": "eslint ./{src}/**/*.{html,js}",
+    "lint": "eslint ./src/**/*.{svelte,js}",
     "test": "npm run lint",
     "changelog": "auto-changelog -p",
     "gh-release": "is-ci && gh-release -y"

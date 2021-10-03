@@ -1,5 +1,5 @@
 <Svg label={label} width={width} height={height} box={box} style={combinedStyle}
-  spin={spin} flip={flip} inverse={inverse} pulse={pulse} class={className}>
+  spin={spin} flip={flip} inverse={inverse} pulse={pulse} class={className} x={x}, y={y}>
   <slot>
     {#if self}
       {#if self.paths}

@@ -88,10 +88,9 @@
   }
 </style>
 
-<script>
+<script lang="ts">
 /* eslint-disable no-unused-vars */
 import { onMount } from 'svelte';
-/* eslint-disable import/no-extraneous-dependencies */
 import { faFontAwesomeLogoFull } from '@fortawesome/free-regular-svg-icons';
 import Icon from '../lib/Icon.svelte';
 import * as icons from '../lib/icons';
@@ -118,15 +117,15 @@ function randomIcon() {
 export let icon = randomIcon();
 let running = true;
 
-export function change() {
+export function change(): void {
   icon = randomIcon();
 }
 
-export function toggleIconOpen() {
+export function toggleIconOpen(): void {
   iconOpen = !iconOpen;
 }
 
-export function toggle() {
+export function toggle(): void {
   running = !running;
 }
 
