@@ -63,3 +63,4 @@ typings/
 .idea/
 package/
 build/
+.svelte-kit/
