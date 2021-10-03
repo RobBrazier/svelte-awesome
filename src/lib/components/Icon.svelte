@@ -29,7 +29,7 @@
   let className = "";
 
   export let data;
-  export let scale = "1";
+  export let scale = 1;
   export let spin = false;
   export let inverse = false;
   export let pulse = false;

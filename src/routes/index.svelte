@@ -4,7 +4,7 @@
 
 <main>
     <figure id="logo" on:mouseenter={toggle} on:mouseleave={toggle} on:click={change} title="{Object.keys(icon)[0]}">
-      <Icon bind:data={icon} scale=4/>
+      <Icon bind:data={icon} scale={4}/>
     </figure>
     <h1><a href="https://github.com/RobBrazier/svelte-awesome">Svelte-Awesome</a></h1>
     <p class="desc">Font Awesome component for Svelte.js, using inline SVG.</p>
@@ -14,9 +14,9 @@
     <figure><HighlightSvelte code={'<Icon data={flag}/>'} /></figure>
 
     <h2>Scale</h2>
-    <p><Icon data={icons.language} scale=3/></p>
+    <p><Icon data={icons.language} scale={3}/></p>
 
-    <figure><HighlightSvelte code={`<Icon data={language} scale="3"/>`} /></figure>
+    <figure><HighlightSvelte code={`<Icon data={language} scale={3}/>`} /></figure>
 
     <h2>Spin</h2>
     <p><Icon data={icons.refresh} spin/></p>
@@ -48,7 +48,7 @@
     <h2>Dynamic Scale and Styles</h2>
     <p><small>Inline dynamic scaling and styling</small></p>
     <p on:mouseenter={toggleIconOpen} on:mouseleave={toggleIconOpen}><Icon data={icons.powerOff} style={`transform:rotate(${iconOpen ? 0 : -180}deg)`} scale={iconScale}/></p>
-    <figure><HighlightSvelte code={'<Icon data={powerOff} style={`transform:rotate(${iconOpen ? 0 : -180}deg)`} scale=5/>'} /></figure>
+    <figure><HighlightSvelte code={'<Icon data={powerOff} style={`transform:rotate(${iconOpen ? 0 : -180}deg)`} scale={5}/>'} /></figure>
 <!--
     <h2>Stacked icons</h2>
     <p><small>Use stacked icons like in FontAwesome. Even more powerful.</small></p>
@@ -69,8 +69,8 @@
     <figure><HighlightSvelte code={'<Icon data={baidu}/>'} /></figure>
 
     <h2>FontAwesome v5 Icons</h2>
-    <p><Icon data={faFontAwesomeLogoFull} scale=10/></p>
-    <figure><HighlightSvelte code={'<Icon data={faFontAwesomeLogoFull} scale="10"/>'} /></figure>
+    <p><Icon data={faFontAwesomeLogoFull} scale={10}/></p>
+    <figure><HighlightSvelte code={'<Icon data={faFontAwesomeLogoFull} scale={10}/>'} /></figure>
 
     <h2>Multi-color icons</h2>
     <p><small>Register icons in more advanced ways to unleash the full power of SVG.</small></p>
@@ -105,7 +105,7 @@ export let webpack = { webpack: { width: 1200, height: 1200, paths: [{ style: 'f
 export let vue = { vue: { width: 256, height: 221, polygons: [{ style: 'fill:#41B883', points: '0,0 128,220.8 256,0 204.8,0 128,132.48 50.56,0 0,0' }, { style: 'fill:#35495E', points: '50.56,0 128,133.12 204.8,0 157.44,0 128,51.2 97.92,0 50.56,0' }] } };
 
 export let iconOpen = true;
-export let iconScale = '5';
+export let iconScale = 5;
 
 const keys = Object.keys(icons);
 
