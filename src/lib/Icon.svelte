@@ -19,7 +19,7 @@
   </slot>
 </Svg>
 
-<script>
+<script lang="ts">
   /* eslint-disable no-unused-vars */
   import Path from './svg/Path.svelte';
   import Polygon from './svg/Polygon.svelte';
@@ -29,14 +29,14 @@
   let className = "";
 
   export let data;
-  export let scale = 1;
+  export let scale = "1";
   export let spin = false;
   export let inverse = false;
   export let pulse = false;
-  export let flip = null;
-  export let label = null;
-  export let self = null;
-  export let style = null;
+  export let flip: string = null;
+  export let label: string = null;
+  let self = null;
+  export let style: string = null;
   export { className as class };
 
   // internal

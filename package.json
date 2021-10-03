@@ -1,10 +1,8 @@
 {
   "name": "svelte-awesome",
-  "version": "2.3.2",
+  "version": "2.4.0",
   "description": "Font Awesome component for Svelte JS, using inline SVG",
-  "module": "dist/svelte-awesome.mjs",
-  "main": "dist/svelte-awesome.js",
-  "svelte": "components/Icon.svelte",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/RobBrazier/svelte-awesome.git"
@@ -12,13 +10,12 @@
   "author": "Rob Brazier",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c",
-    "icons": "node build/generate-icons",
-    "start": "serve example/dist",
-    "example:watch": "rollup -c example/rollup.config.js -w",
-    "example:dev": "run-p start example:watch",
-    "example:build": "rollup -c example/rollup.config.js",
-    "lint": "eslint ./{example,src}/**/*.{html,js}",
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "package": "svelte-kit package",
+    "preview": "svelte-kit preview",
+    "icons": "node .semaphore/generate-icons",
+    "lint": "eslint ./{src}/**/*.{html,js}",
     "test": "npm run lint",
     "changelog": "auto-changelog -p",
     "gh-release": "is-ci && gh-release -y"
@@ -29,20 +26,19 @@
     "svelte",
     "svg"
   ],
-  "dependencies": {
-    "svelte": "^3.15.0"
-  },
   "devDependencies": {
     "@fortawesome/free-regular-svg-icons": "^5.10.1",
+    "@sveltejs/adapter-static": "^1.0.0-next.20",
+    "@sveltejs/kit": "next",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
     "acorn": "^8.0.2",
     "auto-changelog": "^2.0.0",
-    "babel-core": "^6.26.0",
     "cassandra-map": "^0.1.7",
     "change-case": "^4.0.0",
-    "eslint": "^7.2.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-html": "^6.0.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-svelte3": "^3.2.1",
     "font-awesome": "^4.7.0",
     "gh-release": "^6.0.0",
     "graceful-fs": "^4.1.11",
@@ -50,14 +46,16 @@
     "lodash": "^4.17.5",
     "npm-run-all": "^4.1.3",
     "patch-module": "^0.1.0",
-    "rollup": "^2.0.2",
-    "rollup-plugin-commonjs": "^10.0.0",
-    "rollup-plugin-css-only": "^3.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-svelte": "^7.0.0",
-    "rollup-plugin-terser": "^7.0.2",
+    "prettier": "^2.4.1",
+    "prettier-plugin-svelte": "^2.4.0",
     "serve": "^12.0.0",
-    "svelte-highlight": "^3.0.0",
-    "svgfont2js": "^0.1.2"
+    "svelte": "^3.42.6",
+    "svelte-check": "^2.2.6",
+    "svelte-highlight": "^4.0.0",
+    "svelte-preprocess": "^4.9.4",
+    "svelte2tsx": "^0.4.7",
+    "svgfont2js": "^0.1.2",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.3"
   }
 }
