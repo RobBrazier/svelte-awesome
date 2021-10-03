@@ -42,6 +42,7 @@ blocks:
             - git config --global user.email "$(whoami)@$(hostname).dev"
             - git config --get user.name
             - git config --get user.email
+            - touch build/.nojekyll
             - npx gh-pages -d build
 
         - name: Publish to NPM
