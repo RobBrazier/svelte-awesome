@@ -50,7 +50,7 @@
     "prettier-plugin-svelte": "^2.4.0",
     "svelte": "*",
     "svelte-check": "^2.2.6",
-    "svelte-highlight": "^4.0.0",
+    "svelte-highlight": "^5.1.2",
     "svelte-preprocess": "^4.9.4",
     "svelte2tsx": "^0.4.7",
     "svgfont2js": "^0.1.2",
