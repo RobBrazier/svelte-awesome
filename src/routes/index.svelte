@@ -1,5 +1,6 @@
 <svelte:head>
   {@html atomOneLight}
+  <title>Svelte Awesome</title>
 </svelte:head>
 
 <main>
