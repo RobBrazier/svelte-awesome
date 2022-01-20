@@ -17,7 +17,7 @@ blocks:
           commands:
             - checkout
             - cache restore
-            - npm install
+            - npm ci
             - cache store
   - name: "Publish"
     task:
@@ -36,8 +36,8 @@ blocks:
         - name: Publish to GitHub Pages
           commands:
             - checkout
-            - cache restore
-            - cache restore example-$SEMAPHORE_JOB_ID
+            # - cache restore
+            - cache restore example-$SEMAPHORE_WORKFLOW_ID
             - git config --global user.name "Semaphore Runner"
             - git config --global user.email "$(whoami)@$(hostname).dev"
             - git config --get user.name

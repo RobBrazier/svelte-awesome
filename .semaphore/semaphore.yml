@@ -17,7 +17,7 @@ blocks:
           commands:
             - checkout
             - cache restore
-            - npm install
+            - npm ci
             - cache store
   - name: "Run Linting"
     task:
@@ -40,8 +40,8 @@ blocks:
             - checkout
             - cache restore
             - npm run build
-            - if cache has_key example-$SEMAPHORE_JOB_ID; then cache delete example-$SEMAPHORE_JOB_ID; fi
-            - cache store example-$SEMAPHORE_JOB_ID build
+            - if cache has_key example-$SEMAPHORE_WORKFLOW_ID; then cache delete example-$SEMAPHORE_WORKFLOW_ID; fi
+            - cache store example-$SEMAPHORE_WORKFLOW_ID build
 
 promotions:
   - name: "Publish to NPM & GH Pages"
