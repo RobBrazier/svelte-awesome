@@ -37,7 +37,7 @@ blocks:
           commands:
             - checkout
             - cache restore
-            - npm run build
+            - cache restore example-$SEMAPHORE_JOB_ID
             - git config --global user.name "Semaphore Runner"
             - git config --global user.email "$(whoami)@$(hostname).dev"
             - git config --get user.name
