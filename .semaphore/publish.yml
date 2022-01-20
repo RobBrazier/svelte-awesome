@@ -35,6 +35,7 @@ blocks:
             - checkout
             # - cache restore
             - cache restore example-$SEMAPHORE_WORKFLOW_ID
+            - sed -i 's!"/app/!"/svelte-awesome/app/!g' build/index.html
             - git config --global user.name "Semaphore Runner"
             - git config --global user.email "$(whoami)@$(hostname).dev"
             - git config --get user.name
