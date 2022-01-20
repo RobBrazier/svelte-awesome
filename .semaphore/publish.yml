@@ -29,9 +29,6 @@ blocks:
         commands:
           - chmod 0600 ~/.keys/*
           - ssh-add ~/.keys/*
-      env_vars:
-        - name: BASE_PATH
-          value: "/svelte-awesome"
       jobs:
         - name: Publish to GitHub Pages
           commands:

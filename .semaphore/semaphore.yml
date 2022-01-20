@@ -29,6 +29,9 @@ blocks:
             - npm run lint
   - name: "Build Components"
     task:
+      env_vars:
+        - name: BASE_PATH
+          value: "/svelte-awesome"
       jobs:
         - name: Build Component
           commands:
