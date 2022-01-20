@@ -23,6 +23,9 @@ npm install --save svelte-awesome
 ```html
 <!-- basic -->
 <Icon data={beer}/>
+<!-- codeFork is camelCase, unlike the js file, code-fork.js -->
+<Icon data={codeFork}/>
+
 
 <!-- with options -->
 <Icon data={refresh} scale="2"/>
