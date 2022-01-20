@@ -28,8 +28,8 @@
   ],
   "devDependencies": {
     "@fortawesome/free-regular-svg-icons": "^5.10.1",
-    "@sveltejs/adapter-static": "^1.0.0-next.20",
-    "@sveltejs/kit": "next",
+    "@sveltejs/adapter-static": "^1.0.0-next.26",
+    "@sveltejs/kit": "^1.0.0-next.235",
     "@typescript-eslint/eslint-plugin": "^5.3.0",
     "@typescript-eslint/parser": "^5.3.0",
     "acorn": "^8.0.2",
@@ -48,7 +48,6 @@
     "patch-module": "^0.1.0",
     "prettier": "^2.4.1",
     "prettier-plugin-svelte": "^2.4.0",
-    "rimraf": "^3.0.2",
     "svelte": "*",
     "svelte-check": "^2.2.6",
     "svelte-highlight": "^5.1.2",
