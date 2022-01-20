@@ -41,7 +41,7 @@ blocks:
             - cache restore
             - npm run build
             - if cache has_key example-$SEMAPHORE_JOB_ID; then cache delete example-$SEMAPHORE_JOB_ID; fi
-            - cache store example-$SEMAPHORE_JOB_ID
+            - cache store example-$SEMAPHORE_JOB_ID build
 
 promotions:
   - name: "Publish to NPM & GH Pages"
