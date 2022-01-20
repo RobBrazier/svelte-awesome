@@ -1,0 +1,43 @@
+site_name: svelte-awesome
+site_description: Awesome SVG icon component for Svelte JS, built with Font Awesome icons.
+site_url: https://docs.robbrazier.com/svelte-awesome/
+theme: 
+  name: material
+  custom_dir: docs/theme/overrides
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+extra:
+  analytics:
+    provider: fathom
+    domain: elegant-blue.docs.robbrazier.com
+    key: IIYGRYKU
+  social:
+    - icon: fontawesome/solid/globe
+      link: https://robbrazier.com
+      name: robbrazier.com
+extra_css:
+  - theme/css/prism.css
+extra_javascript:
+  - theme/js/prism.js
+repo_url: https://github.com/RobBrazier/svelte-awesome
+repo_name: RobBrazier/svelte-awesome
+edit_uri: tree/master/docs
+use_directory_urls: false
+plugins:
+  - redirects:
+      redirect_maps:
+        'Demo.md': 'https://docs.robbrazier.com/svelte-awesome/'
+site_dir: build

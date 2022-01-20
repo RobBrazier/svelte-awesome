@@ -1,0 +1,7 @@
+<!-- Determine analytics property -->
+{% if config.extra.analytics %}
+  {% set key = config.extra.analytics.key | d("", true) %}
+  {% set domain = config.extra.analytics.domain | d("cdn.usefathom.com", true) %}
+{% endif %}
+
+<script src="https://{{ domain }}/script.js" data-site="{{ key }}" defer></script>
