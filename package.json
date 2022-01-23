@@ -17,7 +17,7 @@
     "icons": "node .semaphore/generate-icons",
     "lint": "eslint ./src/**/*.{svelte,js}",
     "test": "npm run lint",
-    "changelog": "auto-changelog -p",
+    "changelog": "auto-changelog -p && git add CHANGELOG.md",
     "gh-release": "is-ci && gh-release -y"
   },
   "keywords": [
@@ -29,7 +29,7 @@
   "devDependencies": {
     "@fortawesome/free-regular-svg-icons": "^5.10.1",
     "@sveltejs/adapter-static": "^1.0.0-next.26",
-    "@sveltejs/kit": "^1.0.0-next.230",
+    "@sveltejs/kit": "^1.0.0-next.240",
     "@typescript-eslint/eslint-plugin": "^5.3.0",
     "@typescript-eslint/parser": "^5.3.0",
     "acorn": "^8.0.2",
