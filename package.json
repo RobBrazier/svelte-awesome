@@ -1,6 +1,6 @@
 {
   "name": "svelte-awesome",
-  "version": "2.4.3",
+  "version": "2.4.4",
   "description": "Font Awesome component for Svelte JS, using inline SVG",
   "type": "module",
   "repository": {
