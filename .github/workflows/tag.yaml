@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Get version from tag
         id: lasttag
-        run: echo ::set-output name=version::${GITHUB_REF#refs/tags/}
+        run: echo ::set-output name=version::${GITHUB_REF#refs/tags/v}
 
       - name: Checkout Repo
         uses: actions/checkout@v3
