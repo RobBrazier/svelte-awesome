@@ -18,7 +18,8 @@
     "lint": "eslint ./src/**/*.{svelte,js}",
     "test": "npm run lint",
     "changelog": "auto-changelog -p && git add CHANGELOG.md",
-    "gh-release": "is-ci && gh-release -y"
+    "gh-release": "is-ci && gh-release -y",
+    "release": "release-it"
   },
   "keywords": [
     "font-awesome",
@@ -48,6 +49,7 @@
     "patch-module": "^0.1.0",
     "prettier": "^2.4.1",
     "prettier-plugin-svelte": "^2.4.0",
+    "release-it": "^14.12.5",
     "svelte": "^3.46.2",
     "svelte-check": "^2.2.6",
     "svelte-highlight": "^5.1.2",

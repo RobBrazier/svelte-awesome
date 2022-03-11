@@ -1,0 +1,32 @@
+name: Publish version to NPM
+
+on:
+  push:
+    tags:
+      - "*.*.*"
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get version from tag
+        id: lasttag
+        run: echo ::set-output name=version::${GITHUB_REF#refs/tags/}
+
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Parse Changelog Entry
+        id: changelog
+        uses: coditory/changelog-parser@v1
+        with:
+          version: ${{ steps.lasttag.outputs.version }}
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: ncipollo/release-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          body: ${{ steps.changelog.outputs.description }}

@@ -1,7 +1,8 @@
 {
   "output": "CHANGELOG.md",
   "template": "keepachangelog",
-  "unreleased": true,
+  "unreleased": false,
   "commitLimit": false,
-  "ignoreCommitPattern": "(.*?[Bb]ump .*( from )?.*|^Merge.*|.*[Cc]hangelog.*|^chore:.*)"
+  "ignoreCommitPattern": "(.*?[Bb]ump .*( from )?.*|^Merge.*|.*[Cc]hangelog.*|chore:*|Release [0-9].[0-9].[0-9])",
+  "hideCredit": true
 }
