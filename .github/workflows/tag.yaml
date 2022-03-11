@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Get version from tag
         id: lasttag
-        run: echo ::set-output name=version::${GITHUB_REF#refs/tags/}
+        run: echo ::set-output name=version::${GITHUB_REF#refs/tags/v}
 
       - name: Checkout Repo
         uses: actions/checkout@v3
@@ -21,7 +21,7 @@ jobs:
         id: changelog
         uses: mindsers/changelog-reader-action@v2
         with:
-          version: ${{ steps.lasttag.outputs.version }}
+          version: v${{ steps.lasttag.outputs.version }}
 
       - uses: actions/setup-node@v2
         with:
@@ -49,10 +49,10 @@ jobs:
           tag: ${{ steps.lasttag.outputs.version }}
           dry-run: true
 
-#      - name: Create GitHub Release
-#        id: create_release
-#        uses: ncipollo/release-action@v1
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        with:
-#          body: ${{ steps.changelog.outputs.changes }}
+      - name: Create GitHub Release
+        id: create_release
+        uses: ncipollo/release-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          body: ${{ steps.changelog.outputs.changes }}
