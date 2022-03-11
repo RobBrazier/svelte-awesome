@@ -24,6 +24,9 @@ const config = {
 		      include: ["highlight.js/lib/core"],
 		    },
 		},
+    "prerender": {
+      "default": true
+    }
 	}
 };
 
