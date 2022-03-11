@@ -3,6 +3,7 @@ git:
   push: false
   tag: true
   commit: true
+  tagName: v${version}
 github:
   release: false
 hooks:

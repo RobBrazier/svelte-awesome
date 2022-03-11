@@ -23,10 +23,36 @@ jobs:
         with:
           version: ${{ steps.lasttag.outputs.version }}
 
-      - name: Create GitHub Release
-        id: create_release
-        uses: ncipollo/release-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v2
         with:
-          body: ${{ steps.changelog.outputs.description }}
+          node-version: '14'
+
+      - name: Cache NPM modules
+        id: npm-cache
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Component
+        run: npm run package
+
+      - name: Publish Package
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          tag: ${{ steps.lasttag.outputs.version }}
+          dry-run: true
+
+#      - name: Create GitHub Release
+#        id: create_release
+#        uses: ncipollo/release-action@v1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          body: ${{ steps.changelog.outputs.description }}
