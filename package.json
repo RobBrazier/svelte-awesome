@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
-    "package": "svelte-kit package",
+    "package": "svelte-kit sync && svelte-kit package",
     "preview": "svelte-kit preview",
     "icons": "node .semaphore/generate-icons",
     "lint": "eslint ./src/**/*.{svelte,js}",
