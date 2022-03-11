@@ -19,7 +19,9 @@
     "test": "npm run lint",
     "changelog": "auto-changelog -p && git add CHANGELOG.md",
     "gh-release": "is-ci && gh-release -y",
-    "release": "release-it"
+    "version:major": "release-it major --ci",
+    "version:minor": "release-it minor --ci",
+    "version:patch": "release-it patch --ci"
   },
   "keywords": [
     "font-awesome",
