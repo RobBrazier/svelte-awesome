@@ -2,10 +2,9 @@ pull_request_rules:
   - name: Dependabot automatic merge
     conditions:
       - "author=dependabot[bot]"
-      - "check-success=ci/semaphoreci/pr: Build Components"
-      - "check-success=ci/semaphoreci/pr: Install Dependencies"
-      - "check-success=ci/semaphoreci/pr: Run Linting"
-      - "#check-success>=4"
+      - "check-success=Build and Test / linting (pull_request)"
+      - "check-success=Build and Test / build_components (pull_request)"
+      - "#check-success>=3"
       - "#check-failure=0"
       - '-body~=[bB]reaking'
     actions:
@@ -38,10 +37,9 @@ pull_request_rules:
     conditions:
       - "author=dependabot[bot]"
       - "base=master"
-      - "check-success=ci/semaphoreci/pr: Build Components"
-      - "check-success=ci/semaphoreci/pr: Install Dependencies"
-      - "check-success=ci/semaphoreci/pr: Run Linting"
-      - "#check-success>=4"
+      - "check-success=Build and Test / linting (pull_request)"
+      - "check-success=Build and Test / build_components (pull_request)"
+      - "#check-success>=3"
       - "#check-failure=0"
       - "approved-reviews-by=RobBrazier"
     actions:
