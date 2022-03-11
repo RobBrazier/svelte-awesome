@@ -23,6 +23,8 @@ jobs:
         run: npm ci
 
       - name: Build Example/Docs
+        env:
+          BASE_PATH: "/svelte-awesome"
         run: |
           npm run build
           touch build/.nojekyll
