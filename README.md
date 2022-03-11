@@ -1,9 +1,10 @@
 # Svelte-Awesome
-[![Semaphore CI](https://robbrazier.semaphoreci.com/badges/svelte-awesome.svg?style=shields)](https://robbrazier.semaphoreci.com/projects/svelte-awesome)
-[![npm](https://img.shields.io/npm/v/svelte-awesome.svg)](https://www.npmjs.com/package/svelte-awesome)
-[![bundlephobia](https://badgen.net/bundlephobia/minzip/svelte-awesome)](https://bundlephobia.com/result?p=svelte-awesome)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/5543afb1136e45e2b7bae46332f94d60)](https://www.codacy.com/gh/RobBrazier/svelte-awesome/dashboard)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/RobBrazier/svelte-awesome/Build%20and%20Test?style=flat-square)](https://github.com/RobBrazier/svelte-awesome/actions)
+[![Sonar Quality Gate](https://img.shields.io/sonar/quality_gate/RobBrazier_svelte-awesome?server=https%3A%2F%2Fsonarcloud.io&style=flat-square)](https://sonarcloud.io/summary/overall?id=RobBrazier_svelte-awesome)
+[![Sonar Coverage](https://img.shields.io/sonar/coverage/RobBrazier_svelte-awesome?server=https%3A%2F%2Fsonarcloud.io&style=flat-square)](https://sonarcloud.io/summary/overall?id=RobBrazier_svelte-awesome)
+[![npm](https://img.shields.io/npm/v/svelte-awesome.svg?style=flat-square)](https://www.npmjs.com/package/svelte-awesome)
+[![bundlephobia](https://img.shields.io/bundlephobia/minzip/svelte-awesome?style=flat-square)](https://bundlephobia.com/result?p=svelte-awesome)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 > Awesome SVG icon component for Svelte JS, built with Font Awesome icons.
 > Based on [Justineo/vue-awesome][vue-awesome]
