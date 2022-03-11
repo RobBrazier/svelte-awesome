@@ -5,7 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v2.4.5](https://github.com/RobBrazier/svelte-awesome/compare/v2.4.4...v2.4.5)
+## [v2.4.6](https://github.com/RobBrazier/svelte-awesome/compare/v2.4.5...v2.4.6)
+
+### Commits
+
+- fix package path [`4bf1577`](https://github.com/RobBrazier/svelte-awesome/commit/4bf1577560bf9e88649569d8b2d4ee0e535f2bf9)
+
+## [v2.4.5](https://github.com/RobBrazier/svelte-awesome/compare/v2.4.4...v2.4.5) - 2022-03-11
 
 ### Commits
 
