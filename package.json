@@ -54,7 +54,7 @@
     "release-it": "^15.0.0",
     "svelte": "^3.46.2",
     "svelte-check": "^2.2.6",
-    "svelte-highlight": "^5.1.2",
+    "svelte-highlight": "^6.0.1",
     "svelte-preprocess": "^4.9.4",
     "svelte2tsx": "^0.5.1",
     "svgfont2js": "^0.1.2",
