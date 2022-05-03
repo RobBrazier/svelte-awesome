@@ -9,7 +9,7 @@
     </figure>
     <h1><a href="https://github.com/RobBrazier/svelte-awesome">Svelte-Awesome</a></h1>
     <p class="desc">Font Awesome component for Svelte.js, using inline SVG.</p>
-    <p>See <a href="icons">here</a> for a (temporarily crude) list of all available embedded icons</p>
+    <p>See <a href="icons" rel="external">here</a> for a (temporarily crude) list of all available embedded icons</p>
 
     <h2>Basic</h2>
     <p><Icon data={flag}/></p>
