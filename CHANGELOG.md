@@ -5,7 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v2.4.6](https://github.com/RobBrazier/svelte-awesome/compare/v2.4.5...v2.4.6)
+## [v3.0.0](https://github.com/RobBrazier/svelte-awesome/compare/v2.4.6...v3.0.0)
+
+### Commits
+
+- BREAKING: restructure icon names and files to be more consistent and add icons index page [`a254e44`](https://github.com/RobBrazier/svelte-awesome/commit/a254e4471b88923e6a5f53f26a11e7966d59c072)
+- fix example after highlight.js upgrade [`3ad7b8f`](https://github.com/RobBrazier/svelte-awesome/commit/3ad7b8fe7faceb41c4235ffd1d7cbb91c07e61fc)
+
+## [v2.4.6](https://github.com/RobBrazier/svelte-awesome/compare/v2.4.5...v2.4.6) - 2022-03-11
 
 ### Commits
 
