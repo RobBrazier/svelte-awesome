@@ -4,7 +4,7 @@
 </svelte:head>
 
 <main>
-  <h1>Available Icons</h1>
+  <h1>Available Font-Awesome v4 Icons</h1>
 
   <table>
     <thead>
@@ -42,6 +42,8 @@
   import atomOneLight from "svelte-highlight/styles/atom-one-light";
 
   const getIconSnippet = (fileName) => {
-    return `<Icon data={${fileName}}/>`;
+    return `import ${fileName} from 'svelte-awesome/icons/${fileName}';
+
+<Icon data={${fileName}}/>`;
   }
 </script>
