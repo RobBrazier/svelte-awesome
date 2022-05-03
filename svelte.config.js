@@ -21,8 +21,8 @@ const config = {
 		appDir: "app",
 		vite: {
 		    optimizeDeps: {
-		      include: ["highlight.js/lib/core"],
-		    },
+          include: ["highlight.js", "highlight.js/lib/core"],
+        },
 		},
     "prerender": {
       "default": true
