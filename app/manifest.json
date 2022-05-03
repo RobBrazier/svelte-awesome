@@ -1,48 +1,72 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-b97d8da2.js",
+    "file": "start-24b536c7.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_index-daa5533e.js"
+      "_index-59478a3d.js"
     ],
     "dynamicImports": [
       ".svelte-kit/runtime/components/layout.svelte",
       ".svelte-kit/runtime/components/error.svelte",
+      "src/routes/icons.svelte",
       "src/routes/index.svelte"
     ]
   },
   ".svelte-kit/runtime/components/layout.svelte": {
-    "file": "layout.svelte-e6b99c98.js",
+    "file": "layout.svelte-eec79bb7.js",
     "src": ".svelte-kit/runtime/components/layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-daa5533e.js"
+      "_index-59478a3d.js"
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
-    "file": "error.svelte-9283815b.js",
+    "file": "error.svelte-6c584a93.js",
     "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-daa5533e.js"
+      "_index-59478a3d.js"
+    ]
+  },
+  "src/routes/icons.svelte": {
+    "file": "pages/icons.svelte-891f272b.js",
+    "src": "src/routes/icons.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-59478a3d.js",
+      "_atom-one-light-ce54927f.js"
+    ],
+    "css": [
+      "assets/pages/icons.svelte-27c192a2.css"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-22638895.js",
+    "file": "pages/index.svelte-beedd008.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-daa5533e.js"
+      "_index-59478a3d.js",
+      "_atom-one-light-ce54927f.js"
     ],
     "css": [
-      "assets/pages/index.svelte-944982f2.css"
+      "assets/pages/index.svelte-e2069db7.css"
     ]
   },
-  "_index-daa5533e.js": {
-    "file": "chunks/index-daa5533e.js"
+  "_index-59478a3d.js": {
+    "file": "chunks/index-59478a3d.js"
+  },
+  "_atom-one-light-ce54927f.js": {
+    "file": "chunks/atom-one-light-ce54927f.js",
+    "imports": [
+      "_index-59478a3d.js"
+    ],
+    "css": [
+      "assets/atom-one-light-196e6ab5.css"
+    ]
   }
 }
