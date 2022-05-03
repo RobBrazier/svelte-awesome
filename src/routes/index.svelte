@@ -9,41 +9,42 @@
     </figure>
     <h1><a href="https://github.com/RobBrazier/svelte-awesome">Svelte-Awesome</a></h1>
     <p class="desc">Font Awesome component for Svelte.js, using inline SVG.</p>
+    <p>See <a href="icons">here</a> for a (temporarily crude) list of all available embedded icons</p>
 
     <h2>Basic</h2>
-    <p><Icon data={icons.flag}/></p>
+    <p><Icon data={flag}/></p>
     <figure><HighlightSvelte code={'<Icon data={flag}/>'} /></figure>
 
     <h2>Scale</h2>
-    <p><Icon data={icons.language} scale={3}/></p>
+    <p><Icon data={language} scale={3}/></p>
 
     <figure><HighlightSvelte code={`<Icon data={language} scale={3}/>`} /></figure>
 
     <h2>Spin</h2>
-    <p><Icon data={icons.refresh} spin/></p>
+    <p><Icon data={refresh} spin/></p>
     <figure><HighlightSvelte code={'<Icon data={refresh} spin/>'} /></figure>
 
     <h2>Pulse</h2>
-    <p><Icon data={icons.spinner} pulse/></p>
+    <p><Icon data={spinner} pulse/></p>
     <figure><HighlightSvelte code={'<Icon data={spinner} pulse/>'} /></figure>
 
     <h2>Flip</h2>
-    <p><Icon data={icons.signal} flip="horizontal"/></p>
+    <p><Icon data={signal} flip="horizontal"/></p>
     <figure><HighlightSvelte code={'<Icon data={signal} flip="horizontal"/>'} /></figure>
 
     <h2>Label</h2>
     <p><small>Accessible for screen readers, etc.</small></p>
-    <p><Icon data={icons.code} label="Source Code"/></p>
+    <p><Icon data={code} label="Source Code"/></p>
     <figure><HighlightSvelte code={'<Icon data={code} label="Source Code"/>'} /></figure>
 
     <h2>Custom Class</h2>
     <p><small>Additional classes for custom styling</small></p>
-    <p><Icon data={icons.certificate} class="pinkIcon"/></p>
+    <p><Icon data={certificate} class="pinkIcon"/></p>
     <figure><HighlightSvelte code={'<Icon data={certificate} class="pinkIcon"/>'} /></figure>
 
     <h2>Custom Styles</h2>
     <p><small>Inline custom styling</small></p>
-    <p><Icon data={icons.paintBrush} style="border: 1px solid #000; border-radius: 8px; padding: 5px"/></p>
+    <p><Icon data={paintBrush} style="border: 1px solid #000; border-radius: 8px; padding: 5px"/></p>
     <figure><HighlightSvelte code={'<Icon data={paintBrush} style="border: 1px solid #000; border-radius: 8px; padding: 5px"/>'} /></figure>
 
     <h2>Dynamic Scale and Styles</h2>
@@ -95,6 +96,14 @@ import { onMount } from 'svelte';
 import { faFontAwesomeLogoFull } from '@fortawesome/free-regular-svg-icons';
 import Icon from '../lib/components/Icon.svelte';
 import * as icons from '../lib/icons';
+import paintBrush from '../lib/icons/paintBrush';
+import certificate from '../lib/icons/certificate';
+import code from '../lib/icons/code';
+import signal from '../lib/icons/signal';
+import spinner from '../lib/icons/spinner';
+import refresh from '../lib/icons/refresh';
+import language from '../lib/icons/language';
+import flag from '../lib/icons/flag';
 import { HighlightSvelte } from 'svelte-highlight'
 import atomOneLight from "svelte-highlight/styles/atom-one-light";
 

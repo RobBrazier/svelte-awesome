@@ -1,5 +1,5 @@
 import path from 'path';
-import fs from 'graceful-fs'; 
+import fs from 'graceful-fs';
 import changeCase from 'change-case';
 
 import patch from 'patch-module';
@@ -13,7 +13,8 @@ const svgfont2js = patch('./node_modules/svgfont2js/index.js', [
   }
 ]);
 
-const iconTemplate = 'export default <%= data %>;\n';
+const iconTemplate = `const <%= name %> = <%= data %>;
+export default <%= name %>;`;
 const icons = svgfont2js(
   fs.readFileSync(
     './node_modules/font-awesome/fonts/fontawesome-webfont.svg',
@@ -84,27 +85,38 @@ for (const i in icons) {
             d: icon.path
           }]
         };
-        const contents = _.template(iconTemplate)({data: stringify(data)});
-        fs.writeFileSync(path.join(sourceDir, `${name}.js`), contents);
-        filenames.push(name);
+        const variableName = convertStringToVariable(name);
+        const contents = _.template(iconTemplate)({data: stringify(data), name: variableName});
+        fs.writeFileSync(path.join(sourceDir, `${variableName}.js`), contents);
+        fs.writeFileSync(path.join(sourceDir, `${variableName}.json`), JSON.stringify(data));
+        filenames.push(variableName);
       }
     }
   }
 }
 
 function convertStringToVariable(str) {
-  if (!isNaN(str.charAt(0))) {
-    str = "fa" + str;
+  if (!isNaN(str.charAt(0)) || _.indexOf(["try"], str) !== -1) {
+    str = "fa" + _.capitalize(str);
   }
   let numEndingStr = str.replace(/^([a-z0-9\\-]+)-([0-9]+)$/g, '$1$2');
   return changeCase.camelCase(numEndingStr);
 }
 
 let index = '';
+let iconIndex = [];
 for (const i in filenames) {
   if (Object.prototype.hasOwnProperty.call(filenames, i)) {
     const filename = filenames[i];
+    let dataContents = fs.readFileSync(path.join(sourceDir, `${filename}.json`)).toString();
+    console.log(dataContents);
+    let fileData = JSON.parse(dataContents);
     index += `export { default as ${convertStringToVariable(filename)} } from './${filename}';\n`;
+    iconIndex.push({
+      fileName: filename,
+      iconName: Object.keys(fileData)[0]
+    })
   }
 }
 fs.writeFileSync(path.join(sourceDir, 'index.js'), index);
+fs.writeFileSync(path.join(sourceDir, 'icons.json'), JSON.stringify(iconIndex, null, 2));

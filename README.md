@@ -14,6 +14,8 @@ and `v5` (via [`@fortawesome` npm packages][fortawesome-icons])
 
 A demo is available [here][demo]
 
+A list of all available embedded icons is available [here][icons]
+
 ## Installation
 ### NPM
 ```bash
@@ -44,8 +46,13 @@ npm install --save svelte-awesome
 
 <script>
   import Icon from 'svelte-awesome';
-  import { beer, refresh, comment, codeFork, camera, ban } from 'svelte-awesome/icons';
+  import { refresh, comment, codeFork, camera, ban } from 'svelte-awesome/icons';
+  import beer from 'svelte-awesome/icons/beer'; // alternative, more efficient import
   import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
+
+  // EDGECASE ICONS
+  import fa500px from 'svelte-awesome/icons/fa500px'; // '500px' icon
+  import faTry from 'svelte-awesome/icons/faTry'; // 'try' icon
 </script>
 ```
 
@@ -62,4 +69,5 @@ import Icon from 'svelte-awesome/components/Icon.svelte'
 [vue-awesome]: https://github.com/Justineo/vue-awesome
 [font-awesome]: https://github.com/FortAwesome/Font-Awesome
 [demo]: https://robbrazier.github.io/svelte-awesome
+[icons]: https://robbrazier.github.io/svelte-awesome/icons
 [fortawesome-icons]: https://www.npmjs.com/search?q=%40fortawesome%20icons
