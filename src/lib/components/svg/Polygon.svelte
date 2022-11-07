@@ -1,6 +1,5 @@
-<polygon id="polygon-{id}" {...data} />
+<polygon {...data} />
 
 <script lang="ts">
-  export let id: number;
   export let data = {};
 </script>

@@ -3,13 +3,13 @@
   <slot>
     {#if self}
       {#if self.paths}
-        {#each self.paths as path, i}
-        <Path id="{i}" data="{path}"/>
+        {#each self.paths as path}
+        <Path data="{path}"/>
         {/each}
       {/if}
       {#if self.polygons}
-        {#each self.polygons as polygon, i}
-        <Polygon id="{i}" data="{polygon}"/>
+        {#each self.polygons as polygon}
+        <Polygon data="{polygon}"/>
         {/each}
       {/if}
       {#if self.raw}
