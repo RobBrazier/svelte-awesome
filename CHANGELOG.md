@@ -5,7 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v3.0.0](https://github.com/RobBrazier/svelte-awesome/compare/v2.4.6...v3.0.0)
+## [v3.0.1](https://github.com/RobBrazier/svelte-awesome/compare/v3.0.0...v3.0.1)
+
+### Commits
+
+- fix: #187 remove non-unique ids from `path` and `polygon` [`c141f69`](https://github.com/RobBrazier/svelte-awesome/commit/c141f694d747ee9ecee41006b32569b3239f9b28)
+
+## [v3.0.0](https://github.com/RobBrazier/svelte-awesome/compare/v2.4.6...v3.0.0) - 2022-05-03
 
 ### Commits
 
