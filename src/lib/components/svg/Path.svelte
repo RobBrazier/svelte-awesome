@@ -1,6 +1,5 @@
-<path id="path-{id}" {...data} />
+<path {...data} />
 
 <script lang="ts">
-  export let id: number;
   export let data = {};
 </script>
