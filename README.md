@@ -65,6 +65,7 @@ import Icon from 'svelte-awesome/components/Icon.svelte'
 ## Contributors
 -   [dimfeld](https://github.com/dimfeld)
 -   [lucasnad27](https://github.com/lucasnad27)
+-   [josdejong](https://github.com/josdejong)
 
 [vue-awesome]: https://github.com/Justineo/vue-awesome
 [font-awesome]: https://github.com/FortAwesome/Font-Awesome
