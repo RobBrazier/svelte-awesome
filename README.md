@@ -1,5 +1,5 @@
 # Svelte-Awesome
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/RobBrazier/svelte-awesome/Build%20and%20Test?style=flat-square)](https://github.com/RobBrazier/svelte-awesome/actions)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/RobBrazier/svelte-awesome/build.yaml?style=flat-square&branch=master)](https://github.com/RobBrazier/svelte-awesome/actions)
 [![Sonar Quality Gate](https://img.shields.io/sonar/quality_gate/RobBrazier_svelte-awesome?server=https%3A%2F%2Fsonarcloud.io&style=flat-square)](https://sonarcloud.io/summary/overall?id=RobBrazier_svelte-awesome)
 [![Sonar Coverage](https://img.shields.io/sonar/coverage/RobBrazier_svelte-awesome?server=https%3A%2F%2Fsonarcloud.io&style=flat-square)](https://sonarcloud.io/summary/overall?id=RobBrazier_svelte-awesome)
 [![npm](https://img.shields.io/npm/v/svelte-awesome.svg?style=flat-square)](https://www.npmjs.com/package/svelte-awesome)
