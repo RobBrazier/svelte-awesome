@@ -9,9 +9,8 @@
 		// Use -bullseye variants on local arm64/Apple Silicon.
 		"args": { "VARIANT": "16" }
 	},
-	"runArgs": ["--userns=keep-id"],
 
-	"containerEnv": { "HOME": "/home/node" },
+	// "containerEnv": { "HOME": "/home/node" },
 
 	// Configure tool-specific properties.
 	"customizations": {
@@ -32,6 +31,6 @@
 	"postCreateCommand": "npm install",
 
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "node",
+	// "remoteUser": "node",
 	"features": {}
 }
