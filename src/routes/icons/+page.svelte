@@ -33,11 +33,11 @@
 </style>
 
 <script lang="ts">
-  import * as icons from '../lib/icons';
-  import data from '../lib/icons/icons.json';
-  import Icon from '../lib/components/Icon.svelte';
+  import * as icons from '@/lib/icons';
+  import data from '@/lib/icons/icons.json';
+  import Icon from '@/lib/components/Icon.svelte';
 
-  import '../global.css';
+  import '@/global.css';
   import {HighlightSvelte} from "svelte-highlight";
   import atomOneLight from "svelte-highlight/styles/atom-one-light";
 
