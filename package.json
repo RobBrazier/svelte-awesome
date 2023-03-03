@@ -10,10 +10,10 @@
   "author": "Rob Brazier",
   "license": "MIT",
   "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "package": "svelte-kit sync && svelte-kit package",
-    "preview": "svelte-kit preview",
+    "dev": "vite dev",
+    "build": "vite build",
+    "package": "svelte-kit sync && svelte-package",
+    "preview": "vite preview",
     "icons": "node .semaphore/generate-icons",
     "lint": "eslint ./src/**/*.{svelte,js}",
     "test": "npm run lint",
@@ -31,8 +31,9 @@
   ],
   "devDependencies": {
     "@fortawesome/free-regular-svg-icons": "^5.10.1",
-    "@sveltejs/adapter-static": "^1.0.0-next.26",
-    "@sveltejs/kit": "^1.0.0-next.240",
+    "@sveltejs/adapter-static": "2.0.1",
+    "@sveltejs/kit": "1.9.2",
+    "@sveltejs/package": "1.0.2",
     "@typescript-eslint/eslint-plugin": "^5.3.0",
     "@typescript-eslint/parser": "^5.3.0",
     "acorn": "^8.0.2",
@@ -63,5 +64,9 @@
   },
   "peerDependencies": {
     "svelte": "^3.43.1"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-common-types": "^6.3.0",
+    "@fortawesome/fontawesome-svg-core": "^6.3.0"
   }
 }

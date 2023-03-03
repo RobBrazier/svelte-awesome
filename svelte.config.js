@@ -21,14 +21,9 @@ const config = {
 			base: base_path
 		},
 		appDir: "app",
-		vite: {
-		    optimizeDeps: {
-          include: ["highlight.js", "highlight.js/lib/core"],
-        },
-		},
-    "prerender": {
-      "default": true
-    }
+		alias: {
+			'$css/*': 'src/css/*'
+		}
 	}
 };
 

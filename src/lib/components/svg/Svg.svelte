@@ -39,23 +39,23 @@
 }
 </style>
 
-<script>
-  let className;
+<script lang="ts">
+  let className: string = '';
 
   export { className as class };
 
-  export let width;
-  export let height;
-  export let box;
+  export let width: number;
+  export let height: number;
+  export let box: string | null = null;
 
   export let spin = false;
   export let inverse = false;
   export let pulse = false;
-  export let flip = null;
+  export let flip: string | null = null;
 
   // optionals
-  export let x = undefined;
-  export let y = undefined;
-  export let style = undefined;
-  export let label = undefined;
+  export let x: number | undefined = undefined;
+  export let y: number | undefined = undefined;
+  export let style: string | undefined = undefined;
+  export let label: string | undefined = undefined;
 </script>

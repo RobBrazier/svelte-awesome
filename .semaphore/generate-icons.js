@@ -13,7 +13,7 @@ const svgfont2js = patch('./node_modules/svgfont2js/index.js', [
   }
 ]);
 
-const iconTemplate = `const <%= name %> = <%= data %>;
+const iconTemplate = `const <%= name %>: Record<string, IconData> = <%= data %>;
 export default <%= name %>;`;
 const icons = svgfont2js(
   fs.readFileSync(
@@ -87,7 +87,7 @@ for (const i in icons) {
         };
         const variableName = convertStringToVariable(name);
         const contents = _.template(iconTemplate)({data: stringify(data), name: variableName});
-        fs.writeFileSync(path.join(sourceDir, `${variableName}.js`), contents);
+        fs.writeFileSync(path.join(sourceDir, `${variableName}.ts`), contents);
         fs.writeFileSync(path.join(sourceDir, `${variableName}.json`), JSON.stringify(data));
         filenames.push(variableName);
       }
@@ -104,19 +104,21 @@ function convertStringToVariable(str) {
 }
 
 let index = '';
+let iconsTs = '';
 let iconIndex = [];
 for (const i in filenames) {
   if (Object.prototype.hasOwnProperty.call(filenames, i)) {
     const filename = filenames[i];
     let dataContents = fs.readFileSync(path.join(sourceDir, `${filename}.json`)).toString();
-    console.log(dataContents);
     let fileData = JSON.parse(dataContents);
     index += `export { default as ${convertStringToVariable(filename)} } from './${filename}';\n`;
+    iconsTs += `export const ${convertStringToVariable(filename)}: Record<string, IconData> = ${dataContents};\n`;
     iconIndex.push({
       fileName: filename,
       iconName: Object.keys(fileData)[0]
     })
   }
 }
-fs.writeFileSync(path.join(sourceDir, 'index.js'), index);
+fs.writeFileSync(path.join(sourceDir, 'index.ts'), index);
+fs.writeFileSync(path.join(sourceDir, 'icons.ts'), iconsTs);
 fs.writeFileSync(path.join(sourceDir, 'icons.json'), JSON.stringify(iconIndex, null, 2));

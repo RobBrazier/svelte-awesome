@@ -1,101 +1,106 @@
-<Svg label={label} width={width} height={height} box={box} style={combinedStyle}
-  spin={spin} flip={flip} inverse={inverse} pulse={pulse} class={className}>
+<Svg {label} {width} {height} {box} style={combinedStyle}
+  {spin} {flip} {inverse} {pulse} class={className}>
   <slot>
-    {#if self}
-      {#if self.paths}
-        {#each self.paths as path}
-        <Path data="{path}"/>
+    {#if iconData}
+      {#if iconData.paths}
+        {#each iconData.paths as path}
+        <path {...path}/>
         {/each}
       {/if}
-      {#if self.polygons}
-        {#each self.polygons as polygon}
-        <Polygon data="{polygon}"/>
+      {#if iconData.polygons}
+        {#each iconData.polygons as polygon}
+        <polygon {...polygon}/>
         {/each}
       {/if}
-      {#if self.raw}
-        <Raw bind:data={self} />
+      {#if iconData.raw}
+        <Raw bind:data={iconData} />
       {/if}
     {/if}
   </slot>
 </Svg>
 
 <script lang="ts">
-  /* eslint-disable no-unused-vars */
-  import Path from './svg/Path.svelte';
-  import Polygon from './svg/Polygon.svelte';
+  interface SvgOpts {
+    label: string
+    width: number
+    height: number
+    style: string
+    box: string
+    spin: boolean
+    inverse: boolean
+    pulse: boolean
+    class: string
+  }
+
   import Raw from './svg/Raw.svelte';
   import Svg from './svg/Svg.svelte';
 
+  import type { IconDefinition, IconPathData } from '@fortawesome/fontawesome-svg-core';
+
   let className = "";
 
-  export let data;
+  let opts: SvgOpts = {
+    label: '',
+    width: -1,
+    height: -1,
+    style: '',
+    box: '',
+    spin: false,
+    inverse: false,
+    pulse: false,
+    class: ''
+  }
+
+  export let data: IconType;
+  let iconData: IconData | undefined;
   export let scale = 1;
   export let spin = false;
   export let inverse = false;
   export let pulse = false;
-  export let flip: string = null;
-  export let label: string = null;
-  let self = null;
-  export let style: string = null;
+  export let flip: string = '';
+  export let label: string = '';
+  export let style: string = '';
   export { className as class };
+  let width: number | undefined;
+  let height: number | undefined;
+
+  type IconType = Record<string, IconData> | IconDefinition;
 
   // internal
-  let x = 0;
-  let y = 0;
   let childrenHeight = 0;
   let childrenWidth = 0;
   let outerScale = 1;
 
-  let width;
-  let height;
-  let combinedStyle;
-  let box;
+  // let width: number;
+  // let height: number;
+  let combinedStyle: string;
+  let box: string;
 
-  function init() {
-    if (typeof data === 'undefined') {
-      return;
-    }
-    const normalisedData = normaliseData(data);
-    const [name] = Object.keys(normalisedData);
-    const icon = normalisedData[name];
-    if (!icon.paths) {
-      icon.paths = [];
-    }
-    if (icon.d) {
-      icon.paths.push({
-        d: icon.d,
-      });
-    }
-    if (!icon.polygons) {
-      icon.polygons = [];
-    }
-    if (icon.points) {
-      icon.polygons.push({
-        points: icon.points,
-      });
-    }
-    self = icon;
-  }
-
-  function normaliseData(data) {
-    if ('iconName' in data && 'icon' in data) {
-      let normalisedData = {};
-      let faIcon = data.icon;
-      let name = data.iconName;
-      let width = faIcon[0];
-      let height = faIcon[1];
-      let paths = faIcon[4];
-      let iconData = {
+  function normaliseData(data: IconType): IconData | undefined {
+    let name: string;
+    let iconData: IconData;
+    if (!data) {
+      return undefined;
+    } else if ('iconName' in data && 'icon' in data) {
+      name = data.iconName as string;
+      // if (Array.length(data.icon))
+      let paths = []
+      const [width, height,,, path] = (data.icon as [number, number, string[], string, IconPathData]);
+      if (Array.isArray(path)) {
+        paths = path;
+      } else {
+        paths = [path];
+      }
+      iconData = {
         width,
         height,
-        paths: [{
-          d: paths
-        }]
+        paths: paths.map((path) => { return { d: path } })
       }
-      normalisedData[name] = iconData;
-      return normalisedData;
+    } else {
+      name = Object.keys(data)[0];
+      iconData = data[name];
     }
-    return data;
+    return iconData;
   }
 
   function normalisedScale() {
@@ -111,25 +116,25 @@
   }
 
   function calculateBox() {
-    if (self) {
-      return `0 0 ${self.width} ${self.height}`;
+    if (iconData) {
+      return `0 0 ${iconData.width} ${iconData.height}`;
     }
     return `0 0 ${width} ${height}`;
   }
 
   function calculateRatio() {
-    if (!self) {
+    if (!iconData) {
       return 1;
     }
-    return Math.max(self.width, self.height) / 16;
+    return Math.max(iconData.width, iconData.height) / 16;
   }
 
   function calculateWidth() {
     if (childrenWidth) {
       return childrenWidth;
     }
-    if (self) {
-      return (self.width / calculateRatio()) * normalisedScale();
+    if (iconData) {
+      return (iconData.width / calculateRatio()) * normalisedScale();
     }
     return 0;
   }
@@ -138,8 +143,8 @@
     if (childrenHeight) {
       return childrenHeight;
     }
-    if (self) {
-      return (self.height / calculateRatio()) * normalisedScale();
+    if (iconData) {
+      return (iconData.height / calculateRatio()) * normalisedScale();
     }
     return 0;
   }
@@ -152,7 +157,7 @@
     let size = normalisedScale();
     if (size === 1) {
       if (combined.length === 0) {
-        return undefined;
+        return '';
       }
       return combined;
     }
@@ -163,10 +168,9 @@
   }
 
    $: {
-    data; // this is needed to keep data up-to-date
+    iconData = normaliseData(data);
     style;
     scale;
-    init();
     width = calculateWidth();
     height = calculateHeight();
     combinedStyle = calculateStyle();
