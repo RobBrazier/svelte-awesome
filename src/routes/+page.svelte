@@ -121,7 +121,7 @@
 
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { faFontAwesomeLogoFull } from 'regularSvgIconsV5/faFontAwesomeLogoFull';
+  import { faFontAwesomeLogoFull } from '@fortawesome/free-regular-svg-icons-v5/faFontAwesomeLogoFull';
   import { faCircleQuestion } from '@fortawesome/free-regular-svg-icons';
   import Icon from '$lib/components/Icon.svelte';
   import * as icons from '$lib/icons';
@@ -190,8 +190,6 @@
   export let iconOpen = true;
   export let iconScale = 5;
 
-  // const icons = {paintBrush, certificate, code, signal, spinner, refresh, language, flag};
-
   const keys = Object.keys(icons) as string[];
 
   function randomIcon() {
@@ -200,7 +198,7 @@
   }
 
   export let icon = randomIcon();
-  let running = false;
+  let running = true;
 
   export function change(): void {
     icon = randomIcon();
