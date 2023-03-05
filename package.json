@@ -46,7 +46,7 @@
     "svelte-check": "^2.2.6",
     "svelte-highlight": "^6.0.1",
     "svelte-preprocess": "^5.0.1",
-    "svelte2tsx": "^0.5.1",
+    "svelte2tsx": "^0.6.2",
     "svgfont2js": "^0.1.2",
     "tslib": "^2.3.1",
     "typescript": "^4.4.3"
