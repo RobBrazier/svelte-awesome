@@ -27,7 +27,6 @@
 
   <h2>Scale</h2>
   <p><Icon data={language} scale={3} /></p>
-
   <figure><HighlightSvelte code={`<Icon data={language} scale={3}/>`} /></figure>
 
   <h2>Spin</h2>
