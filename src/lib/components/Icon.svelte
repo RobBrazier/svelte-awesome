@@ -101,7 +101,7 @@
   export let spin = false;
   export let inverse = false;
   export let pulse = false;
-  export let flip: string = '';
+  export let flip: 'horizontal' | 'vertical' | undefined = undefined;
   export let label: string = '';
   export let style: string = '';
   export { className as class };

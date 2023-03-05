@@ -53,14 +53,14 @@
 
   export let width: number;
   export let height: number;
-  export let box: string | null = null;
+  export let box: string = '0 0 0 0';
 
   export let spin = false;
   export let inverse = false;
   export let pulse = false;
-  export let flip: string | null = null;
+  export let flip: string = 'none';
 
   // optionals
-  export let style: string | undefined = undefined;
-  export let label: string | undefined = undefined;
+  export let style: string = '';
+  export let label: string = '';
 </script>
