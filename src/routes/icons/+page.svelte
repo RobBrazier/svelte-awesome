@@ -15,14 +15,14 @@
         <th>Example Snippet</th>
       </tr>
     </thead>
-  {#each data as icon}
-    <tr>
-      <td><Icon data={getIcon(icon.fileName)} scale={5}/></td>
-      <td>{icon.fileName}</td>
-      <td>{icon.iconName}</td>
-      <td><HighlightSvelte code="{getIconSnippet(icon.fileName)}"/></td>
-    </tr>
-  {/each}
+    {#each data as icon}
+      <tr>
+        <td><Icon data={getIcon(icon.fileName)} scale={5} /></td>
+        <td>{icon.fileName}</td>
+        <td>{icon.iconName}</td>
+        <td><HighlightSvelte code={getIconSnippet(icon.fileName)} /></td>
+      </tr>
+    {/each}
   </table>
 </main>
 
@@ -33,23 +33,21 @@
 </style>
 
 <script lang="ts">
-  import * as icons from '$lib/icons/icons';
+  import * as icons from '$lib/icons';
   import data from '$lib/icons/icons.json';
   import Icon from '$lib/components/Icon.svelte';
 
-  import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-
-  type IconType = Record<string, IconData> | IconDefinition;
+  import type { IconType } from '$lib/components/Icon.svelte';
 
   import '$css/global.css';
-  import {HighlightSvelte} from "svelte-highlight";
-  import atomOneLight from "svelte-highlight/styles/atom-one-light";
+  import { HighlightSvelte } from 'svelte-highlight';
+  import atomOneLight from 'svelte-highlight/styles/atom-one-light';
 
   const getIconSnippet = (fileName: string) => {
     return `import ${fileName} from 'svelte-awesome/icons/${fileName}';
 
 <Icon data={${fileName}}/>`;
-  }
+  };
 
   function getIcon(name: string): IconType {
     return (icons as Record<string, IconType>)[name];

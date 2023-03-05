@@ -1,15 +1,25 @@
-<Svg {label} {width} {height} {box} style={combinedStyle}
-  {spin} {flip} {inverse} {pulse} class={className}>
+<Svg
+  {label}
+  {width}
+  {height}
+  {box}
+  style={combinedStyle}
+  {spin}
+  {flip}
+  {inverse}
+  {pulse}
+  class={className}
+>
   <slot>
     {#if iconData}
       {#if iconData.paths}
         {#each iconData.paths as path}
-        <path {...path}/>
+          <path {...path} />
         {/each}
       {/if}
       {#if iconData.polygons}
         {#each iconData.polygons as polygon}
-        <polygon {...polygon}/>
+          <polygon {...polygon} />
         {/each}
       {/if}
       {#if iconData.raw}
@@ -19,25 +29,59 @@
   </slot>
 </Svg>
 
+<script context="module" lang="ts">
+  export interface FaIconDefinition {
+    prefix: string;
+    iconName: string;
+    icon: [
+      number, // width
+      number, // height
+      string[], // ligatures
+      string, // unicode
+      string | string[] // svgPathData
+    ];
+  }
+
+  export interface IconPath {
+    id?: string;
+    d: string;
+    style?: string;
+    stroke?: string;
+  }
+
+  export interface IconPolygon {
+    points: string;
+    style?: string;
+  }
+
+  export interface IconData {
+    width: number;
+    height: number;
+    paths?: IconPath[];
+    polygons?: IconPolygon[];
+    raw?: string;
+  }
+
+  export type IconType = Record<string, IconData> | FaIconDefinition;
+</script>
+
 <script lang="ts">
   interface SvgOpts {
-    label: string
-    width: number
-    height: number
-    style: string
-    box: string
-    spin: boolean
-    inverse: boolean
-    pulse: boolean
-    class: string
+    label: string;
+    width: number;
+    height: number;
+    style: string;
+    box: string;
+    spin: boolean;
+    inverse: boolean;
+    pulse: boolean;
+    class: string;
   }
 
   import Raw from './svg/Raw.svelte';
   import Svg from './svg/Svg.svelte';
 
-  import type { IconDefinition, IconPathData } from '@fortawesome/fontawesome-svg-core';
-
-  let className = "";
+  let className = '';
 
   let opts: SvgOpts = {
     label: '',
@@ -49,7 +93,7 @@
     inverse: false,
     pulse: false,
     class: ''
-  }
+  };
 
   export let data: IconType;
   let iconData: IconData | undefined;
@@ -61,18 +105,14 @@
   export let label: string = '';
   export let style: string = '';
   export { className as class };
-  let width: number | undefined;
-  let height: number | undefined;
-
-  type IconType = Record<string, IconData> | IconDefinition;
 
   // internal
   let childrenHeight = 0;
   let childrenWidth = 0;
   let outerScale = 1;
 
-  // let width: number;
-  // let height: number;
+  let width: number = 10;
+  let height: number = 10;
   let combinedStyle: string;
   let box: string;
 
@@ -81,11 +121,16 @@
     let iconData: IconData;
     if (!data) {
       return undefined;
+    } else if ('definition' in data) {
+      console.error("`import faIconName from '@fortawesome/package-name/faIconName` not supported - Please use `import { faIconName } from '@fortawesome/package-name/faIconName'` instead");
+      return undefined;
     } else if ('iconName' in data && 'icon' in data) {
       name = data.iconName as string;
-      // if (Array.length(data.icon))
-      let paths = []
-      const [width, height,,, path] = (data.icon as [number, number, string[], string, IconPathData]);
+      let paths = [];
+      // fontawesome v5/6 icon imported with:
+      // import { iconName } from '@fortawesome/packagename/iconName';
+      // import { iconName } from '@fortawesome/packagename';
+      const [width, height, , , path] = data.icon as Exclude<IconType['icon'], IconData>;
       if (Array.isArray(path)) {
         paths = path;
       } else {
@@ -94,9 +139,12 @@
       iconData = {
         width,
         height,
-        paths: paths.map((path) => { return { d: path } })
-      }
+        paths: paths.map((path) => {
+          return { d: path };
+        })
+      };
     } else {
+      // inbuilt icons
       name = Object.keys(data)[0];
       iconData = data[name];
     }
@@ -108,8 +156,8 @@
     if (typeof scale !== 'undefined') {
       numScale = Number(scale);
     }
-    if (isNaN(numScale) || numScale <= 0) { // eslint-disable-line no-restricted-globals
-      console.warn('Invalid prop: prop "scale" should be a number over 0.'); // eslint-disable-line no-console
+    if (isNaN(numScale) || numScale <= 0) {
+      console.warn('Invalid prop: prop "scale" should be a number over 0.');
       return outerScale;
     }
     return numScale * outerScale;
@@ -150,7 +198,7 @@
   }
 
   function calculateStyle() {
-    let combined = "";
+    let combined = '';
     if (style !== null) {
       combined += style;
     }
@@ -161,13 +209,13 @@
       }
       return combined;
     }
-    if (combined !== "" && !combined.endsWith(';')) {
+    if (combined !== '' && !combined.endsWith(';')) {
       combined += '; ';
     }
     return `${combined}font-size: ${size}em`;
   }
 
-   $: {
+  $: {
     iconData = normaliseData(data);
     style;
     scale;

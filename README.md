@@ -10,7 +10,7 @@
 > Based on [Justineo/vue-awesome][vue-awesome]
 
 Svelte-Awesome supports [Font-Awesome][font-awesome] `v4.7.0` (icons inbuilt)
-and `v5` (via [`@fortawesome` npm packages][fortawesome-icons])
+and `v5`/`v6` (via [`@fortawesome` npm packages][fortawesome-icons])
 
 A demo is available [here][demo]
 
@@ -41,18 +41,32 @@ npm install --save svelte-awesome
   <Icon name={ban} scale="2" class="alert"/>
 </Icon>
 
-<!-- FontAwesome v5 Icons!! -->
+<!-- FontAwesome v5 and v6 Icons supported -->
 <Icon data={faThumbsUp}/>
 
 <script>
-  import Icon from 'svelte-awesome';
-  import { refresh, comment, codeFork, camera, ban } from 'svelte-awesome/icons';
-  import beer from 'svelte-awesome/icons/beer'; // alternative, more efficient import
-  import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
+  import Icon from 'svelte-awesome/components/Icon.svelte';
 
-  // EDGECASE ICONS
+  /// *** Embedded Icons ***
+  // Recommended - import just the icon you need
+  import beer from 'svelte-awesome/icons/beer';
+  import refresh from 'svelte-awesome/icons/refresh';
+  import codeFork from 'svelte-awesome/icons/codeFork';
+  import camera from 'svelte-awesome/icons/camera';
+  import ban from 'svelte-awesome/icons/ban';
+  // Not recommended as it will download all of the icons in dev mode
+  import { ban } from 'svelte-awesome/icons';
+
+  // EDGECASE ICONS - different names due to reserved names / starting with numbers
   import fa500px from 'svelte-awesome/icons/fa500px'; // '500px' icon
   import faTry from 'svelte-awesome/icons/faTry'; // 'try' icon
+
+  /// *** @fortawesome/* Icons ***
+  // Recommended - import the individual icon a little like with the recommended embedded icons approach above
+  import { faThumbsUp } from '@fortawesome/free-regular-svg-icons/faThumbsUp';
+  // Not Recommended - import the individual icon from the main file - it will download all of the icons in dev mode
+  import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
+
 </script>
 ```
 

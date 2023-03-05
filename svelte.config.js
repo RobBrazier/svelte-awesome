@@ -1,9 +1,9 @@
 import preprocess from 'svelte-preprocess';
-import adapter from "@sveltejs/adapter-static";
+import adapter from '@sveltejs/adapter-static';
 
-let base_path = ""
-if (process.env.BASE_PATH !== "") {
-	base_path = process.env.BASE_PATH
+let base_path = '';
+if (process.env.BASE_PATH !== '') {
+	base_path = process.env.BASE_PATH;
 }
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -20,7 +20,7 @@ const config = {
 		paths: {
 			base: base_path
 		},
-		appDir: "app",
+		appDir: 'app',
 		alias: {
 			'$css/*': 'src/css/*'
 		}

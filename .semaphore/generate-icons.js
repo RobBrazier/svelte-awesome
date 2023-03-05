@@ -13,7 +13,8 @@ const svgfont2js = patch('./node_modules/svgfont2js/index.js', [
   }
 ]);
 
-const iconTemplate = `const <%= name %>: Record<string, IconData> = <%= data %>;
+const iconTemplate = `import type { IconData } from '$lib/components/Icon.svelte';
+const <%= name %>: Record<string, IconData> = <%= data %>;
 export default <%= name %>;`;
 const icons = svgfont2js(
   fs.readFileSync(
@@ -57,13 +58,9 @@ const aliases = loadAliases(
 );
 
 function stringify(data) {
-  return JSON.stringify(data)
+  return JSON.stringify(data, null, 2)
     .replace(/"/g, '\'')
-    .replace(/'([a-zA-Z]+([a-zA-Z0-9]+)?)':/g, '$1:')
-    .replace(/:/g, ': ')
-    .replace(/,/g, ', ')
-    .replace(/{(?!\s)/g, '{ ')
-    .replace(/(?<!\s)}/g, ' }')
+    .replace(/'([a-zA-Z]+([a-zA-Z0-9]+)?)':/g, '$1:');
 }
 
 const filenames = [];
@@ -103,16 +100,16 @@ function convertStringToVariable(str) {
   return changeCase.camelCase(numEndingStr);
 }
 
-let index = '';
-let iconsTs = '';
+let index = 'import type { IconData } from \'$lib/components/Icon.svelte\';\n';
+let iconsTs = 'import type { IconData } from \'$lib/components/Icon.svelte\';\n';
 let iconIndex = [];
 for (const i in filenames) {
   if (Object.prototype.hasOwnProperty.call(filenames, i)) {
     const filename = filenames[i];
     let dataContents = fs.readFileSync(path.join(sourceDir, `${filename}.json`)).toString();
     let fileData = JSON.parse(dataContents);
-    index += `export { default as ${convertStringToVariable(filename)} } from './${filename}';\n`;
-    iconsTs += `export const ${convertStringToVariable(filename)}: Record<string, IconData> = ${dataContents};\n`;
+    // index += `export { default as ${convertStringToVariable(filename)} } from './${filename}';\n`;
+    index += `export const ${convertStringToVariable(filename)}: Record<string, IconData> = ${dataContents};\n`;
     iconIndex.push({
       fileName: filename,
       iconName: Object.keys(fileData)[0]

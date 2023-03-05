@@ -1,21 +1,23 @@
 <g>
-{@html raw}
+  {@html raw}
 </g>
 
 <script lang="ts">
+  import type { IconData } from '$lib/components/Icon.svelte';
+
   let cursor = 0xd4937;
   function getId() {
     cursor += 1;
     return `fa-${cursor.toString(16)}`;
   }
 
-  let raw: string;
+  let raw = '';
 
   export let data: IconData;
 
   function getRaw(data: IconData) {
     if (!data || !data.raw) {
-      return null;
+      return '';
     }
     let rawData = data.raw;
     const ids: Record<string, string> = {};
@@ -25,13 +27,16 @@
       return ` id="${uniqueId}"`;
     });
 
-    rawData = rawData.replace(/#(?:([^'")\s]+)|xpointer\(id\((['"]?)([^')]+)\2\)\))/g, (match, rawId, _, pointerId) => {
-      const id = rawId || pointerId;
-      if (!id || !ids[id]) {
-        return match;
+    rawData = rawData.replace(
+      /#(?:([^'")\s]+)|xpointer\(id\((['"]?)([^')]+)\2\)\))/g,
+      (match, rawId, _, pointerId) => {
+        const id = rawId || pointerId;
+        if (!id || !ids[id]) {
+          return match;
+        }
+        return `#${ids[id]}`;
       }
-      return `#${ids[id]}`;
-    });
+    );
     return rawData;
   }
 
