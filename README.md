@@ -48,7 +48,7 @@ npm install --save svelte-awesome
 <Icon data="{faThumbsUp}" />
 
 <script>
-  import Icon from 'svelte-awesome/components/Icon.svelte';
+  import Icon from 'svelte-awesome';
 
   /// *** Embedded Icons ***
   // Recommended - import just the icon you need
