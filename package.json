@@ -43,7 +43,7 @@
     "prettier-plugin-svelte": "^2.4.0",
     "release-it": "^15.0.0",
     "svelte": "^3.46.2",
-    "svelte-check": "^2.2.6",
+    "svelte-check": "^3.0.4",
     "svelte-highlight": "^6.0.1",
     "svelte-preprocess": "^5.0.1",
     "svelte2tsx": "^0.5.1",
