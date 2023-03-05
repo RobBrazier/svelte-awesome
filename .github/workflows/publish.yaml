@@ -10,13 +10,13 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: '16'
 
       - name: Cache NPM modules
         id: npm-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: node_modules
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
@@ -28,7 +28,7 @@ jobs:
 
       - name: Build Example/Docs
         env:
-          BASE_PATH: "/svelte-awesome"
+          BASE_PATH: '/svelte-awesome'
         run: |
           npm run build
           touch build/.nojekyll

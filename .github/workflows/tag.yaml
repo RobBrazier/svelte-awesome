@@ -3,7 +3,7 @@ name: Publish version to NPM
 on:
   push:
     tags:
-      - "*.*.*"
+      - '*.*.*'
 
 jobs:
   build:
@@ -23,13 +23,13 @@ jobs:
         with:
           version: v${{ steps.lasttag.outputs.version }}
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '16'
 
       - name: Cache NPM modules
         id: npm-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: node_modules
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}

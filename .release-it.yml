@@ -1,5 +1,5 @@
 git:
-  changelog: "npx auto-changelog --stdout --commit-limit false -u --template https://raw.githubusercontent.com/release-it/release-it/master/templates/changelog-compact.hbs"
+  changelog: 'npx auto-changelog --stdout --commit-limit false -u --template https://raw.githubusercontent.com/release-it/release-it/master/templates/changelog-compact.hbs'
   push: false
   tag: true
   commit: true
@@ -7,7 +7,7 @@ git:
 github:
   release: false
 hooks:
-  after:bump: "npx auto-changelog -v ${version}"
+  after:bump: 'npx auto-changelog -v ${version}'
 npm:
   publish: false
   skipChecks: true
