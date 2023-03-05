@@ -29,7 +29,7 @@ jobs:
 
       - name: Cache NPM modules
         id: npm-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: node_modules
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
