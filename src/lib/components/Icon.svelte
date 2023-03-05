@@ -66,34 +66,10 @@
 </script>
 
 <script lang="ts">
-  interface SvgOpts {
-    label: string;
-    width: number;
-    height: number;
-    style: string;
-    box: string;
-    spin: boolean;
-    inverse: boolean;
-    pulse: boolean;
-    class: string;
-  }
-
   import Raw from './svg/Raw.svelte';
   import Svg from './svg/Svg.svelte';
 
   let className = '';
-
-  let opts: SvgOpts = {
-    label: '',
-    width: -1,
-    height: -1,
-    style: '',
-    box: '',
-    spin: false,
-    inverse: false,
-    pulse: false,
-    class: ''
-  };
 
   export let data: IconType;
   let iconData: IconData | undefined;
