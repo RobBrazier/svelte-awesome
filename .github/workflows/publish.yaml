@@ -27,14 +27,12 @@ jobs:
         run: npm ci
 
       - name: Build Example/Docs
-        env:
-          BASE_PATH: '/svelte-awesome'
         run: |
           npm run build
           touch build/.nojekyll
 
       - name: Publish to GitHub
-        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
           branch: gh-pages
           folder: build
