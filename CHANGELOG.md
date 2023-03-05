@@ -5,7 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v3.0.1](https://github.com/RobBrazier/svelte-awesome/compare/v3.0.0...v3.0.1)
+## [v3.1.0](https://github.com/RobBrazier/svelte-awesome/compare/v3.0.1...v3.1.0)
+
+### Commits
+
+- format files to be compliant with prettier and add examples for v6 as well as v5 [`1256232`](https://github.com/RobBrazier/svelte-awesome/commit/1256232cc97341bcd540567698f441b7b80990af)
+- Upgrade sveltekit out of alpha version and optimise code a bit to be less hacky [`2524d98`](https://github.com/RobBrazier/svelte-awesome/commit/2524d98c16c3f7d49af482651f0df3d1b0c0a1ff)
+- clean up devDependencies to remove a bunch of stuff dependabot added [`0a10314`](https://github.com/RobBrazier/svelte-awesome/commit/0a10314c31e4f5bcf4832e260dcad3fbf9f5009a)
+- migration to @sveltejs/package v2 [`3f1b832`](https://github.com/RobBrazier/svelte-awesome/commit/3f1b832d8b9313c3f652f71016881f373a0fdb30)
+- add typing to flip option [`f4c2dae`](https://github.com/RobBrazier/svelte-awesome/commit/f4c2dae9c3a9a4c4f363729407b046c11fc9c16e)
+- fix devcontainer to work with docker [`6d2e124`](https://github.com/RobBrazier/svelte-awesome/commit/6d2e12409558197dfe0cb49cce6a614c3859cbcb)
+- svelte-migrate: renamed files [`20795a5`](https://github.com/RobBrazier/svelte-awesome/commit/20795a5c42a5fbc112272166b7ffe718a0b99e7c)
+
+## [v3.0.1](https://github.com/RobBrazier/svelte-awesome/compare/v3.0.0...v3.0.1) - 2022-12-01
 
 ### Commits
 
