@@ -15,7 +15,8 @@ const svgfont2js = patch('./node_modules/svgfont2js/index.js', [
 
 const iconTemplate = `import type { IconData } from '$lib/components/Icon.svelte';
 const <%= name %>: Record<string, IconData> = <%= data %>;
-export default <%= name %>;`;
+export default <%= name %>;
+`;
 const icons = svgfont2js(
   fs.readFileSync(
     './node_modules/font-awesome/fonts/fontawesome-webfont.svg',
