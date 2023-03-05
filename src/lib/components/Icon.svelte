@@ -122,7 +122,9 @@
     if (!data) {
       return undefined;
     } else if ('definition' in data) {
-      console.error("`import faIconName from '@fortawesome/package-name/faIconName` not supported - Please use `import { faIconName } from '@fortawesome/package-name/faIconName'` instead");
+      console.error(
+        "`import faIconName from '@fortawesome/package-name/faIconName` not supported - Please use `import { faIconName } from '@fortawesome/package-name/faIconName'` instead"
+      );
       return undefined;
     } else if ('iconName' in data && 'icon' in data) {
       name = data.iconName as string;

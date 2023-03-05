@@ -3,7 +3,7 @@ name: Publish version to NPM
 on:
   push:
     tags:
-      - "*.*.*"
+      - '*.*.*'
 
 jobs:
   build:

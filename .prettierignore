@@ -13,3 +13,4 @@ package-lock.json
 yarn.lock
 
 src/lib/icons/*.json
+src/lib/icons/index.ts

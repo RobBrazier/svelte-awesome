@@ -36,17 +36,17 @@ jobs:
       - name: Run test suite
         run: npm run lint
 
-#      - name: SonarCloud Scan
-#        uses: SonarSource/sonarcloud-github-action@v1.6
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#        with:
-#          args: >
-#            -Dsonar.organization=robbrazier
-#            -Dsonar.projectKey=RobBrazier_svelte-awesome
-#            -Dsonar.sources=src
-#            -Dsonar.tests=tests
+      # - name: SonarCloud Scan
+      #   uses: SonarSource/sonarcloud-github-action@v1.6
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #   with:
+      #     args: >
+      #       -Dsonar.organization=robbrazier
+      #       -Dsonar.projectKey=RobBrazier_svelte-awesome
+      #       -Dsonar.sources=src
+      #       -Dsonar.tests=tests
 
   build_components:
     runs-on: ubuntu-latest

@@ -51,10 +51,11 @@ figure .fa-icon {
 
 h1 {
   margin-bottom: 1em;
-  font-family: Dosis, "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  font-family: Dosis, 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
 }
 
-h1, h2 {
+h1,
+h2 {
   color: #2c3e50;
   font-weight: 300;
 }
@@ -106,7 +107,7 @@ footer a:hover {
 
 .alert {
   color: #c33;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 @media (max-width: 640px) {
@@ -117,14 +118,15 @@ footer a:hover {
 
   #logo {
     margin: 0 auto;
-    transform: scale(.6);
+    transform: scale(0.6);
   }
 
   #logo:hover {
     margin: -10px auto;
   }
 
-  h1, p {
+  h1,
+  p {
     padding: 0 25px;
   }
 
@@ -146,6 +148,6 @@ footer a:hover {
     box-shadow: none;
     overflow-x: auto;
     font-size: 0.9em;
-    text-align: center
+    text-align: center;
   }
 }

@@ -1,4 +1,5 @@
 # Svelte-Awesome
+
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/RobBrazier/svelte-awesome/build.yaml?style=flat-square&branch=master)](https://github.com/RobBrazier/svelte-awesome/actions)
 [![Sonar Quality Gate](https://img.shields.io/sonar/quality_gate/RobBrazier_svelte-awesome?server=https%3A%2F%2Fsonarcloud.io&style=flat-square)](https://sonarcloud.io/summary/overall?id=RobBrazier_svelte-awesome)
 [![Sonar Coverage](https://img.shields.io/sonar/coverage/RobBrazier_svelte-awesome?server=https%3A%2F%2Fsonarcloud.io&style=flat-square)](https://sonarcloud.io/summary/overall?id=RobBrazier_svelte-awesome)
@@ -17,32 +18,34 @@ A demo is available [here][demo]
 A list of all available embedded icons is available [here][icons]
 
 ## Installation
+
 ### NPM
+
 ```bash
 npm install --save svelte-awesome
 ```
 
 ## Usage
+
 ```html
 <!-- basic -->
-<Icon data={beer}/>
+<Icon data="{beer}" />
 <!-- codeFork is camelCase, unlike the js file, code-fork.js -->
-<Icon data={codeFork}/>
-
+<Icon data="{codeFork}" />
 
 <!-- with options -->
-<Icon data={refresh} scale="2"/>
-<Icon data={comment} flip="horizontal"/>
-<Icon data={codeFork} label="Forked Repository"/>
+<Icon data="{refresh}" scale="2" />
+<Icon data="{comment}" flip="horizontal" />
+<Icon data="{codeFork}" label="Forked Repository" />
 
 <!-- stacked icons [WIP] -->
 <Icon label="No Photos">
-  <Icon data={camera}/>
-  <Icon name={ban} scale="2" class="alert"/>
+  <Icon data="{camera}" />
+  <Icon name="{ban}" scale="2" class="alert" />
 </Icon>
 
 <!-- FontAwesome v5 and v6 Icons supported -->
-<Icon data={faThumbsUp}/>
+<Icon data="{faThumbsUp}" />
 
 <script>
   import Icon from 'svelte-awesome/components/Icon.svelte';
@@ -66,20 +69,22 @@ npm install --save svelte-awesome
   import { faThumbsUp } from '@fortawesome/free-regular-svg-icons/faThumbsUp';
   // Not Recommended - import the individual icon from the main file - it will download all of the icons in dev mode
   import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
-
 </script>
 ```
 
 ## Sapper Usage
+
 For Sapper, you may need to import the Icon component explicitly as below:
+
 ```javascript
-import Icon from 'svelte-awesome/components/Icon.svelte'
+import Icon from 'svelte-awesome/components/Icon.svelte';
 ```
 
 ## Contributors
--   [dimfeld](https://github.com/dimfeld)
--   [lucasnad27](https://github.com/lucasnad27)
--   [josdejong](https://github.com/josdejong)
+
+- [dimfeld](https://github.com/dimfeld)
+- [lucasnad27](https://github.com/lucasnad27)
+- [josdejong](https://github.com/josdejong)
 
 [vue-awesome]: https://github.com/Justineo/vue-awesome
 [font-awesome]: https://github.com/FortAwesome/Font-Awesome
