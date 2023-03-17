@@ -9,6 +9,7 @@
   {inverse}
   {pulse}
   class={className}
+  {...$$restProps}
 >
   <slot>
     {#if iconData}

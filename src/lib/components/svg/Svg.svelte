@@ -12,6 +12,7 @@
   role={label ? 'img' : 'presentation'}
   viewBox={box}
   {style}
+  {...$$restProps}
 >
   <slot />
 </svg>
