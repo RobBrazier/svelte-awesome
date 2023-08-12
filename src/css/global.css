@@ -151,3 +151,10 @@ footer a:hover {
     text-align: center;
   }
 }
+
+input[type=text]{
+  border-radius: 0.5em;
+  margin: 0.5em;
+  padding: 0.5em;
+  border-color: #2c3e50;
+}
