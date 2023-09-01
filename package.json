@@ -41,7 +41,7 @@
     "patch-module": "^0.1.0",
     "prettier": "^2.4.1",
     "prettier-plugin-svelte": "^2.4.0",
-    "release-it": "^15.0.0",
+    "release-it": "^16.1.5",
     "svelte": "^3.46.2",
     "svelte-check": "^3.0.4",
     "svelte-highlight": "^7.2.0",
