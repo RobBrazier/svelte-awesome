@@ -5,7 +5,12 @@
 
 <main>
   <h1>Available Font-Awesome v4 Icons</h1>
-
+  <input
+    type="text"
+    name="search"
+    placeholder="Search Icon"
+    on:input={(e) => debounce(e.currentTarget.value)}
+  />
   <table>
     <thead>
       <tr>
@@ -15,7 +20,7 @@
         <th>Example Snippet</th>
       </tr>
     </thead>
-    {#each data as icon}
+    {#each filteredIcons as icon}
       <tr>
         <td><Icon data={getIcon(icon.fileName)} scale={5} /></td>
         <td>{icon.fileName}</td>
@@ -52,4 +57,15 @@
   function getIcon(name: string): IconType {
     return (icons as Record<string, IconType>)[name];
   }
+
+  let searchValue = '';
+  let timer: number;
+  const debounce = (v: string) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      searchValue = v;
+    }, 750);
+  };
+
+  $: filteredIcons = data.filter((icon) => icon.iconName.toLowerCase().startsWith(searchValue));
 </script>
