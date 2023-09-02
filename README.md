@@ -84,6 +84,7 @@ import Icon from 'svelte-awesome/components/Icon.svelte';
 - [dimfeld](https://github.com/dimfeld)
 - [lucasnad27](https://github.com/lucasnad27)
 - [josdejong](https://github.com/josdejong)
+- [Der-Penz](https://github.com/Der-Penz)
 
 [vue-awesome]: https://github.com/Justineo/vue-awesome
 [font-awesome]: https://github.com/FortAwesome/Font-Awesome
