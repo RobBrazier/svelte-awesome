@@ -39,7 +39,7 @@
     "change-case": "^5.0.1",
     "font-awesome": "^4.7.0",
     "patch-module": "^0.1.0",
-    "prettier": "^2.4.1",
+    "prettier": "^3.0.3",
     "prettier-plugin-svelte": "^2.4.0",
     "release-it": "^15.0.0",
     "svelte": "^3.46.2",
