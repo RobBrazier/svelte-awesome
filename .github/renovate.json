@@ -5,6 +5,18 @@
     {
       "matchPackageNames": ["@fortawesome/free-regular-svg-icons-v5"],
       "allowedVersions": "<=5"
+    },
+    {
+      "matchPackagePrefixes": ["svelte", "@svelte"],
+      "groupName": "svelte"
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "groupName": "github-actions"
+    },
+    {
+      "matchPackagePrefixes": ["prettier"],
+      "groupName": "linting"
     }
   ]
 }
