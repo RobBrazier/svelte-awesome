@@ -5,7 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v3.2.1](https://github.com/RobBrazier/svelte-awesome/compare/v3.2.0...v3.2.1)
+## [v3.3.0](https://github.com/RobBrazier/svelte-awesome/compare/v3.2.1...v3.3.0)
+
+### Commits
+
+- fix: update package.json to be compatible with latest svelte and svelte-package versions [`58cbb5e`](https://github.com/RobBrazier/svelte-awesome/commit/58cbb5e0e2032f10573f3b236f8c1e5987c14a50)
+- prettier format [`a7ca68a`](https://github.com/RobBrazier/svelte-awesome/commit/a7ca68a0004c885c1143df0c2c4b6d23fc8cb2d8)
+- added search functionality [`1316b29`](https://github.com/RobBrazier/svelte-awesome/commit/1316b29f1cca2c9d3061ac76cae535b279b0c87f)
+- Add renovate.json [`1a4692a`](https://github.com/RobBrazier/svelte-awesome/commit/1a4692a2e1ce3ac9187a7a2db28268fa8fabf130)
+
+## [v3.2.1](https://github.com/RobBrazier/svelte-awesome/compare/v3.2.0...v3.2.1) - 2023-06-22
 
 ### Commits
 
