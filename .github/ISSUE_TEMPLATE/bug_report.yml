@@ -1,0 +1,48 @@
+name: 'Bug Report'
+description: Create a new ticket for a bug.
+title: '[Bug] - <title>'
+labels: ['bug']
+body:
+  - type: input
+    id: version
+    attributes:
+      label: 'Version'
+      description: 'Please enter the svelte-awesome version that this bug is present in'
+    validations:
+      required: true
+  - type: input
+    id: bundler
+    attributes:
+      label: 'Bundler'
+      description: 'Please enter the bundler/framework that you are using, e.g. sveltekit, sapper, webkit, vite'
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: 'Description'
+      description: Please enter an explicit description of your issue
+      placeholder: Short and explicit description of your incident...
+    validations:
+      required: true
+  - type: input
+    id: reprod-url
+    attributes:
+      label: 'Reproduction URL'
+      description: Please enter your GitHub URL to provide a reproduction of the issue
+      placeholder: ex. https://github.com/USERNAME/REPO-NAME
+    validations:
+      required: true
+  - type: textarea
+    id: reprod
+    attributes:
+      label: 'Reproduction steps'
+      description: Please enter an explicit description of your issue
+      value: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+      render: bash
+    validations:
+      required: true
