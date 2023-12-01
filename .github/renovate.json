@@ -17,10 +17,6 @@
     {
       "matchPackagePrefixes": ["prettier"],
       "groupName": "linting"
-    },
-    {
-      "matchPackageNames": ["@sveltejs/package"],
-      "allowedVersions": "<=1"
     }
   ]
 }
