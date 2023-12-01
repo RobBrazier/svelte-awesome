@@ -46,7 +46,7 @@ jobs:
         uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.NPM_TOKEN }}
-          package: ./package/package.json
+          package: ./package.json
 
       - name: Create GitHub Release
         id: create_release
