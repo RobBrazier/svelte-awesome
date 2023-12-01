@@ -1,7 +1,7 @@
 # Svelte-Awesome
 
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/RobBrazier/svelte-awesome/build.yaml?style=flat-square&branch=master)](https://github.com/RobBrazier/svelte-awesome/actions)
-[![Codacy grade](https://img.shields.io/codacy/grade/5543afb1136e45e2b7bae46332f94d60)](https://app.codacy.com/gh/RobBrazier/svelte-awesome/dashboard)
+[![Codacy grade](https://img.shields.io/codacy/grade/5543afb1136e45e2b7bae46332f94d60?style=flat-square)](https://app.codacy.com/gh/RobBrazier/svelte-awesome/dashboard)
 [![npm](https://img.shields.io/npm/v/svelte-awesome.svg?style=flat-square)](https://www.npmjs.com/package/svelte-awesome)
 [![bundlephobia](https://img.shields.io/bundlephobia/minzip/svelte-awesome?style=flat-square)](https://bundlephobia.com/result?p=svelte-awesome)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
@@ -81,10 +81,7 @@ import Icon from 'svelte-awesome/components/Icon.svelte';
 
 ## Contributors
 
-- [dimfeld](https://github.com/dimfeld)
-- [lucasnad27](https://github.com/lucasnad27)
-- [josdejong](https://github.com/josdejong)
-- [Der-Penz](https://github.com/Der-Penz)
+[![Contributors](https://contrib.rocks/image?repo=robbrazier/svelte-awesome)](https://github.com/RobBrazier/svelte-awesome/graphs/contributors)
 
 [vue-awesome]: https://github.com/Justineo/vue-awesome
 [font-awesome]: https://github.com/FortAwesome/Font-Awesome
