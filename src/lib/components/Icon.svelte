@@ -1,4 +1,3 @@
-<svelte:options namespace='svg'/>
 <Svg
   {label}
   {width}
@@ -205,3 +204,5 @@
     box = calculateBox();
   }
 </script>
+
+<svelte:options namespace="svg" />
