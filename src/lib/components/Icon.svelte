@@ -193,3 +193,5 @@
     box = calculateBox();
   }
 </script>
+
+<svelte:options namespace="svg" />
