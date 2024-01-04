@@ -12,20 +12,14 @@
   {...$$restProps}
 >
   <slot>
-    {#if iconData}
-      {#if iconData.paths}
-        {#each iconData.paths as path}
-          <path {...path} />
-        {/each}
-      {/if}
-      {#if iconData.polygons}
-        {#each iconData.polygons as polygon}
-          <polygon {...polygon} />
-        {/each}
-      {/if}
-      {#if iconData.raw}
-        <Raw bind:data={iconData} />
-      {/if}
+    {#each iconData?.paths || [] as path}
+      <path {...path} />
+    {/each}
+    {#each iconData?.polygons || [] as polygon}
+      <polygon {...polygon} />
+    {/each}
+    {#if iconData?.raw}
+      <Raw bind:data={iconData} />
     {/if}
   </slot>
 </Svg>
@@ -105,16 +99,11 @@
       return undefined;
     } else if ('iconName' in data && 'icon' in data) {
       name = data.iconName as string;
-      let paths = [];
       // fontawesome v5/6 icon imported with:
       // import { iconName } from '@fortawesome/packagename/iconName';
       // import { iconName } from '@fortawesome/packagename';
       const [width, height, , , path] = data.icon as Exclude<IconType['icon'], IconData>;
-      if (Array.isArray(path)) {
-        paths = path;
-      } else {
-        paths = [path];
-      }
+      const paths = Array.isArray(path) ? path : [path];
       iconData = {
         width,
         height,
