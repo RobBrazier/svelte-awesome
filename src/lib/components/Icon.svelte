@@ -1,3 +1,4 @@
+<svelte:options namespace='svg'/>
 <Svg
   {label}
   {width}
