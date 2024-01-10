@@ -9,6 +9,8 @@ updates:
     directory: '/' # Location of package manifests
     schedule:
       interval: 'weekly'
+    allow:
+      - dependency-type: 'direct'
     groups:
       fontawesome-v5:
         patterns:
