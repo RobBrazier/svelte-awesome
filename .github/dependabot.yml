@@ -5,29 +5,29 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: 'npm' # See documentation for possible values
+    directory: '/' # Location of package manifests
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     groups:
       fontawesome-v5:
         patterns:
-          - "@fortawesome/free-regular-svg-icons-v5"
+          - '@fortawesome/free-regular-svg-icons-v5'
         update-types:
-          - "minor"
-          - "patch"
+          - 'minor'
+          - 'patch'
       svelte:
         patterns:
-          - "svelte*"
-          - "@svelte/*"
+          - 'svelte*'
+          - '@svelte/*'
       linting:
         patterns:
-          - "prettier*"
-  - package-ecosystem: "github-actions" # See documentation for possible values
-    directory: "/" # Location of package manifests
+          - 'prettier*'
+  - package-ecosystem: 'github-actions' # See documentation for possible values
+    directory: '/' # Location of package manifests
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     groups:
       github-actions:
         patterns:
-          - "*"
+          - '*'
