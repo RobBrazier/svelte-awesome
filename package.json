@@ -32,8 +32,8 @@
   "devDependencies": {
     "@fortawesome/free-regular-svg-icons": "^6.3.0",
     "@fortawesome/free-regular-svg-icons-v5": "npm:@fortawesome/free-regular-svg-icons@^5.10.1",
-    "@sveltejs/adapter-static": "2.0.3",
-    "@sveltejs/kit": "1.30.3",
+    "@sveltejs/adapter-static": "^3.0.1",
+    "@sveltejs/kit": "^2.2.0",
     "@sveltejs/package": "^2.2.3",
     "auto-changelog": "^2.4.0",
     "change-case": "^5.0.1",
