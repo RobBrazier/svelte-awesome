@@ -1,7 +1,7 @@
 pull_request_rules:
   - name: Renovate automatic merge
     conditions:
-      - 'author=renovate[bot]'
+      - 'author=dependabot[bot]'
       - 'check-success=linting'
       - 'check-success=build_components'
       - '#check-success>=3'
@@ -12,7 +12,7 @@ pull_request_rules:
         method: rebase
   - name: Request review for breaking changes
     conditions:
-      - 'author=renovate[bot]'
+      - 'author=dependabot[bot]'
       - 'body~=[bB]reaking'
     actions:
       request_reviews:
@@ -20,7 +20,7 @@ pull_request_rules:
           - RobBrazier
   - name: Dependabot request reviews
     conditions:
-      - 'author=renovate[bot]'
+      - 'author=dependabot[bot]'
       - '#check-failure>=1'
     actions:
       request_reviews:
@@ -28,14 +28,14 @@ pull_request_rules:
           - RobBrazier
   - name: Add reviewer to PRs
     conditions:
-      - '-author=renovate[bot]'
+      - '-author=dependabot[bot]'
     actions:
       request_reviews:
         users:
           - RobBrazier
   - name: Merge PR on approval
     conditions:
-      - 'author=renovate[bot]'
+      - 'author=dependabot[bot]'
       - 'base=master'
       - 'check-success=linting'
       - 'check-success=build_components'
