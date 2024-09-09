@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v3.3.2](https://github.com/RobBrazier/svelte-awesome/compare/v3.3.1...v3.3.2)
+
+### Merged
+
+- chore(deps-dev): bump the svelte group across 1 directory with 3 updates [`#1170`](https://github.com/RobBrazier/svelte-awesome/pull/1170)
+- chore: upgrade dependencies in preparation for svelte 5 [`#1165`](https://github.com/RobBrazier/svelte-awesome/pull/1165)
+- chore(deps-dev): bump change-case from 5.4.0 to 5.4.2 [`#1067`](https://github.com/RobBrazier/svelte-awesome/pull/1067)
+- chore(deps-dev): bump the linting across 1 directories with 1 update [`#1066`](https://github.com/RobBrazier/svelte-awesome/pull/1066)
+- chore(deps-dev): bump the svelte across 1 directories with 2 updates [`#1065`](https://github.com/RobBrazier/svelte-awesome/pull/1065)
+- chore(deps-dev): bump @sveltejs/kit from 1.30.3 to 2.2.0 [`#1064`](https://github.com/RobBrazier/svelte-awesome/pull/1064)
+- chore: create dependabot.yml [`#1063`](https://github.com/RobBrazier/svelte-awesome/pull/1063)
+
+### Commits
+
+- Update dependabot.yml [`160354d`](https://github.com/RobBrazier/svelte-awesome/commit/160354d3b42dd61f033ca6baf654f761fc553c9e)
+
 ## [v3.3.1](https://github.com/RobBrazier/svelte-awesome/compare/v3.3.0...v3.3.1) - 2024-01-05
 
 ### Merged
