@@ -4,6 +4,7 @@ git:
   tag: true
   commit: true
   tagName: v${version}
+  commitMessage: 'chore: release v${version}'
 github:
   release: false
 hooks:
