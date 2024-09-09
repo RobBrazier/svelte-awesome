@@ -5,7 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v3.3.3](https://github.com/RobBrazier/svelte-awesome/compare/v3.3.2...v3.3.3)
+## [v3.3.4](https://github.com/RobBrazier/svelte-awesome/compare/v3.3.3...v3.3.4)
+
+### Commits
+
+- fix: revert peerDependencies change until further testing is done [`bb4f931`](https://github.com/RobBrazier/svelte-awesome/commit/bb4f931460eda1b69266d50ccbce3b12f23738be)
+
+## [v3.3.3](https://github.com/RobBrazier/svelte-awesome/compare/v3.3.2...v3.3.3) - 2024-09-09
 
 ### Merged
 
