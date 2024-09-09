@@ -52,7 +52,7 @@
     "typescript": "^5.5.0"
   },
   "peerDependencies": {
-    "svelte": "^3.43.1 || ^4.0.0"
+    "svelte": ">= 3.43.1 < 6"
   },
   "exports": {
     "./package.json": "./package.json",
