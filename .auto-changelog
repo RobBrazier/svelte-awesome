@@ -3,6 +3,6 @@
   "template": "keepachangelog",
   "unreleased": false,
   "commitLimit": false,
-  "ignoreCommitPattern": "(.*?[Bb]ump .*( from )?.*|^Merge.*|.*[Cc]hangelog.*|chore:*|Release [0-9].[0-9].[0-9])",
-  "hideCredit": true
+  "ignoreCommitPattern": "(.*?[Bb]ump .*( from )?.*|.*[Cc]hangelog.*|chore:*|Release [0-9].[0-9].[0-9])",
+  "hideCredit": false
 }
