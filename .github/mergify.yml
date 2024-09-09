@@ -1,47 +1,36 @@
 pull_request_rules:
-  - name: Renovate automatic merge
-    conditions:
-      - 'author=dependabot[bot]'
-      - 'check-success=linting'
-      - 'check-success=build_components'
-      - '#check-success>=3'
-      - '#check-failure=0'
-      - '-body~=[bB]reaking'
-    actions:
-      merge:
-        method: rebase
   - name: Request review for breaking changes
     conditions:
-      - 'author=dependabot[bot]'
-      - 'body~=[bB]reaking'
+      - "author=dependabot[bot]"
+      - "body~=[bB]reaking"
     actions:
       request_reviews:
         users:
           - RobBrazier
   - name: Dependabot request reviews
     conditions:
-      - 'author=dependabot[bot]'
-      - '#check-failure>=1'
+      - "author=dependabot[bot]"
+      - "#check-failure>=1"
     actions:
       request_reviews:
         users:
           - RobBrazier
   - name: Add reviewer to PRs
     conditions:
-      - '-author=dependabot[bot]'
+      - "-author=dependabot[bot]"
     actions:
       request_reviews:
         users:
           - RobBrazier
   - name: Merge PR on approval
     conditions:
-      - 'author=dependabot[bot]'
-      - 'base=master'
-      - 'check-success=linting'
-      - 'check-success=build_components'
-      - '#check-success>=3'
-      - '#check-failure=0'
-      - 'approved-reviews-by=RobBrazier'
+      - "author=dependabot[bot]"
+      - "base=master"
+      - "check-success=linting"
+      - "check-success=build_components"
+      - "#check-success>=3"
+      - "#check-failure=0"
+      - "approved-reviews-by=RobBrazier"
     actions:
       merge:
         method: merge
