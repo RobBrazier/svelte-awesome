@@ -64,3 +64,4 @@ typings/
 package/
 build/
 .svelte-kit/
+.direnv/
