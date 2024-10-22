@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'graceful-fs';
-import changeCase from 'change-case';
+import { camelCase } from 'change-case';
 
 import patch from 'patch-module';
 import _ from 'lodash';
@@ -93,7 +93,7 @@ function convertStringToVariable(str) {
     str = 'fa' + _.capitalize(str);
   }
   let numEndingStr = str.replace(/^([a-z0-9\\-]+)-([0-9]+)$/g, '$1$2');
-  return changeCase.camelCase(numEndingStr);
+  return camelCase(numEndingStr);
 }
 
 let index = "import type { IconData } from '$lib/components/Icon.svelte';\n";
