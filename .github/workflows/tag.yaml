@@ -3,7 +3,7 @@ name: Publish version to NPM
 on:
   push:
     tags:
-      - '*.*.*'
+      - "*.*.*"
 
 jobs:
   build:
@@ -25,7 +25,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: "20"
 
       - name: Cache NPM modules
         id: npm-cache

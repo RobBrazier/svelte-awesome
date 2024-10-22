@@ -3,7 +3,7 @@ name: Build and Test
 on:
   push:
     branches:
-      - '*'
+      - "*"
   pull_request:
 
 concurrency:
@@ -19,7 +19,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: "20"
 
       - name: Cache NPM modules
         id: npm-cache
@@ -45,7 +45,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: "20"
 
       - name: Cache NPM modules
         id: npm-cache
