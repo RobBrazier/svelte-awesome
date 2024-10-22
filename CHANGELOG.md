@@ -5,7 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v3.3.4](https://github.com/RobBrazier/svelte-awesome/compare/v3.3.3...v3.3.4)
+## [v3.3.5](https://github.com/RobBrazier/svelte-awesome/compare/v3.3.4...v3.3.5)
+
+### Commits
+
+- update dev dependencies to latest compatible versions for svelte 5 [`110eb3d`](https://github.com/RobBrazier/svelte-awesome/commit/110eb3d607f2c6b82d942311b796000b9f66c74b)
+- fix: update peerDependencies to support svelte 5 now it's released [`36037df`](https://github.com/RobBrazier/svelte-awesome/commit/36037dff562a0db491d9cd0cbbb0c9c721db9f67)
+
+## [v3.3.4](https://github.com/RobBrazier/svelte-awesome/compare/v3.3.3...v3.3.4) - 2024-09-09
 
 ### Commits
 
